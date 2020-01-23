@@ -1176,7 +1176,7 @@ definition {
 		AppBuilderAdmin.add();
 
 		FormFields.editText(
-			fieldName = "TextField",
+			fieldName = "Text",
 			fieldValue = "test");
 
 		AppBuilderAdmin.save();
@@ -1286,7 +1286,7 @@ definition {
 		AppBuilderAdmin.add();
 
 		FormViewBuilder.editText(
-			fieldName = "TextField",
+			fieldName = "Text",
 			fieldValue = "content of form 1");
 
 		AppBuilderAdmin.save();
@@ -1434,7 +1434,7 @@ definition {
 		AppBuilderAdmin.add();
 
 		FormFields.editText(
-			fieldName = "TextField",
+			fieldName = "Text",
 			fieldValue = "Content of form deployed as widget.");
 
 		AppBuilderAdmin.save();
