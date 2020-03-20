@@ -134,6 +134,16 @@ definition {
 				locator1 = "Calendar#OTHER_CALENDARS_CALENDAR",
 				value1 = "${calendarName}");
 		}
+
+		Navigator.gotoPage(pageName = "Calendar Page");
+
+		if (IsElementNotPresent(
+				locator1 = "Calendar#OTHER_CALENDARS_CALENDAR",
+				value1 = "${calendarName}")) {
+			Calendar.add(
+				calendarName = "${calendarName}",
+				calendarType = "${calendarType}");
+		}
 	}
 
 	macro changeColor {
