@@ -1313,7 +1313,7 @@ definition {
 	macro viewApprovedRSVP {
 		CalendarNavigator.gotoView(viewType = "Week");
 
-		CalendarScheduler.selectSpecificEvent(eventTitle = "${eventTitle}");
+		CalendarScheduler.selectSpecificEventNoRefresh(eventTitle = "${eventTitle}");
 
 		AssertTextEquals(
 			locator1 = "Calendar#SCHEDULER_EVENT_DIALOG_BOX_EVENT_TITLE",
