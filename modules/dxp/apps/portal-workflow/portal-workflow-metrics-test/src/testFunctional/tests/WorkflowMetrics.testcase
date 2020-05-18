@@ -24,8 +24,6 @@ definition {
 
 		BlogsEntry.tearDownCP();
 
-		WorkflowMetrics.executeWorkflowScript(scriptName = "DeleteUsersAndRoles.groovy");
-
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
 			panel = "Site Administration",
@@ -35,22 +33,21 @@ definition {
 			workflowDefinition = "No Workflow",
 			workflowResourceValue = "Blogs Entry");
 
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Metrics");
+
+		WorkflowMetrics.tearDown();
+
+		Workflow.tearDownSpecificWorkflowDefinition(workflowDefinitionTitle = "Single Approver Alternative");
+
 		if ("${testPortalInstance}" == "true") {
 			PortalInstances.tearDownCP();
 		}
 		else {
-			ProductMenu.gotoPortlet(
-				category = "Workflow",
-				panel = "Control Panel",
-				portlet = "Metrics");
-
-			WorkflowMetrics.tearDown();
-
-		if ("${testPortalInstance}" == "true") {
-			PortalInstances.tearDownCP();
+			WorkflowMetrics.executeWorkflowScript(scriptName = "DeleteUsersAndRoles.groovy");
 		}
-
-		WorkflowMetrics.executeWorkflowScript(scriptName = "DeleteUsersAndRoles.groovy");
 	}
 
 	@description = "LRQA-53648 Automate LPS-89014: [SLA] Create new SLA for total process resolution"
@@ -575,7 +572,7 @@ definition {
 	}
 
 	test BulkReassignWorkflowInstances {
-		property portal.acceptance = "false";
+		property test.name.skip.portal.instance = "WorkflowMetrics#BulkReassignWorkflowInstances";
 
 		WorkflowMetrics.bulkReassignSetup();
 
@@ -588,15 +585,24 @@ definition {
 		WorkflowMetrics.assertBulkModalTable();
 		AssertElementPresent(locator1 = "WorkflowReassignModal#PERMISSION_TOOLTIP");
 		AssertElementPresent(locator1 = "WorkflowReassignModal#NEXT_BUTTON_DISABLED");
-		WorkflowMetrics.selectNewAssigneeBulkTask();
+		WorkflowMetrics.selectNewAssigneeBulkTask(nameOfAssignee = "Test Test");
 		WorkflowMetrics.goToWorkflowAllItems();
 
 		AssertElementPresent(
 			key_workflowInstanceAssignee = "Test Test",
 			key_workflowInstanceName = "Blogs Entry: Blogs Entry Title 1",
 			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CURRENT_ASSIGNEE_VALUE");
-		echo("Checked Bulk");
+		AssertElementPresent(
+			key_workflowInstanceAssignee = "Test Test",
+			key_workflowInstanceName = "Blogs Entry: Blogs Entry Title 2",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CURRENT_ASSIGNEE_VALUE");
+		AssertElementPresent(
+			key_workflowInstanceAssignee = "Test Test",
+			key_workflowInstanceName = "Blogs Entry: Blogs Entry Title 3",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CURRENT_ASSIGNEE_VALUE");
+
 		UserBar.gotoDropdownItem(dropdownItem = "My Workflow Tasks");
+
 		AssertElementPresent(
 			key_workflowAssetTitle = "Blogs Entry Title 1",
 			locator1 = "MyWorkflowTasks#TABLE_GENERIC_ASSET_TITLE");
@@ -611,7 +617,7 @@ definition {
 	@description = "LRQA-55451 Exceptions Check"
 	@priority = "5"
 	test BulkReassignWorkflowModalExceptions {
-		property portal.acceptance = "false";
+		property test.name.skip.portal.instance = "WorkflowMetrics#BulkReassignWorkflowModalExceptions";
 
 		WorkflowMetrics.bulkReassignSetup();
 		WorkflowMetrics.bulkReassignExceptionsSetup();
@@ -620,24 +626,19 @@ definition {
 		WorkflowMetrics.goToBulkReassignSelectTasks();
 		WorkflowMetrics.checkWorkflowTaskCrossover();
 		WorkflowMetrics.goToBulkReassignSelectNewAssignee();
-		AssertElementNotPresent(
-			locator1 = "WorkflowReassignModal#REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN",
-			name_of_the_assignee = "Test Test");
 		Click(
 			key_itemName = "Blogs Entry: Blogs Entry Title 1",
 			locator1 = "WorkflowReassignModal#NEW_ASSIGNEE");
-		Click(
+		AssertElementNotPresent(
 			locator1 = "WorkflowReassignModal#REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN",
-			name_of_the_assignee = "user1");
-		AssertElementPresent(locator1 = "WorkflowReassignModal#NEXT_BUTTON_DISABLED");
+			key_nameOfAssignee = "Test Test");
 		Type(
 			key_itemName = "Blogs Entry: Blogs Entry Title 1",
 			locator1 = "WorkflowReassignModal#NEW_ASSIGNEE",
 			value1 = "Test");
 		AssertElementPresent(
 			locator1 = "WorkflowReassignModal#REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN",
-			name_of_the_assignee = "No results found.");
-		WorkflowMetrics.deleteNewWorkflow();
+			key_nameOfAssignee = "No results found.");
 	}
 
 	@description = "Verify if the default filter values are correct and if the chart is displayed (LPS-98001)"

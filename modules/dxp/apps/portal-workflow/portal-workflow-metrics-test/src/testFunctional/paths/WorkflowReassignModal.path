@@ -55,12 +55,7 @@
 </tr>
 <tr>
 	<td>REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN</td>
-	<td>//div[contains(@class,'show')]/ul/li/span[contains(text(),'${name_of_the_assignee}')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN_TEST</td>
-	<td>//div[contains(@class,'show')]/ul/li/span[contains(text(),'${name_of_the_assignee}')]</td>
+	<td>//div[contains(@class,'show')]/ul/li/span[contains(text(),'${key_nameOfAssignee}')]</td>
 	<td></td>
 </tr>
 <tr>
