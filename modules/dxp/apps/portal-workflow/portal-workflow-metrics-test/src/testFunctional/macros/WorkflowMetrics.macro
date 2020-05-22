@@ -349,6 +349,24 @@ definition {
 			script = "${scriptContent}");
 	}
 
+	macro executeIndexActions {
+
+		var key_actionDescription = "${actionDescription}";
+
+		Click(locator1 = "WorkflowMetricsIndex#METRICS_MENU_INDEX");
+
+		Click(locator1 = "WorkflowMetricsIndex#METRICS_INDEX_SETTINGS");
+
+		if ("${actionDescription}" == "Workflow Indexes") {
+			Click(locator1 = "WorkflowMetricsIndex#METRICS_REINDEX_ALL_BUTTON")
+		}
+		else {
+			Click(locator1 = "WorkflowMetricsIndex#METRICS_REINDEX_SPECIFIC_BUTTON")
+		}
+
+		Alert.viewSuccessMessage();
+	}
+
 	macro executeWorkflowScript {
 		var key_scriptName = "${scriptName}";
 
@@ -382,6 +400,13 @@ definition {
 
 		if (isSet(slaDefinitionStart)) {
 			Click(locator1 = "WorkflowMetricsSLA#SLA_DEFINITION_START");
+
+			if (IsElementNotPresent(locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_START_OPTION")) {
+
+				Refresh();
+
+				Click(locator1 = "WorkflowMetricsSLA#SLA_DEFINITION_START");
+			}
 
 			AssertClick(
 				locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_START_OPTION",
@@ -462,9 +487,16 @@ definition {
 			panel = "Control Panel",
 			portlet = "Metrics");
 
-		Click(
-			locator1 = "WorkflowMetrics#METRICS_WORKFLOW_PROCESS_NAME",
-			value1 = "${workflowProcessName}");
+		while (IsElementNotPresent(locator1 = "WorkflowMetrics#METRICS_WORKFLOW_PROCESS_NAME") && (maxIterations = "10")) {
+			ProductMenu.gotoPortlet(
+				category = "Workflow",
+				panel = "Control Panel",
+				portlet = "Metrics");
+
+			Pause(locator1 = "1000");
+		}
+
+		Click(locator1 = "WorkflowMetrics#METRICS_WORKFLOW_PROCESS_NAME");
 	}
 
 	macro goToWorkflowSLASettings {
@@ -480,9 +512,7 @@ definition {
 	macro searchForAssigneeName {
 		var key_assigneeName = "${assigneeName}";
 
-		Click(
-			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_SEARCH_ASSIGNEE_NAME",
-			value1 = "${assigneeName}");
+		Click(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_SEARCH_ASSIGNEE_NAME");
 
 		Type(
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_SEARCH_ASSIGNEE_NAME",
