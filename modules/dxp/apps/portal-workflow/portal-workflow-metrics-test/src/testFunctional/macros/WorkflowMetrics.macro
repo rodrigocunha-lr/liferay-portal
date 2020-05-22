@@ -23,6 +23,13 @@ definition {
 		Click(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_TITLE");
 	}
 
+	macro executeIndexActions{
+
+		Click(locator1 = "WorkflowMetricsIndex#METRICS_MENU_INDEX");
+
+		Click(locator1 = "WorkflowMetricsIndex#METRICS_INDEX_SETTINGS");
+	}
+
 	macro assertAllItemsValues {
 
 		var key_assigneeName = "${assigneeName}";

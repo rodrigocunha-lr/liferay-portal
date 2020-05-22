@@ -13,6 +13,16 @@ definition {
 
 		Navigator.openURL();
 
+		if ("${testPortalInstance}" != "true") {
+			ProductMenu.gotoPortlet(
+				category = "Workflow",
+				panel = "Control Panel",
+				portlet = "Metrics");
+
+			// SearchAdministration.executeSearchActions(actionsDescription = "Reindex all search indexes.");
+			WorkflowMetrics.executeIndexActions(actionsDescription = "Workflow Indexes");
+		}
+
 		ProductMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Control Panel",
