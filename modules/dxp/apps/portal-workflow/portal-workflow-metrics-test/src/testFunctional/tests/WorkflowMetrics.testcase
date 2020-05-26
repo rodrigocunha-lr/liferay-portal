@@ -380,7 +380,6 @@ definition {
 	@description = "Apply filter for workload distribution for all assignees(LRQA-53632)"
 	@priority = "5"
 	test ApplyFilterForWorkloadDistribution {
-		property portal.upstream = "true";
 
 		property test.name.skip.portal.instance = "WorkflowMetrics#ApplyFilterForWorkloadDistribution";
 
@@ -501,7 +500,6 @@ definition {
 	@description = "LRQA-53633 Automate LPS-103368: [Dashboard] Apply searches in the workload distribution for all assignees"
 	@priority = "5"
 	test ApplySearchesForAllAssignees {
-		property portal.upstream = "quarantine";
 
 		property test.name.skip.portal.instance = "WorkflowMetrics#ApplySearchesForAllAssignees";
 
@@ -714,7 +712,6 @@ definition {
 	@description = "LRQA-53660 Automate LPS-87571 [Reports] Filter the list of items for a certain process"
 	@priority = "5"
 	test FilterAllItemsList {
-		property portal.upstream = "quarantine";
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -1167,7 +1164,6 @@ definition {
 	@description = "LRQA-53647 Automate LPS-86638: [Reports] See a list of reports available for all running processes"
 	@priority = "5"
 	test SeeListOfReports {
-		property portal.upstream = "quarantine";
 		property test.name.skip.portal.instance = "WorkflowMetrics#SeeListOfReports";
 
 		var key_testSLADefinitionDays = "0";
@@ -1637,7 +1633,6 @@ definition {
 	@description = "LRQA-53662 Automate LPS-92053 View process item detail page"
 	@priority = "5"
 	test ViewProcessItemDetailPage {
-		property portal.upstream = "quarantine";
 		property test.name.skip.portal.instance = "WorkflowMetrics#ViewProcessItemDetailPage";
 
 		ProductMenu.gotoPortlet(
