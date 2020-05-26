@@ -720,11 +720,6 @@ definition {
 			echo("timeout exceeded");
 		}
 
-		if (IsElementNotPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_FILTER_OPTION")) {
-
-			echo("timeout exceeded");
-		}
-
 		Click(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_FILTER_OPTION");
 
 		if (IsElementPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_SEARCH_ASSIGNEE_NAME")) {
