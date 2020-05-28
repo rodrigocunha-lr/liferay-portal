@@ -282,8 +282,22 @@ definition {
 	@description = "Apply filter for Assignee in Performance of all assignees(LRQA-53635)"
 	@priority = "5"
 	test ApplyFilterForPerformanceOfAllAssignees {
-		property portal.upstream = "quarantine";
 		property test.name.skip.portal.instance = "WorkflowMetrics#ApplyFilterForPerformanceOfAllAssignees";
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -501,9 +515,23 @@ definition {
 	@description = "LRQA-53633 Automate LPS-103368: [Dashboard] Apply searches in the workload distribution for all assignees"
 	@priority = "5"
 	test ApplySearchesForAllAssignees {
-		property portal.upstream = "quarantine";
 
 		property test.name.skip.portal.instance = "WorkflowMetrics#ApplySearchesForAllAssignees";
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -714,7 +742,6 @@ definition {
 	@description = "LRQA-53660 Automate LPS-87571 [Reports] Filter the list of items for a certain process"
 	@priority = "5"
 	test FilterAllItemsList {
-		property portal.upstream = "quarantine";
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -851,6 +878,26 @@ definition {
 		WorkflowMetrics.allItemPageFilterCheck(
 			allItemsFilterName = "Process Status",
 			assigneeName = "Completed");
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
+
+		WorkflowMetrics.goToDashboardAllItemsWithFilter(
+			workflowFilterOption = "COMPLETED",
+			workflowMetricsTab = "PERFORMANCE",
+			workflowProcess = "Single Approver");
 
 		WorkflowMetrics.allItemPageFilterCheck(
 			allItemsFilterName = "Process Step",
@@ -1824,7 +1871,6 @@ definition {
 	@description = "LRQA-53631 Automate LPS-97666: [Performance] View top assignee performance"
 	@priority = "5"
 	test ViewTopAsigneePerformance {
-		property portal.upstream = "quarantine";
 		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "WorkflowMetrics#ViewTopAsigneePerformance";
 
@@ -1915,6 +1961,25 @@ definition {
 			key_assigneesNumber = "11",
 			locator1 = "WorkflowMetrics#METRICS_PERFORMANCE_BY_ASSIGNEE_CARD_VIEW_ALL_ASSIGNEES_LINK");
 
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
+
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		Click(locator1 = "WorkflowMetrics#METRICS_PERFORMANCE_TAB");
+
 		WorkflowMetrics.selectStepFilterPerformaceByAssignee(velocityUnit = "UPDATE");
 
 		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_PERFORMANCE_BY_ASSIGNEE_CARD_NO_RESULTS");
@@ -1923,7 +1988,6 @@ definition {
 	@description = "LRQA-53641 Automate LPS-97669 [Dashboard] View overloaded assignees"
 	@priority = "5"
 	test ViewWorkloadByAssigneeCard {
-		property portal.upstream = "quarantine";
 		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "WorkflowMetrics#ViewWorkloadByAssigneeCard";
 
@@ -1978,6 +2042,21 @@ definition {
 			taskName = "Review");
 
 		WorkflowMetrics.verifyFiltersFromDashboard(isFilterOptionPresent = "Pending,1user user1,Review");
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
