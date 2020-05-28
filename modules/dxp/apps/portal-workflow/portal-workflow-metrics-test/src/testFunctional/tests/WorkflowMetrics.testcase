@@ -282,8 +282,22 @@ definition {
 	@description = "Apply filter for Assignee in Performance of all assignees(LRQA-53635)"
 	@priority = "5"
 	test ApplyFilterForPerformanceOfAllAssignees {
-		property portal.upstream = "quarantine";
 		property test.name.skip.portal.instance = "WorkflowMetrics#ApplyFilterForPerformanceOfAllAssignees";
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -501,9 +515,23 @@ definition {
 	@description = "LRQA-53633 Automate LPS-103368: [Dashboard] Apply searches in the workload distribution for all assignees"
 	@priority = "5"
 	test ApplySearchesForAllAssignees {
-		property portal.upstream = "quarantine";
 
 		property test.name.skip.portal.instance = "WorkflowMetrics#ApplySearchesForAllAssignees";
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -714,7 +742,21 @@ definition {
 	@description = "LRQA-53660 Automate LPS-87571 [Reports] Filter the list of items for a certain process"
 	@priority = "5"
 	test FilterAllItemsList {
-		property portal.upstream = "quarantine";
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -1824,9 +1866,23 @@ definition {
 	@description = "LRQA-53631 Automate LPS-97666: [Performance] View top assignee performance"
 	@priority = "5"
 	test ViewTopAsigneePerformance {
-		property portal.upstream = "quarantine";
 		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "WorkflowMetrics#ViewTopAsigneePerformance";
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -1923,7 +1979,6 @@ definition {
 	@description = "LRQA-53641 Automate LPS-97669 [Dashboard] View overloaded assignees"
 	@priority = "5"
 	test ViewWorkloadByAssigneeCard {
-		property portal.upstream = "quarantine";
 		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "WorkflowMetrics#ViewWorkloadByAssigneeCard";
 
@@ -1936,6 +1991,21 @@ definition {
 			entryTitle = "Blogs Entry Title 4");
 
 		WorkflowMetrics.executeWorkflowScript(scriptName = "assignOpenTasksToUsers.groovy");
+
+		ProductMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Control Panel",
+			portlet = "Process Builder");
+
+		var key_workflowDefinitionTitle = "Single Approver";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Edit");
+
+		Pause(locator1 = "10000");
+
+		takeScreenshot();
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
