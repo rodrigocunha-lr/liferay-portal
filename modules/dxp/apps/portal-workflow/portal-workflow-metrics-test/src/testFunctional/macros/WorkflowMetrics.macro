@@ -271,7 +271,7 @@ definition {
 		var siteName = TestCase.getSiteName(siteName = "${siteName}");
 
 		WorkflowMetrics.createUsersAndInstancesWithGroovy(
-			numberOfBlogInstances = "3",
+			numberOfBlogInstances = "5",
 			numberOfUsers = "3",
 			site = "${siteName}");
 	}
@@ -698,13 +698,18 @@ definition {
 	}
 
 	macro selectNewAssignee {
-		Click(locator1 = "WorkflowReassignModal#SEARCH_NEW_ASSIGNEE");
 
-		Click(
-			key_nameOfAssignee = "Test Test",
-			locator1 = "WorkflowReassignModal#REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN");
+		for (var itemName : list "${taskList}") {
+			Click(
+				key_itemName = "${itemName}",
+				locator1 = "WorkflowReassignModal#SEARCH_NEW_ASSIGNEE_SPECIFIC");
 
-		Click(locator1 = "WorkflowReassignModal#REASSIGN_BUTTON");
+			Click(
+				key_nameOfAssignee = "Test Test",
+				locator1 = "WorkflowReassignModal#REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN");
+		}
+
+		Button.click(button = "Reassign");
 	}
 
 	macro selectNewAssigneeBulkTask {
@@ -715,6 +720,17 @@ definition {
 		Click(
 			key_nameOfAssignee = "${nameOfAssignee}",
 			locator1 = "WorkflowReassignModal#REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN");
+
+		Click(locator1 = "WorkflowReassignModal#NEXT_BUTTON");
+	}
+
+	macro selectReassignTasks {
+
+		for (var itemName : list "${taskList}") {
+			Check.checkNotVisible(
+				key_itemName = "${itemName}",
+				locator1 = "WorkflowReassignModal#ITEM_CHECKBOX");
+		}
 
 		Click(locator1 = "WorkflowReassignModal#NEXT_BUTTON");
 	}
