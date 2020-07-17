@@ -19,6 +19,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SELECT_ALL_REASSIGN</td>
+	<td>//button[@data-testid="selectAll"]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SELECT_ALL</td>
 	<td>xpath=(//div[@data-testid="bulkReassignModal"]//label)</td>
 	<td></td>
@@ -41,6 +46,11 @@
 <tr>
 	<td>ITEM_CHECKBOX</td>
 	<td>//div[@class='modal-body']//td[contains(text(),"${key_itemName}")]//parent::tr//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ITEM_CHECKBOX_CHECKED</td>
+	<td>//div[@class='modal-body']//td[contains(text(),"${key_itemName}")]//parent::tr//input[@type='checkbox' and @checked]</td>
 	<td></td>
 </tr>
 <tr>
@@ -86,6 +96,11 @@
 <tr>
 	<td>NEXT_PAGINATION_BUTTON</td>
 	<td>//div[@class='modal-body']//button[contains(@aria-label,'Next')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PREVIOUS_PAGINATION_BUTTON</td>
+	<td>//div[@class='modal-body']//button[contains(@aria-label,'Previous')]</td>
 	<td></td>
 </tr>
 </tbody>
