@@ -260,7 +260,7 @@ definition {
 			workflowDefinition = "Single Approver Alternative",
 			workflowResourceValue = "Blogs Entry");
 
-		WorkflowMetrics.createAlternativeInstances(
+		WorkflowMetrics.createAlternativeBlogInstances(
 			numberOfBlogInstances = "3",
 			numberOfUsers = "3");
 
@@ -338,7 +338,7 @@ definition {
 		Click(locator1 = "WorkflowMetrics#FILTER_CLEAR_ALL");
 	}
 
-	macro createAlternativeInstances {
+	macro createAlternativeBlogInstances {
 		var iterator = "1";
 		var numberOfBlogInstances = MathUtil.sum("${numberOfBlogInstances}", "1");
 
@@ -346,6 +346,19 @@ definition {
 			JSONBlog.addEntry(
 				entryContent = "Blogs Alternative Entry ${iterator} Content",
 				entryTitle = "Blogs Alternative Title ${iterator}");
+
+			var iterator = MathUtil.sum("${iterator}", "1");
+		}
+	}
+
+	macro createBlogInstances {
+		var iterator = "1";
+		var numberOfBlogInstances = MathUtil.sum("${numberOfBlogInstances}", "1");
+
+		while ("${iterator}" != "${numberOfBlogInstances}") {
+			JSONBlog.addEntry(
+				entryContent = "Blogs Entry ${iterator} Content",
+				entryTitle = "Blogs Title ${iterator}");
 
 			var iterator = MathUtil.sum("${iterator}", "1");
 		}
