@@ -2305,8 +2305,6 @@ definition {
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
-		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_NO_SLA_MESSAGE");
-
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
