@@ -265,7 +265,6 @@ definition {
 	}
 
 	macro goToFieldsetsTab {
-
 		Click(locator1 = "FormViewBuilder#FIELD_SETS_TAB");
 	}
 
