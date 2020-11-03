@@ -3057,9 +3057,17 @@ definition {
 
 		AppBuilderAdmin.add();
 
+		TableViewBuilder.validateColumnLabelAtSidebar(columnLabel = "Text");
+
+		TableViewBuilder.validateColumnLabelAtSidebar(columnLabel = "Numeric");
+
 		TableViewBuilder.addColumnByDragAndDrop(fieldType = "Text");
 
+		TableViewBuilder.validateColumnLabel(columnLabel = "Text");
+
 		TableViewBuilder.addColumnByDoubleClick(fieldType = "Numeric");
+
+		TableViewBuilder.validateColumnLabel(columnLabel = "Numeric");
 
 		TableViewBuilder.validateDisabledField(fieldType = "Text");
 
@@ -3074,14 +3082,6 @@ definition {
 		TableViewBuilder.deleteSelectedColumnByName(columnLabel = "Text");
 
 		TableViewBuilder.save();
-
-		AppBuilderAdmin.switchTab(tabName = "Form Views");
-
-		AppBuilderAdmin.openItem(itemName = "Fields from Fieldsets");
-
-		FormViewBuilder.goToFieldsetsTab();
-
-		TableViewBuilder.validateDisabledField(fieldType = "Field Sets");
 	}
 
 }
