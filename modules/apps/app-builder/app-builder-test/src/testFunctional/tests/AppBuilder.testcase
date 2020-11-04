@@ -1089,6 +1089,106 @@ definition {
 		AppBuilderAdmin.validateIfSearchItemIsNotFound(itemName = "Apple");
 	}
 
+	@description = "Validate empty list state of Apps listing screen"
+	@priority = "5"
+	test ImplementRulesForFieldSets {
+		property portal.acceptance = "true";
+
+		AppBuilderAdmin.addCustomObject(
+			customObjectName = "my custom object",
+			isCreatingFormView = "true",
+			isCreatingViaPlusIcon = "true");
+
+		FormViewBuilder.setUpTwoFieldSets(
+			fieldSetName = "Field Sets",
+			fieldType = "Text",
+			fieldType2 = "Numeric");
+
+		FormViewBuilder.goToFieldsetsTab();
+
+		FormViewBuilder.addFieldByDoubleClick(fieldType = "Field Sets");
+
+		FormViewBuilder.setName(formViewName = "Fields from Fieldsets");
+
+		FormViewBuilder.switchToRulesTab();
+
+		FormViewBuilder.createFirstRule();
+
+		FormViewBuilder.setRuleName(ruleName = "Rule #1");
+
+		FormRules.viewInactiveSaveButton();
+
+		FormRules.configureConditionOptions(
+			conditionField = "Text",
+			conditionOperator = "Is not empty",
+			conditionRowNumber = "1");
+
+		FormRules.configureActionOptions(
+			action = "Show",
+			actionRowNumber = "1",
+			actionTarget = "Numeric");
+
+		FormViewBuilder.ruleSave();
+
+		FormViewBuilder.save();
+
+		AppBuilderAdmin.switchTab(tabName = "Table Views");
+
+		AppBuilderAdmin.add();
+
+		TableViewBuilder.addColumnByDragAndDrop(fieldType = "Text");
+
+		TableViewBuilder.addColumnByDoubleClick(fieldType = "Numeric");
+
+		TableViewBuilder.validateDisabledField(fieldType = "Text");
+
+		TableViewBuilder.validateDisabledField(fieldType = "Numeric");
+
+		TableViewBuilder.setName(tableViewName = "Table View");
+
+		TableViewBuilder.save();
+
+		AppBuilderAdmin.switchTab(tabName = "Apps");
+
+		AppBuilderAdmin.add();
+
+		AppBuilderAdmin.setName(title = "My First App");
+
+		App.selectFormView(formViewName = "Fields from Fieldsets");
+
+		App.selectTableView(tableViewName = "Table View");
+
+		App.selectTableView(tableViewName = "No Workflow");
+
+		App.toggleDeploy(deployOption = "Standalone");
+
+		App.clickDeploy();
+
+		AppBuilderAdmin.openStandAloneApp(itemName = "My First App");
+
+		SelectWindow.selectPopUp(locator1 = "null");
+
+		AppBuilderAdmin.validateStandAloneApp();
+
+		AppBuilderAdmin.addEntry();
+
+		FormViewBuilder.editText(
+			fieldName = "Text",
+			fieldValue = "Test");
+
+		FormViewBuilder.editText(
+			fieldName = "Numeric",
+			fieldValue = "0326");
+
+		AppBuilderAdmin.save();
+
+		AppBuilderAdmin.validateItemNameOnTable(itemName = "Test");
+
+		AppBuilderAdmin.validateItemNameOnTable(itemName = "0326");
+
+		Navigator.closeWindow();
+	}
+
 	@description = "Remove a field added to the Objects Sidebar and make sure is not possible to save an empty form"
 	@priority = "5"
 	test MakeSureIsNotPossibleSaveEmptyFormView {
