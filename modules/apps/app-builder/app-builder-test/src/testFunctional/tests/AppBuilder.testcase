@@ -1093,7 +1093,6 @@ definition {
 	@priority = "5"
 	test ImplementRulesForFieldSets {
 		property portal.acceptance = "true";
-
 		AppBuilderAdmin.addCustomObject(
 			customObjectName = "my custom object",
 			isCreatingFormView = "true",
