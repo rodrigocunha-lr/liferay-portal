@@ -3,6 +3,7 @@ definition {
 
 	property portal.release = "false";
 	property portal.upstream = "true";
+	property portal.acceptance = "true";
 	property test.run.environment = "EE";
 	property testray.main.component.name = "Reports";
 
@@ -141,8 +142,6 @@ definition {
 
 	@priority = "4"
 	test ChangeReportName {
-		property portal.acceptance = "true";
-
 		Navigator.openURL();
 
 		ProductMenu.gotoPortlet(
@@ -178,8 +177,6 @@ definition {
 
 	@priority = "4"
 	test DeleteReportFile {
-		property portal.acceptance = "true";
-
 		Navigator.openURL();
 
 		ProductMenu.gotoPortlet(
@@ -342,8 +339,6 @@ definition {
 
 	@priority = "4"
 	test DownloadReportPDF {
-		property portal.acceptance = "true";
-
 		Navigator.openURL();
 
 		ProductMenu.gotoPortlet(
@@ -518,7 +513,6 @@ definition {
 	@priority = "3"
 	test TestDatabaseConnection {
 		property database.types = "mysql";
-		property portal.acceptance = "true";
 
 		var databasePassword = PropsUtil.get("database.mysql.password");
 		var databaseURL = PropsUtil.get("database.mysql.url");
@@ -687,8 +681,6 @@ definition {
 
 	@priority = "3"
 	test ViewReportDefinitionParametersFields {
-		property portal.acceptance = "true";
-
 		Navigator.openURL();
 
 		ProductMenu.gotoPortlet(
