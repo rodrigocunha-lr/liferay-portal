@@ -251,6 +251,12 @@ definition {
 		Click(locator1 = "AppBuilderWorkflow#CREATE_NEW_CUSTOM_OBJECT_BUTTON");
 	}
 
+	macro assert1SharedFieldErrorMessage {
+		AssertElementPresent(
+			key_fieldLabel = "${fieldLabel}",
+			locator1 = "AppBuilderWorkflow#ONE_SHARED_FIELD_ERROR_MESSAGE");
+	}
+
 	macro clickOnSelectFormView {
 		Click(
 			key_positionNumber = "${positionNumber}",

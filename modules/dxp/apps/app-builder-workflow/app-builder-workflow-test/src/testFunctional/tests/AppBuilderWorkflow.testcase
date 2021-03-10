@@ -1869,6 +1869,8 @@ definition {
 		FormViewBuilder.assertTextPresent(
 			fieldName = "Numeric",
 			fieldValue = "1987");
+
+		AppBuilderWorkflow.assert1SharedFieldErrorMessage(fieldLabel = "Text");
 	}
 
 	@description = "Automate LPS-111262 & LPS-111681"
