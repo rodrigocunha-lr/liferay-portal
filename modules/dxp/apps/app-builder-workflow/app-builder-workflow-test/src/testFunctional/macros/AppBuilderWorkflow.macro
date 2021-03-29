@@ -122,6 +122,14 @@ definition {
 			locator1 = "AppBuilderWorkflow#FORM_OR_TABLE_VIEW_ITEM");
 	}
 
+	macro assertFormViewOnListDisabledWithWarning {
+		AssertElementPresent(
+			key_itemName = "${formViewName}",
+			locator1 = "AppBuilderWorkflow#FORM_VIEW_ITEM_DISABLED_WARNING");
+
+		AssertElementPresent(locator1 = "AppBuilder#WARNING_SIGN");
+	}
+
 	macro assertFormViewPresentOnList {
 		AssertElementPresent(
 			key_itemName = "${formViewName}",

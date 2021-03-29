@@ -2470,6 +2470,44 @@ definition {
 			positionNumber = "1");
 	}
 
+	@description = "LRQA-64900 Automate LPS-124979: As an App Adm, I want to be warned when a Form View cannot be used to create new records for Native Objects in the Start-Step of the Workflow"
+	@priority = "4"
+	test WarningDuringStartStepForNativeObject {
+		ApplicationsMenu.gotoPortlet(
+			category = "App Builder",
+			panel = "Applications",
+			portlet = "Apps");
+
+		AppBuilderAppAdmin.goToWorkflowPoweredTab();
+		AppBuilderAppAdmin.clickOnCreateNewAppButton();
+		AppBuilderWorkflow.addWorkflowAppName(workflowAppName = "My Workflow App");
+		AppBuilderWorkflow.selectStep(step = "Start");
+		AppBuilderWorkflow.selectDataAndViewsCard();
+		AppBuilderWorkflow.clickOnSelectObject();
+		AppBuilderWorkflow.selectObject(objectName = "User");
+		AppBuilderWorkflow.assertFormViewSelected(
+			formViewName = "Select a Form View",
+			positionNumber = "1");
+
+		AppBuilderWorkflow.clickOnSelectFormView(positionNumber = "1");
+		AppBuilderWorkflow.selectFormView(formViewName = "User");
+		AppBuilderWorkflow.openFormView(positionNumber = "1");
+		FormViewBuilder.addFieldByDoubleClickFromObjectSidebar(fieldLabel = "First Name");
+		FormViewBuilder.setFieldRequired();
+		FormViewBuilder.clickRequiredEllipses();
+		FormViewBuilder.selectRequiredRadioOption(optionLabel = "For All Forms Using This Field");
+		FormViewBuilder.closeSidebar();
+		FormViewBuilder.save();
+
+		AppBuilderWorkflow.clickOnSelectFormView(positionNumber = "1");
+		AppBuilderWorkflow.clickToCreateFormView(positionNumber = "1");
+		FormViewBuilder.setName(formViewName = "My Form");
+		FormViewBuilder.addFieldByDoubleClickFromObjectSidebar(fieldLabel = "Last Name");
+		FormViewBuilder.save();
+		AppBuilderWorkflow.clickOnSelectFormView(positionNumber = "1");
+		AppBuilderWorkflow.assertFormViewOnListDisabledWithWarning(formViewName = "My Form");
+	}
+
 	@description = "LRQA-60455 - Automate LPS-112666: As an App Admin, I want to be alerted when one same Object field is present in more than one Form for the same step"
 	@priority = "5"
 	test WorkflowAppStepsSharingSameObjectsField {

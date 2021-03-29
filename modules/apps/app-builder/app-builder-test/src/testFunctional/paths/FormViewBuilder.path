@@ -683,7 +683,7 @@
 
 <tr>
 	<td>FORM_FIELD_REQUIRED_ELLIPSES</td>
-	<td>//div[contains(@class, 'ddm-field')]//div[contains(@class, 'd-flex form-renderer-required-field justify-content-between')]//button[contains(@class, 'btn btn-monospaced btn-outline-borderless btn-sm btn-outline-secondary')]</td>
+	<td>//button[contains(@title, 'Required options')]</td>
 	<td></td>
 </tr>
 
