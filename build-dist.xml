@@ -2930,6 +2930,11 @@ plugins.includes=</echo>
 				includes="*.jar"
 				prefix="liferay-portal-dependencies-${lp.version}"
 			/>
+			<zipfileset
+				dir="portal-kernel"
+				includes="portal-kernel.jar"
+				prefix="liferay-portal-dependencies-${lp.version}"
+			/>
 		</zip>
 	</target>
 
@@ -3039,7 +3044,7 @@ plugins.includes=</echo>
 		>
 			<fileset
 				dir="${app.server.lib.global.dir}"
-				includes="annotations.jar,portlet.jar"
+				includes="annotations.jar,portal-kernel.jar,portlet.jar"
 			/>
 		</copy>
 
@@ -3104,7 +3109,7 @@ plugins.includes=</echo>
 		>
 			<fileset
 				dir="${app.server.lib.global.dir}"
-				includes="annotations.jar,portlet.jar"
+				includes="annotations.jar,portal-kernel.jar,portlet.jar"
 			/>
 		</copy>
 
