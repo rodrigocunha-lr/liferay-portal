@@ -1670,7 +1670,7 @@ definition {
 
 		var fieldTextField = FormFields.getFieldName();
 
-		Form.editFieldLabelMetal(fieldValue = "Text");
+		Form.editFieldLabelMetal(fieldValue = "Text EDIT s");
 
 		FormFields.viewFieldName(fieldName = "${fieldTextField}");
 
