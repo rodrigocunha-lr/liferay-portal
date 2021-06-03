@@ -1444,7 +1444,7 @@ definition {
 	@description = "LRQA-53649 Automate LPS-87560: Verify metrics available or not for CE and DXP customers"
 	@priority = "5"
 	test MetricsAvailableForDXP {
-		property portal.acceptance = "true";
+		property portal.acceptance = "test";
 
 		ApplicationsMenuHelper.openApplicationsMenu();
 
