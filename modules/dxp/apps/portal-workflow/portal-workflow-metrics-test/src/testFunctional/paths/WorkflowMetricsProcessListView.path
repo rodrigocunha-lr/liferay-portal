@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>WorkflowMetricsProcessListView</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">WorkflowMetricsProcessListView</td></tr>
+</thead>
+<tbody>
+<tr>
+    <td>ASSERT_PERCENTAGE_CARDS</td>
+    <td>//span[contains(.,'${key_cardName}')]/../..//span[contains(@class,'xsmall') and contains(text(),'%')]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>ENTER_PROCESS_METRICS</td>
+    <td>//td[contains(@class,'table-title')]//a[contains(text(),'${key_processName}')]</td>
+    <td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
