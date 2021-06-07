@@ -41,7 +41,6 @@ definition {
 	@description = "LPS-86642 - Verify that, when the workflow has no pending items, the columns are populated with 0"
 	@priority = "4"
 	test ColumnsWithZeroWhenWorkflowHasNoPendingItems {
-
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
 		WorkflowMetrics.checkPendingWorkflowValues(
@@ -49,7 +48,6 @@ definition {
 			key_overdue = "0",
 			key_pending = "0",
 			key_untracked = "0");
-
 	}
 
 	@description = "LPS-86642 - Verify that the empty state appears when there is no data to populate the chart"
