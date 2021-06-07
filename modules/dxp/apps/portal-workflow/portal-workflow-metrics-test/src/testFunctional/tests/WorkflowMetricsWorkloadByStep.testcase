@@ -39,11 +39,16 @@ definition {
 	}
 
 	@description = "LPS-86642 - Verify that, when the workflow has no pending items, the columns are populated with 0"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test ColumnsWithZeroWhenWorkflowHasNoPendingItems {
 
-		// TODO LRQA-67556 ColumnsWithZeroWhenWorkflowHasNoPendingItems pending implementation
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		WorkflowMetrics.checkPendingWorkflowValues(
+			key_ontime = "0",
+			key_overdue = "0",
+			key_pending = "0",
+			key_untracked = "0");
 
 	}
 
