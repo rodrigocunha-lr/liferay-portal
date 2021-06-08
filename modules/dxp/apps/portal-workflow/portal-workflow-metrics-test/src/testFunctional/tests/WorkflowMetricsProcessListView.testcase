@@ -83,12 +83,37 @@ definition {
 	}
 
 	@description = "LPS-88573 - Verify that the specific empty state is displayed when there are no metrics available"
-	@ignore = "Test Stub"
 	@priority = "2"
 	test DisplayEmptyStateWhenNoProcessAvailable {
+		property portal.acceptance = "true";
 
-		// TODO LRQA-67516 DisplayEmptyStateWhenNoProcessAvailable pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
 
+		Workflow.unpublishWorkflowDefinition(workflowDefinitionTitle = "Single Approver");
+
+		Workflow.deleteWorkflowDefinition(workflowDefinitionTitle = "Single Approver");
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Metrics");
+
+		WorkflowMetricsProcessListView.searchProcessNameNotPresent(processName = "Sin");
+
+		
+
+		AssertTextEquals.assertPartialText(
+			locator1 = "Message#EMPTY_INFO",
+			value1 = "No results were found.");
+
+		WorkflowMetricsProcessListView.searchProcessNameNotPresent(processName = "App");
+
+		AssertTextEquals.assertPartialText(
+			locator1 = "Message#EMPTY_INFO",
+			value1 = "No results were found.");
 	}
 
 	@description = "LPS-88573 - Verify that the table displays the specific empty state when there are no results for search terms"

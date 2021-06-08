@@ -10,4 +10,20 @@ definition {
 		Click(locator1 = "WorkflowMetricsProcessListView#METRICS_WORKFLOW_SEARCH_BAR_BUTTON");
 	}
 
+	macro searchProcessNameNotPresent {
+		Type(
+			locator1 = "WorkflowMetricsProcessListView#METRICS_WORKFLOW_SEARCH_BAR",
+			value1 = "${processName}");
+
+		Click(locator1 = "WorkflowMetricsProcessListView#METRICS_WORKFLOW_SEARCH_BAR_BUTTON");
+
+		Pause(locator1 = "1000");
+
+		
+
+		AssertElementNotPresent(
+			key_workflowProcessName = "${processName}",
+			locator1 = "WorkflowMetrics#METRICS_WORKFLOW_PROCESS_NAME");
+	}
+
 }
