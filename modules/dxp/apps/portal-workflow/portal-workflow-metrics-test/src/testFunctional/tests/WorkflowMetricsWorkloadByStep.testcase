@@ -51,7 +51,6 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "2"
 	test EmptyStateIsDisplayedWhenThereIsNoData {
-
 		Click(
 			key_processName = "Single Approver",
 			locator1 = "WorkflowMetricsProcessListView#ENTER_PROCESS_METRICS");
@@ -61,7 +60,6 @@ definition {
 			locator1 = "WorkflowMetricsProcessListView#SELECT_TAB_NAME");
 
 		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_PERFORMANCE_BY_ASSIGNEE_CARD_EMPTY_STATE");
-
 	}
 
 	@description = "LPS-86642 - Verify that the Overdue is the total number of pending instances that breached one or more SLAs target times"
