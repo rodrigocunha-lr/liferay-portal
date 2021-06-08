@@ -103,8 +103,6 @@ definition {
 
 		WorkflowMetricsProcessListView.searchProcessNameNotPresent(processName = "Sin");
 
-		
-
 		AssertTextEquals.assertPartialText(
 			locator1 = "Message#EMPTY_INFO",
 			value1 = "No results were found.");

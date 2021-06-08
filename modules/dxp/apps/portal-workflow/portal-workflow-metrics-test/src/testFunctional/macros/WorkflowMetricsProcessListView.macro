@@ -19,8 +19,6 @@ definition {
 
 		Pause(locator1 = "1000");
 
-		
-
 		AssertElementNotPresent(
 			key_workflowProcessName = "${processName}",
 			locator1 = "WorkflowMetrics#METRICS_WORKFLOW_PROCESS_NAME");
