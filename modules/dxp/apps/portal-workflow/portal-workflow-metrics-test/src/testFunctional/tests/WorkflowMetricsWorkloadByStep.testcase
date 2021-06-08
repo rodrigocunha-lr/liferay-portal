@@ -52,7 +52,15 @@ definition {
 	@priority = "2"
 	test EmptyStateIsDisplayedWhenThereIsNoData {
 
-		// TODO LRQA-67559 EmptyStateIsDisplayedWhenThereIsNoData pending implementation
+		Click(
+			key_processName = "Single Approver",
+			locator1 = "WorkflowMetricsProcessListView#ENTER_PROCESS_METRICS");
+
+		Click(
+			key_tabName = "performance",
+			locator1 = "WorkflowMetricsProcessListView#SELECT_TAB_NAME");
+
+		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_PERFORMANCE_BY_ASSIGNEE_CARD_EMPTY_STATE");
 
 	}
 

@@ -9,6 +9,11 @@
 </thead>
 <tbody>
 <tr>
+    <td>ENTER_PROCESS_METRICS</td>
+    <td>//td[contains(@class,'table-title')]//a[contains(text(),'${key_processName}')]</td>
+    <td></td>
+</tr>
+<tr>
     <td>METRICS_WORKFLOW_SEARCH_BAR</td>
     <td>//input[@placeholder='Search for']</td>
     <td></td>
@@ -17,6 +22,11 @@
 	<td>METRICS_WORKFLOW_SEARCH_BAR_BUTTON</td>
 	<td>//span[contains(@class,'input-group-inset-item')]//button[contains(@class,'btn')]</td>
 	<td></td>
+</tr>
+<tr>
+    <td>SELECT_TAB_NAME</td>
+    <td>//a[contains(@class,'nav-link') and contains (@href,'${key_tabName}')]</td>
+    <td></td>
 </tr>
 </tbody>
 </table>
