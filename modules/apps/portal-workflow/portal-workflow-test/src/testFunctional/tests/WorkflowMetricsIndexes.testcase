@@ -1,0 +1,58 @@
+@component-name = "portal-workflow"
+definition {
+
+	property portal.release = "true";
+	property portal.upstream = "true";
+	property test.run.environment = "EE";
+	property testray.main.component.name = "Workflow Metrics";
+
+	setUp {
+		TestCase.setUpPortalInstance();
+
+		var testPortalInstance = PropsUtil.get("test.portal.instance");
+
+		User.firstLoginPG();
+
+		Navigator.openURL();
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Metrics");
+	}
+
+	tearDown {
+		var testPortalInstance = PropsUtil.get("test.portal.instance");
+		if ("${testPortalInstance}" == "true") {
+			PortalInstances.tearDownCP();
+		}
+	}
+
+	@description = "LPS-107777 - Reindex all Workflow indexes works correctly"
+	@ignore = "Test Stub"
+	@priority = "4"
+	test ReindexAllWorkflowIndexes {
+
+		// TODO LRQA-67809 ReindexAllWorkflowIndexes pending implementation
+
+	}
+
+	@description = "LPS-107777 - All Metrics reindexes works correctly"
+	@ignore = "Test Stub"
+	@priority = "4"
+	test ReindexMetricsIndexes {
+
+		// TODO LRQA-67809 ReindexMetricsIndexes pending implementation
+
+	}
+
+	@description = "LPS-107777 - All SLAs reindexes works correctly"
+	@ignore = "Test Stub"
+	@priority = "4"
+	test ReindexSLAsIndexes {
+
+		// TODO LRQA-67809 ReindexSLAsIndexes pending implementation
+
+	}
+
+}
