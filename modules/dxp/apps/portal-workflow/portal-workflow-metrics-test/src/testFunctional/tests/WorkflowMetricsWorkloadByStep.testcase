@@ -11,7 +11,7 @@ definition {
 
 		var testPortalInstance = PropsUtil.get("test.portal.instance");
 
-		User.firstLoginPG();
+		User.firstLoginUI();
 
 		Navigator.openURL();
 
@@ -61,7 +61,6 @@ definition {
 	@priority = "2"
 	test InfoIconDisplaysMessageOnHover {
 
-		// TODO LRQA-67562 InfoIconDisplaysMessageOnHover pending implementation
 
 	}
 
@@ -70,8 +69,16 @@ definition {
 	@priority = "4"
 	test OnlyTotalPendingColumnIsPopulatedWhenNoSLA {
 
-		// TODO LRQA-67563 OnlyTotalPendingColumnIsPopulatedWhenNoSLA pending implementation
+WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
+
+		AssertElementPresent(
+			key_sectionName = "Workload by Step",
+			key_tooltipMessage = "Pending workflow items are counted and categorized by their SLA status.",
+			locator1 = "Workload by step shows the number of items in each step, by SLA deadline. The total number of pending items may not add up since multiple tasks occur simultaneously.");
+	
+	
+	
 	}
 
 	@description = "LPS-86642 - Verify that the Overdue is the total number of pending instances that breached one or more SLAs target times"
