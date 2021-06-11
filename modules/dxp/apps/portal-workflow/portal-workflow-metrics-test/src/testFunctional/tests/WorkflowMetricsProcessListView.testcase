@@ -218,7 +218,6 @@ definition {
 	@description = "LPS-88573 - Verify that the table entries are ordered by Overdue, from biggest to the smaller value, by default"
 	@priority = "3"
 	test TableIsOrderedByOverdueDesc {
-
 		Workflow.duplicateSingleApproverWorkflow(workflowName = "Test Workflow");
 
 		ApplicationsMenu.gotoPortlet(
@@ -268,7 +267,6 @@ definition {
 		WaitForElementPresent(
 			key_value = "down",
 			locator1 = "WorkflowMetricsProcessListView#ANY_ARROW_ORDER");
-
 	}
 
 }
