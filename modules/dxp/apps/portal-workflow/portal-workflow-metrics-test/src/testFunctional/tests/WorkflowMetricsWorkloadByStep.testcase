@@ -100,9 +100,6 @@ definition {
 			key_overdue = "0",
 			key_pending = "1",
 			key_untracked = "1");
-
-
-			
 	}
 
 	@description = "LPS-86642 - Verify that the Overdue is the total number of pending instances that breached one or more SLAs target times"
