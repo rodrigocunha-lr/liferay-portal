@@ -359,10 +359,6 @@ definition {
 
 		MouseOver(locator1 = "WorkflowMetricsAllItemsList#DUE_DATE_BUTTON_ALL_ITEMS_LIST");
 
-
-
-
-
 		AssertElementNotPresent(locator1 = "WorkflowDefinition#DIALOG_BOX_BODY");
 	}
 
