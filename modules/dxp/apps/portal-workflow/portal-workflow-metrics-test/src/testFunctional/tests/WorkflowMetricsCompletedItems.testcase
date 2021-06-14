@@ -218,17 +218,13 @@ definition {
 	@description = "LPS-86650 - Verify that info icon hover state and tooltip message"
 	@priority = "2"
 	test InfoIconDisplaysMessageOnHover {
-
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
 		Navigator.gotoNavItem(navItem = "Performance");
 
 		WorkflowMetricsProcessListView.assertTooltipMessage(
 			sectionName = "Completed Items",
-			tooltipMessage = "Completed workflow items are counted and categorized by their SLA status."
-		);
-		
-
+			tooltipMessage = "Completed workflow items are counted and categorized by their SLA status.");
 	}
 
 	@description = "LPS-86650 - Verify that when there is no SLA defined for the process, all items will be displayed as Untracked"
