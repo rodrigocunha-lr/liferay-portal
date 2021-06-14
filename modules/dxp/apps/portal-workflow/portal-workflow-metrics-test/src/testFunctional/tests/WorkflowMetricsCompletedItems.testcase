@@ -216,11 +216,18 @@ definition {
 	}
 
 	@description = "LPS-86650 - Verify that info icon hover state and tooltip message"
-	@ignore = "Test Stub"
 	@priority = "2"
 	test InfoIconDisplaysMessageOnHover {
 
-		// TODO LRQA-67636 InfoIconDisplaysMessageOnHover pending implementation
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		Navigator.gotoNavItem(navItem = "Performance");
+
+		WorkflowMetricsProcessListView.assertTooltipMessage(
+			sectionName = "Completed Items",
+			tooltipMessage = "Completed workflow items are counted and categorized by their SLA status."
+		);
+		
 
 	}
 
