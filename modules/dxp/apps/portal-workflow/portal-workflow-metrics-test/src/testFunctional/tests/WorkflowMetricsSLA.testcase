@@ -235,10 +235,6 @@ definition {
 		AssertVisible(
 			key_warningMessage = "No SLAs are defined for this process.",
 			locator1 = "Message#WARNING_SPECIFIC");
-
-
-
-			
 	}
 
 	@description = "LPS-94760 - Verify that the time format is following the system language (Example: 03:34 PM for en_US and 15:34 for pt)"
