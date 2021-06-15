@@ -113,8 +113,6 @@ definition {
 
 		Button.clickSave();
 
-		
-
 		JSONBlog.addEntry(
 			entryContent = "Blogs Entry Content",
 			entryTitle = "Blogs Entry Title");
