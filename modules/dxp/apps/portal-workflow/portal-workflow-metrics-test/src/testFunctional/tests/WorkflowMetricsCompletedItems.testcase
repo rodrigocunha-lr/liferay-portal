@@ -140,11 +140,25 @@ definition {
 	}
 
 	@description = "LPS-94146 - Verify that when there are no results for a filter selection, the table should display the respective empty state"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test TableDisplaysEmptyStateWhenThereIsNoResult {
 
-		// TODO LRQA-67647 TableDisplaysEmptyStateWhenThereIsNoResult pending implementation
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		Navigator.gotoNavItem(navItem = "Performance");
+
+		Click(locator1 = "WorkflowMetrics#METRICS_COMPLETED_ITEMS_DATE_RANGE_DROPDOWN");
+
+		Click(
+			completionVelocityDateRange = "Yesterday",
+			locator1 = "WorkflowMetrics#METRICS_COMPLETION_VELOCITY_DATE_RANGE_DROPDOWN_OPTION");
+
+		WorkflowMetrics.checkCompletedWorkflowValues(
+			key_completed = "0",
+			key_ontime = "0",
+			key_overdue = "0",
+			key_untracked = "0");
+
 
 	}
 
