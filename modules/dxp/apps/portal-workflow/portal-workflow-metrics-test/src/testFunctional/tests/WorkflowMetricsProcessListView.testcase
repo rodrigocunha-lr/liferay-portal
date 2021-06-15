@@ -245,7 +245,7 @@ definition {
 			panel = "Applications",
 			portlet = "Metrics");
 
-		WorkflowMetricsProcessListView.changePagination(itemsPerPage = "4 Entries"); 
+		WorkflowMetricsProcessListView.changePagination(itemsPerPage = "4 Entries");
 
 		WorkflowMetricsProcessListView.assertPaginationComponentPresent(pageNumberList = "1");
 
