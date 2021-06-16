@@ -36,6 +36,13 @@ definition {
 		Click(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_TITLE");
 	}
 
+	macro assertAllItemsCurrentAssignee {
+		AssertElementPresent(
+			key_workflowInstanceAssignee = "${workflowInstanceAssignee}",
+			key_workflowInstanceName = "${workflowInstanceName}",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CURRENT_ASSIGNEE_VALUE");
+	}
+
 	macro assertAllItemsValues {
 		var key_assigneeName = "${assigneeName}";
 		var key_taskName = "${taskName}";
@@ -869,7 +876,7 @@ definition {
 			Click(locator1 = "WorkflowReassignModal#SEARCH_NEW_ASSIGNEE_SPECIFIC");
 
 			Click(
-				key_nameOfAssignee = "Test Test",
+				key_nameOfAssignee = "${nameOfAssignee}",
 				locator1 = "WorkflowReassignModal#REASSIGN_TASK_NEW_ASSIGNEE_DROPDOWN");
 		}
 
