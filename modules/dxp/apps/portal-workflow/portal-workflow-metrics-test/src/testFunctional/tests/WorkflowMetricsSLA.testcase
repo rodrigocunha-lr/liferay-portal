@@ -194,9 +194,8 @@ definition {
 	@description = "LPS-89014 - Verify that the SLA infos are correctly displayed on the table view"
 	@priority = "5"
 	test SLAInfosAreCorrectlyDisplayed {
-
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
-		
+
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
 
 		WorkflowMetrics.fillSLAForm(
@@ -210,23 +209,23 @@ definition {
 		Button.clickSave();
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_NAME",
-			key_slaName = "SLA Definition");
+			key_slaName = "SLA Definition",
+			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_NAME");
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO",
 			key_columnName = "Description",
-			key_fieldName = "SLA Description");
-		
-		AssertElementPresent(
-			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO",
-			key_columnName = "Status",
-			key_fieldName = "Running");
+			key_fieldName = "SLA Description",
+			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO");
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO",
+			key_columnName = "Status",
+			key_fieldName = "Running",
+			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO");
+
+		AssertElementPresent(
 			key_columnName = "Duration",
-			key_fieldName = "1min");
+			key_fieldName = "1min",
+			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO");
 
 		var displayDateDay = DateUtil.getCurrentDate();
 		var displayDateMonth = DateUtil.getCurrentMonthName();
@@ -234,11 +233,9 @@ definition {
 		var displayDate = "${currentDateMonthShort} ${displayDateDay}";
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO",
 			key_columnName = "Last Modified",
-			key_fieldName = "${displayDate}");
-
-
+			key_fieldName = "${displayDate}",
+			locator1 = "WorkflowMetricsProcessListView#ASSERT_SLA_INFO");
 	}
 
 	@description = "LPS-89082 - Verify that the SLA list should group SLAs into Blocked and Running sections when there is at least 1 blocked SLA"
