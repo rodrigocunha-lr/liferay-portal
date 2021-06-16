@@ -68,7 +68,6 @@ definition {
 	@description = "LPS-89014 - Verify that deleting a SLA will be reflected in all instances In Progress"
 	@priority = "5"
 	test DeletingSLAReflectInProgressInstances {
-
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
@@ -106,11 +105,10 @@ definition {
 			entrySubtitle = "Subtitle",
 			entryTitle = "Blogs Entry Title");
 
-
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
 		Pause(locator1 = "60000");
-		
+
 		Refresh();
 
 		WorkflowMetrics.checkPendingWorkflowValues(
@@ -134,12 +132,6 @@ definition {
 			key_overdue = "0",
 			key_pending = "1",
 			key_untracked = "1");
-
-
-
-			
-
-
 	}
 
 	@description = "LPS-89082 - Verify that the error alert will be displayed again when user enters the metrics page again after closing it"
