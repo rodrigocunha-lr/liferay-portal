@@ -210,12 +210,55 @@ definition {
 	}
 
 	@description = "LPS-94760 - Verify that date format abbreviates the month and doesn't show year. (Example: Apr 25)"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test SLAProcessingDateAbbreviatesMonth {
 
-		// TODO LRQA-67848 SLAProcessingDateAbbreviatesMonth pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
 
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
+
+		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
+
+		WorkflowMetrics.fillSLAForm(
+			slaDefinitionDays = "0",
+			slaDefinitionDescription = "SLA Description",
+			slaDefinitionEnd = "Process Ends: Approved",
+			slaDefinitionHours = "00:01",
+			slaDefinitionName = "SLA Definition",
+			slaDefinitionStart = "Process Begins");
+
+		Button.clickSave();
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry",
+			entryTitle = "Blogs Entry Title");
+
+		UserBar.gotoDropdownItem(dropdownItem = "My Workflow Tasks");
+
+		Workflow.assignToMeTaskByActions(
+			workflowAssetTitle = "Blogs Entry Title",
+			workflowAssetType = "Blogs Entry",
+			workflowTask = "Review");
+
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		var displayDateDay = DateUtil.getCurrentDate();
+		var displayDateMonth = DateUtil.getCurrentMonthName();
+		var currentDateMonthShort = StringUtil.substring("${displayDateMonth}", "0", "3");
+		var displayDate = "${currentDateMonthShort} ${displayDateDay}";
+
+		AssertElementPresent(
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_START_OPTION",
+			key_slaDefinitionStart = "${displayDate}");
 	}
 
 	@description = "LPS-94760 - Verify that when there is an alert message on the page, the update date should be displayed bellow it"
