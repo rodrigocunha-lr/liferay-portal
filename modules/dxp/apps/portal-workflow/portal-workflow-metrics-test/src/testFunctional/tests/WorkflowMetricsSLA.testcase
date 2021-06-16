@@ -212,7 +212,6 @@ definition {
 	@description = "LPS-94760 - Verify that date format abbreviates the month and doesn't show year. (Example: Apr 25)"
 	@priority = "3"
 	test SLAProcessingDateAbbreviatesMonth {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -257,8 +256,8 @@ definition {
 		var displayDate = "${currentDateMonthShort} ${displayDateDay}";
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_START_OPTION",
-			key_slaDefinitionStart = "${displayDate}");
+			key_slaDefinitionStart = "${displayDate}",
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_START_OPTION");
 	}
 
 	@description = "LPS-94760 - Verify that when there is an alert message on the page, the update date should be displayed bellow it"
