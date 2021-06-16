@@ -16,6 +16,15 @@ definition {
 		AssertElementPresent(locator1 = "WorkflowMetricsProcessListView#METRICS_WORKFLOW_PAGINATION_NEXT_BUTTON");
 	}
 
+	macro changePagination {
+		Click(locator1 = "WorkflowMetricsProcessListView#ITEMS_PER_PAGE_SELECT");
+		var key_itemsPerPage = "${itemsPerPage}";
+		MenuItem.click(menuItem = "${itemsPerPage}");
+		AssertTextEquals.assertPartialText(
+			locator1 = "WorkflowMetricsProcessListView#ITEMS_PER_PAGE_SELECT",
+			value1 = "${itemsPerPage}");
+	}
+
 	macro metricsWorkflowSearch {
 		var key_workflowSearchName = "${workflowSearchName}";
 
@@ -24,6 +33,12 @@ definition {
 			value1 = "${workflowSearchName}");
 
 		Click(locator1 = "WorkflowMetricsProcessListView#METRICS_WORKFLOW_SEARCH_BAR_BUTTON");
+	}
+
+	macro viewResults {
+		AssertTextEquals(
+			locator1 = "WorkflowMetricsProcessListView#PAGINATION_RESULTS",
+			value1 = "${results}");
 	}
 
 }
