@@ -293,8 +293,6 @@ definition {
 		WorkflowMetrics.assertSlaPosition(
 			slaPosition = "1",
 			slaTitle = "SLA Name 1");
-
-
 	}
 
 	@description = "LPS-89014 - Verify that the SLA settings is available when accessing the metrics page of a process"
