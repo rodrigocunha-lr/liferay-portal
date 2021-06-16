@@ -63,10 +63,6 @@ definition {
 		AssertElementPresent(
 			key_dateFormat = "Default date format is MM/DD/YYYY.",
 			locator1 = "WorkflowMetricsCompletedItems#DEFAULT_DATE_FORMAT_MESSAGE");
-
-
-
-			
 	}
 
 	@description = "LPS-98233 - Verify that the fields From and To are required"
