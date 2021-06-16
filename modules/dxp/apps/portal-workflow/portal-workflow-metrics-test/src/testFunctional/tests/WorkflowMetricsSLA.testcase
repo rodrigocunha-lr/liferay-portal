@@ -104,7 +104,6 @@ definition {
 	@description = "LPS-89015 - Verify that the multi-select-fields allow to hit enter key to select an option from the dropdown list"
 	@priority = "2"
 	test MultiSelectFieldsAllowHitEnterKeyToSelectOption {
-
 		var key_testSLADefinitionDays = "1";
 		var key_testSLADefinitionHours = "00:00";
 		var key_testSLADefinitionDescription = "SLA Description";
@@ -143,12 +142,6 @@ definition {
 		AssertTextEquals(
 			locator1 = "WorkflowMetricsSLA#SLA_DEFINITION_DAYS",
 			value1 = "${key_testSLADefinitionDays}");
-
-
-
-
-
-
 	}
 
 	@description = "LPS-89015 - Verify that the multi-select-fields allow to navigate from the input field to the dropdown list vertically by using up/down keys"
