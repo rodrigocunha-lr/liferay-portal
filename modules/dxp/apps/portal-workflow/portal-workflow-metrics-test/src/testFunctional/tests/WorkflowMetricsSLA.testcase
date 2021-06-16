@@ -147,11 +147,22 @@ definition {
 	}
 
 	@description = "LPS-89015 - Verify the option for pause field is: On task: [task-name]"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test PauseFieldOptions {
 
-		// TODO LRQA-67883 PauseFieldOptions pending implementation
+		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
+
+		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
+
+		Click(locator1 = "WorkflowMetricsSLA#SLA_DEFINITION_PAUSE");		
+
+		AssertElementPresent(
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION",
+			key_slaDefinitionPause = "On Task: Review");
+
+		AssertElementPresent(
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION",
+			key_slaDefinitionPause = "On Task: Update");
 
 	}
 
