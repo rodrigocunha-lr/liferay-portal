@@ -62,11 +62,11 @@ definition {
 			workflowResourceValue = "Blogs Entry");
 
 		JSONBlog.addEntry(
-			entryContent = "Blogs Entry Content", 
+			entryContent = "Blogs Entry Content",
 			entryTitle = "Blogs Entry Title");
 
 		JSONBlog.addEntry(
-			entryContent = "Blogs Entry Content 1", 
+			entryContent = "Blogs Entry Content 1",
 			entryTitle = "Blogs Entry Title 1");
 
 		WorkflowMetrics.goToWorkflowAllItems(workflowProcessName = "Single Approver");
@@ -108,8 +108,6 @@ definition {
 		WorkflowMetrics.assertAllItemsCurrentAssignee(
 			workflowInstanceAssignee = "User Test",
 			workflowInstanceName = "Blogs Entry: Blogs Entry Title 1");
-
-
 	}
 
 	@description = "LPS-106219 - Verify that, in the modal Select Tasks to Reassign, the Assignee filter contains only the options that are displayed in the modal"
