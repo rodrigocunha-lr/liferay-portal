@@ -59,7 +59,6 @@ definition {
 	@description = "LPS-106219 - Verify that the user is able to select multiple filter options and combine filter queries"
 	@priority = "3"
 	test CanSelectMultipleFilterOption {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -91,19 +90,14 @@ definition {
 		WorkflowMetricsAllItemsListReassignTasks.selectReassignTasksCardFilterValueAssignee(workflowAssignee = "Test Test");
 
 		AssertTextEquals(
-			locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_ASSERT_FILTER",
 			key_workflowFilter = "Review",
+			locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_ASSERT_FILTER",
 			value1 = "Review");
 
 		AssertTextEquals(
-			locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_ASSERT_FILTER",
 			key_workflowFilter = "Test Test",
+			locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_ASSERT_FILTER",
 			value1 = "Test Test");
-
-
-		
-
-
 	}
 
 	@description = "LPS-102664 - Verify that when the user clicks on Next in Select Tasks to Reassign, and the connection is lost, a corresponding error message is displayed"
