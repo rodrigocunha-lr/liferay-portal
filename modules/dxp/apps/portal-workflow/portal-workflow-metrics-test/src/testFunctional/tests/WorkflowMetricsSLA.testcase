@@ -240,7 +240,6 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test SLAProcessingTimeFormatIsFollowingSystemLanguage {
-		
 		var slaName = "SLAName";
 
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
@@ -258,15 +257,15 @@ definition {
 		Button.clickSave();
 
 		ApplicationsMenu.gotoPortlet(
-            category = "Workflow",
-            panel = "Applications",
-            portlet = "Process Builder");
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
 
-        Navigator.gotoNavItem(navItem = "Configuration");
+		Navigator.gotoNavItem(navItem = "Configuration");
 
-        Workflow.configureWorkflow(
-            workflowDefinition = "Single Approver",
-            workflowResourceValue = "Blogs Entry");
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
 
 		JSONBlog.addEntry(
 			entryContent = "Test Content",
@@ -285,23 +284,22 @@ definition {
 		while (IsElementNotPresent(
 				key_slaName = "${slaName}",
 				locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_ENGLISH_HOUR_FORMAT")) {
-				Click(locator1= "WorkflowAllItems#DETAIL_PAGE_CLOSE");
-				Pause(locator1 = "2000");
-				Refresh();
-				Click(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
-			}
+			Click(locator1 = "WorkflowAllItems#DETAIL_PAGE_CLOSE");
+			Pause(locator1 = "2000");
+			Refresh();
+			Click(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
+		}
 
-		
 		AssertElementPresent(
 			key_slaName = "${slaName}",
 			locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_ENGLISH_HOUR_FORMAT");
-	
-		Click(locator1= "WorkflowAllItems#DETAIL_PAGE_CLOSE");
+
+		Click(locator1 = "WorkflowAllItems#DETAIL_PAGE_CLOSE");
 
 		UserBar.gotoDropdownItem(dropdownItem = "Account Settings");
 
 		MyAccount.changeUserLanguage(
-			languageName= "português (Brasil)",
+			languageName = "português (Brasil)",
 			saveButton = "Save");
 
 		ApplicationsMenu.gotoPortlet(
@@ -309,14 +307,13 @@ definition {
 			panel = "Aplicativos",
 			portlet = "Métricas");
 
-
 		Click(
 			key_workflowProcessName = "Aprovador Único",
-			locator1 = "WorkflowMetrics#METRICS_WORKFLOW_PROCESS_NAME");		
+			locator1 = "WorkflowMetrics#METRICS_WORKFLOW_PROCESS_NAME");
 
 		Click(
-			newLanguageCardName = "Total pendente",
-			locator1 = "WorkflowMetrics#NEW_LANGUAGE_DASHBOARD_TOTAL_PENDING_ITEMS_TITLE");
+			locator1 = "WorkflowMetrics#NEW_LANGUAGE_DASHBOARD_TOTAL_PENDING_ITEMS_TITLE",
+			newLanguageCardName = "Total pendente");
 
 		WaitForElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
 
@@ -325,10 +322,6 @@ definition {
 		AssertElementNotPresent(
 			key_slaName = "${slaName}",
 			locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_ENGLISH_HOUR_FORMAT");
-
-
-			
-
 	}
 
 	@description = "LPS-89014 - Verify that the table view of SLAs are ordered by last modified (Desc)"
