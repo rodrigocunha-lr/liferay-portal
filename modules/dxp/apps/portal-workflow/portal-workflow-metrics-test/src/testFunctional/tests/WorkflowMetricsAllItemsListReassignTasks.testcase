@@ -95,7 +95,6 @@ definition {
 	@description = "LPS-106219 - Verify that, in the modal Select Tasks to Reassign, the filter query should only be applied after the user moves the cursor out of the dropdown card"
 	@priority = "3"
 	test FilterQueryIsAppliedAfterMouseMovesOutTheCard {
-		
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -157,10 +156,6 @@ definition {
 			key_workflowFilter = "Test Test",
 			locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_ASSERT_FILTER",
 			value1 = "Test Test");
-
-
-		
-
 	}
 
 	@description = "LPS-102664 - Verify that, in Select New Assignee table, there is a tooltip next to New Assignee title that says Possible assignees must have permissions to be assigned to the corresponding step"

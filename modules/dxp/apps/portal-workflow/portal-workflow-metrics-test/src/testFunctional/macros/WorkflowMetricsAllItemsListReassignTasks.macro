@@ -20,4 +20,4 @@ definition {
 		Click(locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_PROCESS_STEP");
 	}
 
-} 
+}
