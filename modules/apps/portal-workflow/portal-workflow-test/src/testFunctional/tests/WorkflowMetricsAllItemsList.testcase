@@ -219,8 +219,6 @@ definition {
 			resolutionStatus = "(Resolved Overdue)",
 			slaName = "SLA Name",
 			statusResult = "danger");
-
-			
 	}
 
 	@description = "LPS-130167 - Verify that the table entries should be ordered by Due Date, from older to the most recent date"
