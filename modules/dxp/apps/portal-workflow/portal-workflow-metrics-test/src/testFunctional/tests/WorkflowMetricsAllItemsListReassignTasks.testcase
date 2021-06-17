@@ -158,7 +158,6 @@ definition {
 	@description = "LPS-102664 - Verify that the Bulk Reassign is letting the user reassign only pending tasks"
 	@priority = "5"
 	test UserCanReassignOnlyPendingTasks {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -197,8 +196,6 @@ definition {
 		WorkflowMetrics.clearAllFilter();
 
 		AssertElementPresent(locator1 = "WorkflowAllItems#KEBAB_DROPDOWN_DISABLED");
-
-
 	}
 
 	@description = "LPS-102664 - Verify that the Bulk Reassign is letting the user reassign only pending tasks assigned to the user's role"
