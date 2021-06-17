@@ -164,6 +164,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>WORKFLOW_DIFFERENTS_INSTANCE_ID</td>
+	<td>//tbody//tr[@class]//td[@title='${key_itemName}']//..//span[contains(@class,'link-text')]//strong </td>
+	<td></td>
+</tr>
+<tr>
 	<td>WORKFLOW_INSTANCE_NAME</td>
 	<td>//td[contains(text(),'${key_workflowInstanceName}')]</td>
 	<td></td>
