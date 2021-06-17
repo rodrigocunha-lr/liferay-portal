@@ -57,11 +57,52 @@ definition {
 	}
 
 	@description = "LPS-106219 - Verify that the user is able to select multiple filter options and combine filter queries"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanSelectMultipleFilterOption {
 
-		// TODO LRQA-67833 CanSelectMultipleFilterOption pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title 1");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title 2");
+
+		WorkflowMetrics.goToDashboardAllItemsWithFilter(
+			workflowFilterOption = "PENDING",
+			workflowMetricsTab = "DASHBOARD",
+			workflowProcess = "Single Approver");
+
+		WorkflowMetrics.goToBulkReassignSelectTasks();
+
+		WorkflowMetricsAllItemsListReassignTasks.selectReassignTasksCardFilterValueProcessStep(workflowStep = "Review");
+
+		WorkflowMetricsAllItemsListReassignTasks.selectReassignTasksCardFilterValueAssignee(workflowAssignee = "Test Test");
+
+		AssertTextEquals(
+			locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_ASSERT_FILTER",
+			key_workflowFilter = "Review",
+			value1 = "Review");
+
+		AssertTextEquals(
+			locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_TASKS_CARD_FILTER_ASSERT_FILTER",
+			key_workflowFilter = "Test Test",
+			value1 = "Test Test");
+
+
+		
+
 
 	}
 
