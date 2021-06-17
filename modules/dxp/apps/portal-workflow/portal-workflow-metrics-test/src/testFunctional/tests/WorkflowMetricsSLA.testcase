@@ -185,7 +185,6 @@ definition {
 	@description = "LPS-89015 - Verify that the same task can't be selected in Start or Stop and Pause fields simultaneously"
 	@priority = "5"
 	test SameTaskCantBeSelectedInStartStopPauseFields {
-		
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
@@ -193,37 +192,36 @@ definition {
 		WorkflowMetrics.fillSLAForm(
 			slaDefinitionDays = "0",
 			slaDefinitionDescription = "SLA Description",
+			slaDefinitionHours = "00:01",
 			slaDefinitionName = "Test",
-			slaDefinitionStart = "Enters Task: Update",
-			slaDefinitionHours = "00:01");
+			slaDefinitionStart = "Enters Task: Update");
 
 		Click(locator1 = "WorkflowMetricsSLA#SLA_DEFINITION_PAUSE");
 
 		AssertElementNotPresent(
-			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION",
-			key_slaDefinitionPause = "On Task: Update");
+			key_slaDefinitionPause = "On Task: Update",
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION");
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION",
-			key_slaDefinitionPause = "On Task: Review");
+			key_slaDefinitionPause = "On Task: Review",
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION");
 
 		WorkflowMetrics.fillSLAForm(
 			slaDefinitionDays = "0",
 			slaDefinitionDescription = "SLA Description",
+			slaDefinitionHours = "00:01",
 			slaDefinitionName = "Test",
-			slaDefinitionStart = "Enters Task: Review",
-			slaDefinitionHours = "00:01");
+			slaDefinitionStart = "Enters Task: Review");
 
 		Click(locator1 = "WorkflowMetricsSLA#SLA_DEFINITION_PAUSE");
 
 		AssertElementNotPresent(
-			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION",
-			key_slaDefinitionPause = "On Task: Update");
+			key_slaDefinitionPause = "On Task: Update",
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION");
 
 		AssertElementNotPresent(
-			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION",
-			key_slaDefinitionPause = "On Task: Review");
-
+			key_slaDefinitionPause = "On Task: Review",
+			locator1 = "WorkflowMetricsSLA#SLA_DROPDOWN_PAUSE_OPTION");
 	}
 
 	@description = "LPS-89014 - Verify that the SLA infos are correctly displayed on the table view"
