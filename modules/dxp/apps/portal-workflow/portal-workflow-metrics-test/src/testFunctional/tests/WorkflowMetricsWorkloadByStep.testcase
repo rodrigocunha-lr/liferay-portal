@@ -46,7 +46,7 @@ definition {
 			workflowResourceValue = "Blogs Entry");
 
 		JSONBlog.addEntry(
-			entryContent = "Blogs Entry Content", 
+			entryContent = "Blogs Entry Content",
 			entryTitle = "Blogs Entry Title");
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
@@ -56,10 +56,6 @@ definition {
 			key_overdue = "0",
 			key_pending = "1",
 			key_untracked = "1");
-
-
-
-
 	}
 
 	@description = "LPS-86642 - Verify that, when the workflow has no pending items, the columns are populated with 0"
