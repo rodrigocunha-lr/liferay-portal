@@ -156,11 +156,48 @@ definition {
 	}
 
 	@description = "LPS-102664 - Verify that the Bulk Reassign is letting the user reassign only pending tasks"
-	@ignore = "Test Stub"
 	@priority = "5"
 	test UserCanReassignOnlyPendingTasks {
 
-		// TODO LRQA-67834 UserCanReassignOnlyPendingTasks pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry 1",
+			entryTitle = "Blogs Entry 1");
+
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_VALUE");
+
+		WorkflowMetrics.goToReassignSelectTask();
+
+		WorkflowMetrics.selectNewAssignee(taskList = "Blogs Entry: Blogs Entry 1");
+
+		Pause(locator1 = "1000");
+
+		Refresh();
+
+		Click(
+			locator1 = "WorkflowAllItems#KEBAB_DROPDOWN",
+			task = "1");
+
+		Click(locator1 = "WorkflowAllItems#APPROVE_DROPDOWN");
+
+		Button.clickDone();
+
+		WorkflowMetrics.clearAllFilter();
+
+		AssertElementPresent(locator1 = "WorkflowAllItems#KEBAB_DROPDOWN_DISABLED");
+
 
 	}
 
