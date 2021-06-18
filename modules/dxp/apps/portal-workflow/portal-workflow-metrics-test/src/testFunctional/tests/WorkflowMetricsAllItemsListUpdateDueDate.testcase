@@ -50,7 +50,6 @@ definition {
 	@description = "LPS-105498 - Verify that the user can filter the tasks by Step on Select Tasks to Update step"
 	@priority = "3"
 	test CanFilterTasksByStep {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -82,7 +81,7 @@ definition {
 			workflowAssetTitle = "Blogs Entry Title",
 			workflowAssetType = "Blogs Entry",
 			workflowTask = "Review");
-		
+
 		WorkflowMetrics.goToDashboardAllItemsWithFilter(
 			workflowFilterOption = "PENDING",
 			workflowMetricsTab = "DASHBOARD",
@@ -93,26 +92,18 @@ definition {
 		WorkflowMetricsAllItemsListUpdateDueDate.selectUpdateDueDateCardFilterValueProcessStep(workflowStep = "Review");
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#METRICS_UPDATE_DUE_DATE_LIST_ORDER",
-			key_title = "Blogs Entry: Blogs Entry Title");
+			key_title = "Blogs Entry: Blogs Entry Title",
+			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#METRICS_UPDATE_DUE_DATE_LIST_ORDER");
 
 		Click(locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#FILTER_CLEAR_ALL");
 
 		WorkflowMetricsAllItemsListUpdateDueDate.selectUpdateDueDateCardFilterValueProcessStep(workflowStep = "Update");
 
 		AssertElementPresent(
-			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#METRICS_UPDATE_DUE_DATE_LIST_ORDER",
-			key_title = "Blogs Entry: Blogs Entry Title");
+			key_title = "Blogs Entry: Blogs Entry Title",
+			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#METRICS_UPDATE_DUE_DATE_LIST_ORDER");
 
 		Click(locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#FILTER_CLEAR_ALL");
-
-		
-
-
-
-
-		
-
 	}
 
 	@description = "LPS-105498 - Verify that the user cannot update the due date of unassigned tasks that are also not assigned to its current role"
