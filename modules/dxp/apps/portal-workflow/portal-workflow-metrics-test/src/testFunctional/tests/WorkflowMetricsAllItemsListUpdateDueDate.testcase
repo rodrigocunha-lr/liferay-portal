@@ -68,7 +68,6 @@ definition {
 	@description = "LPS-105497 - Verify that users can hover over a row to see action options and select to Update Task Due Date by hovering over the calendar icon"
 	@priority = "3"
 	test CanSelectUpDateDueDateByHoveringOverIcon {
-
 		var currentYear = DateUtil.getCurrentYear();
 		var futureYear = ${currentYear} + 1;
 
@@ -92,11 +91,10 @@ definition {
 		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_VALUE");
 
 		MouseOver(
-			locator1 = "WorkflowAllItems#METRICS_PROCESS_NAME_TABLE_ROW",
-			key_rowNumber = "1");
+			key_rowNumber = "1",
+			locator1 = "WorkflowAllItems#METRICS_PROCESS_NAME_TABLE_ROW");
 
-		Click(
-			locator1 = "WorkflowAllItems#CALENDAR_ICON");
+		Click(locator1 = "WorkflowAllItems#CALENDAR_ICON");
 
 		Type(
 			locator1 = "MyWorkflowTasks#DIALOG_BOX_DUE_DATE",
@@ -107,7 +105,6 @@ definition {
 			value1 = "04:30 PM");
 
 		Button.clickDone();
-
 	}
 
 	@description = "LPS-105497 - Verify that the user can select Update Task Due Date in the kebab menu for a particular row"
