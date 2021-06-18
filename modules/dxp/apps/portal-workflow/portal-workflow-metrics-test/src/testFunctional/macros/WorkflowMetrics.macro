@@ -274,6 +274,26 @@ definition {
 		AssertElementPresent(locator1 = "WorkflowTransitionModal#TASK_PANEL");
 	}
 
+	macro assertWarningBlockedSlaNotPresent {
+		AssertElementNotPresent(
+			key_warningMessage = "${warningMessage}",
+			locator1 = "Message#WARNING_SPECIFIC");
+	}
+
+	macro assertWarningBlockedSlaPresent {
+		while (IsElementNotPresent(
+				key_warningMessage = "${warningMessage}",
+				locator1 = "Message#WARNING_SPECIFIC")) {
+			Pause(locator1 = "10000");
+			Refresh();
+		}
+
+		AssertTextEquals.assertPartialText(
+			key_warningMessage = "${warningMessage}",
+			locator1 = "Message#WARNING_SPECIFIC",
+			value1 = "${warningMessage}");
+	}
+
 	macro assertWorkflowProcessPresent {
 		AssertElementPresent(
 			key_workflowProcessName = "${workflowProcessName}",
