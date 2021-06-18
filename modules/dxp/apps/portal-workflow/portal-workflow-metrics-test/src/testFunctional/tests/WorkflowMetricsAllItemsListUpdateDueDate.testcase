@@ -77,7 +77,6 @@ definition {
 	@description = "LPS-105497 - Verify that the user can select Update Task Due Date in the kebab menu for a particular row"
 	@priority = "4"
 	test CanSelectUpDateDueDateInKebabMenu {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -102,7 +101,7 @@ definition {
 
 		var currentYear = DateUtil.getCurrentYear();
 		var futureYear = ${currentYear} + 1;
-		
+
 		Type(
 			locator1 = "MyWorkflowTasks#DIALOG_BOX_DUE_DATE",
 			value1 = "04/11/${futureYear}");
@@ -112,14 +111,6 @@ definition {
 			value1 = "04:30 PM");
 
 		Button.clickDone();
-
-	
-	
-
-
-
-
-
 	}
 
 	@description = "LPS-105497 - Verify that the current date/time is pre-populated into the Update Task Due Date form getting the data how it is in My Workflow Tasks"
