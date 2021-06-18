@@ -9,6 +9,11 @@
 </thead>
 <tbody>
 <tr>
+	<td>PROCESS_STEP_FILTER</td>
+	<td>//span[contains(@class,'control-label-text') and contains(.,'${key_processFilter}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>WORKFLOW_ALL_ITEMS_SELECT_ALL</td>
 	<td>//li[@class='nav-item ml-2']//label</td>
 	<td></td>
@@ -21,6 +26,11 @@
 <tr>
 	<td>REASSIGN_ICON</td>
 	<td>xpath=(//div[@class="quick-action-menu"]//button[1])[${task}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REASSIGN_ICON_2</td>
+	<td>//div[@class="quick-action-menu"]//button[3]</td>
 	<td></td>
 </tr>
 <tr>
@@ -46,6 +56,11 @@
 <tr>
 	<td>APPROVE_DROPDOWN</td>
 	<td>//div[@class='dropdown-menu show']//button[@class='dropdown-item'][contains(text(),'Approve')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REJECT_DROPDOWN</td>
+	<td>//div[@class='dropdown-menu show']//button[@class='dropdown-item'][contains(text(),'Reject')]</td>
 	<td></td>
 </tr>
 <tr>
