@@ -149,7 +149,6 @@ definition {
 	@description = "LPS-97666 - Verify that the steps filter inside the card Performance by Assignee has All Steps as the first option from the dropdown menu"
 	@priority = "3"
 	test StepsFilterHasAllStepsAsFirstOption {
-
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
@@ -193,18 +192,9 @@ definition {
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
-		
 		Click(locator1 = "WorkflowMetrics#METRICS_PERFORMANCE_TAB");
 
 		AssertElementPresent(locator1 = "WorkflowMetricsPerformanceByAssignee#WORKFLOW_PERFORMANCE_BT_STEP_ALL_STEPS_FILTER");
-
-
-
-
-
-
-
-
 	}
 
 	@description = "LPS-97666 - Verify that the steps filter inside the card Performance by Assignee is ordered alphabetically"
