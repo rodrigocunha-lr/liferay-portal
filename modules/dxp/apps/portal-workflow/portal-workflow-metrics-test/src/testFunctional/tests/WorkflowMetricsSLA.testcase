@@ -143,8 +143,6 @@ definition {
 			locator1 = "WorkflowMetricsSLA#SLA_RECORD_TITLE");
 
 		WorkflowMetrics.assertErrorSlaPresent(errorMessage = "The time frame options changed in the workflow definition. Please select new time frames.");
-
-		
 	}
 
 	@description = "LPS-89014 - Verify that the field Name should be in focus at the SLA page when the user selects to edit or to create a new SLA"
