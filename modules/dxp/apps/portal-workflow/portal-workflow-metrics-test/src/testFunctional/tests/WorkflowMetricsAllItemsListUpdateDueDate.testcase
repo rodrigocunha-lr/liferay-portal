@@ -41,7 +41,6 @@ definition {
 	@description = "LPS-105498 - Verify that the user can filter the tasks by Assignee on Select Tasks to Update step"
 	@priority = "3"
 	test CanFilterTasksByAssignee {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -83,17 +82,6 @@ definition {
 		AssertElementPresent(
 			key_title = "Blogs Entry: Blogs Entry Title 2",
 			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#METRICS_UPDATE_DUE_DATE_LIST_ORDER");
-
-		
-
-
-
-
-
-		
-
-
-
 	}
 
 	@description = "LPS-105498 - Verify that the user can filter the tasks by Step on Select Tasks to Update step"
