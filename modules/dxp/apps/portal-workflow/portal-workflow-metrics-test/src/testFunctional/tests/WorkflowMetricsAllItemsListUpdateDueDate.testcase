@@ -48,11 +48,70 @@ definition {
 	}
 
 	@description = "LPS-105498 - Verify that the user can filter the tasks by Step on Select Tasks to Update step"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanFilterTasksByStep {
 
-		// TODO LRQA-67827 CanFilterTasksByStep pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title");
+
+		UserBar.gotoDropdownItem(dropdownItem = "My Workflow Tasks");
+
+		Workflow.assignToMeTaskByActions(
+			workflowAssetTitle = "Blogs Entry Title",
+			workflowAssetType = "Blogs Entry",
+			workflowTask = "Review");
+
+		Workflow.rejectTaskByActions(
+			workflowAssetContent = "Blogs Entry Content",
+			workflowAssetTitle = "Blogs Entry Title",
+			workflowAssetType = "Blogs Entry",
+			workflowTask = "Review");
+		
+		WorkflowMetrics.goToDashboardAllItemsWithFilter(
+			workflowFilterOption = "PENDING",
+			workflowMetricsTab = "DASHBOARD",
+			workflowProcess = "Single Approver");
+
+		WorkflowMetrics.goToUpdateDueDateTasks();
+
+		WorkflowMetricsAllItemsListUpdateDueDate.selectUpdateDueDateCardFilterValueProcessStep(workflowStep = "Review");
+
+		AssertElementPresent(
+			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#METRICS_UPDATE_DUE_DATE_LIST_ORDER",
+			key_title = "Blogs Entry: Blogs Entry Title");
+
+		Click(locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#FILTER_CLEAR_ALL");
+
+		WorkflowMetricsAllItemsListUpdateDueDate.selectUpdateDueDateCardFilterValueProcessStep(workflowStep = "Update");
+
+		AssertElementPresent(
+			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#METRICS_UPDATE_DUE_DATE_LIST_ORDER",
+			key_title = "Blogs Entry: Blogs Entry Title");
+
+		Click(locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#FILTER_CLEAR_ALL");
+
+		
+
+
+
+
+		
 
 	}
 
