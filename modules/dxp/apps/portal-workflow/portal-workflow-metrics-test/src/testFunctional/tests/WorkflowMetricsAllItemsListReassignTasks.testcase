@@ -150,8 +150,6 @@ definition {
 			entryContent = "Blogs Entry Content",
 			entryTitle = "Blogs Entry Title 2");
 
-			
-
 		WorkflowMetrics.goToDashboardAllItemsWithFilter(
 			workflowFilterOption = "PENDING",
 			workflowMetricsTab = "DASHBOARD",
@@ -162,9 +160,8 @@ definition {
 
 			key_title = "Blogs Entry: Blogs Entry Title ${orderNumber}";
 
-
 			AssertElementPresent(locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_ALL_ITEMS_LIST_ORDER");
-			}
+		}
 
 		WorkflowMetrics.goToBulkReassignSelectTasks();
 
@@ -173,9 +170,8 @@ definition {
 
 			key_title = "Blogs Entry: Blogs Entry Title ${orderNumber}";
 
-
 			AssertElementPresent(locator1 = "WorkflowMetricsAllItemsListReassignTasks#METRICS_REASSIGN_LIST_ORDER");
-			}
+		}
 	}
 
 	@description = "LPS-102664 - Verify that the user is able to filter the info inside Select Tasks to Reassign by Step and Assignee, search for any of the available field values and the table is updated accordingly"
