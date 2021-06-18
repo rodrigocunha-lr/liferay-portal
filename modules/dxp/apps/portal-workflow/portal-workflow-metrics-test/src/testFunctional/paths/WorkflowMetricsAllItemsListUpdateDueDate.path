@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>WorkflowMetricsAllItemsListUpdateDueDate</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">WorkflowMetricsAllItemsListUpdateDueDate</td></tr>
+</thead>
+<tbody>
+<tr>
+    <td>DUE_DATE_BUTTON_ALL_ITEMS_LIST</td>
+    <td>//button[contains(@class,'component-action quick-action-item')][2]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>NEW_DUE_DATE_INPUT_ALL_ITEMS_LIST</td>
+    <td>//input[contains(@placeholder,'MM/DD/YYYY')]</td>
+    <td></td>
+</tr>
+<tr>
+    <td>NEW_DUE_DATE_INPUT_ALL_ITEMS_LIST_TIME</td>
+    <td>//input[contains(@placeholder, 'HH:mm am/pm')]</td>
+    <td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
