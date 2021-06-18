@@ -86,7 +86,6 @@ definition {
 	@description = "LPS-106219 - Verify that, in the modal Select Tasks to Reassign, the filters options are ordered alphabetically"
 	@priority = "3"
 	test FilterOptionsAreAlphabeticallyOrdered {
-
 		WorkflowMetrics.createUsersGroovy(numberOfUsers = "1");
 
 		ApplicationsMenu.gotoPortlet(
@@ -140,17 +139,17 @@ definition {
 		Click(locator1 = "WorkflowAllItems#REASSIGN_ICON_2");
 
 		Click(
-			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
-			key_allItemsFilterName = "Process Step");
+			key_allItemsFilterName = "Process Step",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY");
 
 		AssertTextEquals(
-			locator1 = "WorkflowAllItems#PROCESS_STEP_FILTER",
 			key_processFilter = "Review",
+			locator1 = "WorkflowAllItems#PROCESS_STEP_FILTER",
 			value1 = "Review");
 
 		AssertTextEquals(
-			locator1 = "WorkflowAllItems#PROCESS_STEP_FILTER",
 			key_processFilter = "Update",
+			locator1 = "WorkflowAllItems#PROCESS_STEP_FILTER",
 			value1 = "Update");
 	}
 
