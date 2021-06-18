@@ -86,8 +86,6 @@ definition {
 	@description = "LPS-105497 - Verify that the current date/time is pre-populated into the Update Task Due Date form getting the data how it is in My Workflow Tasks"
 	@priority = "3"
 	test CurrentDateTimeIsPrePopulated {
-		
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -134,13 +132,6 @@ definition {
 		AssertElementPresent(
 			locator1 = "WorkflowMetricsAllItemsListUpdateDueDate#NEW_DUE_DATE_INPUT_ALL_ITEMS_LIST_TIME",
 			value1 = "${displayTime}");
-
-
-
-			
-
-
-
 	}
 
 	@description = "LPS-105497 - Verify that when there is an unexpected error, the modal displays the specific error state message in the banner"
