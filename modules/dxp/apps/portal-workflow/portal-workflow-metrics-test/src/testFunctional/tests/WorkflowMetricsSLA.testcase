@@ -96,8 +96,6 @@ definition {
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
 		WorkflowMetrics.assertWarningBlockedSlaNotPresent(warningMessage = "1 SLA is blocked. Fix the SLA configuration to resume accurate reporting.");
-
-		
 	}
 
 	@description = "LPS-89014 - Verify the system allow users to navigate between fields and buttons by pressing tab key considering the following order: Name > Description > Start > Pause > Stop > Days > Hours > Save button > Cancel button"
