@@ -176,27 +176,25 @@ definition {
 	@description = "LPS-87571 - Verify that when user reaches the page through Dashboard tab, the filter options are: SLA Status, Process Status, Process Step and Assignee"
 	@priority = "3"
 	test FiltersDisplayedWhenReachingPageThroughDashboardTab {
-
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
 		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_VALUE");
 
 		AssertElementPresent(
-			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
-			key_allItemsFilterName = "SLA Status");
+			key_allItemsFilterName = "SLA Status",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY");
 
 		AssertElementPresent(
-			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
-			key_allItemsFilterName = "Process Status");
+			key_allItemsFilterName = "Process Status",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY");
 
 		AssertElementPresent(
-			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
-			key_allItemsFilterName = "Process Step");
+			key_allItemsFilterName = "Process Step",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY");
 
 		AssertElementPresent(
-			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
-			key_allItemsFilterName = "Assignee");
-
+			key_allItemsFilterName = "Assignee",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY");
 	}
 
 	@description = "LPS-87571 - Verify that when user reaches the page through Performance tab, the filter options are: SLA Status, Process Status, Process Step, Completion Time and Assignee"
