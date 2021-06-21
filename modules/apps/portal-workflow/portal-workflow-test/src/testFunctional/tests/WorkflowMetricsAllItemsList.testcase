@@ -50,7 +50,6 @@ definition {
 	@description = "LPS-86652 - Verify that every column displays the correct info for a item"
 	@priority = "5"
 	test ColumnsDiplayCorrectInfo {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -71,13 +70,11 @@ definition {
 		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_TITLE");
 
 		Workflow.assertInfoItem(
-			key_dueDate = "-",
-			key_itemSubject = "Blogs Entry: Blogs Title 1", 
-			key_processStep = "Review",
 			key_assignee = "Unassigned",
-			key_createdBy = "Test Test");
-			
-
+			key_createdBy = "Test Test",
+			key_dueDate = "-",
+			key_itemSubject = "Blogs Entry: Blogs Title 1",
+			key_processStep = "Review");
 	}
 
 	@description = "LPS-86652 - Validate that the correct number of entries is showed when user chooses 4, 8, 20, 40, 60"
