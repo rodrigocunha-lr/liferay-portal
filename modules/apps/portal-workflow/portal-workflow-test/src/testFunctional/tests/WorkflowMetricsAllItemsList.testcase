@@ -93,12 +93,6 @@ definition {
 		AssertElementPresent(locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_MESSAGE");
 
 		AssertElementPresent(locator1 = "WorkflowAllItems#DETAIL_PAGE_TITLE");
-
-
-
-
-
-		
 	}
 
 	@description = "LPS-86652 - Verify that every column displays the correct info for a item"
