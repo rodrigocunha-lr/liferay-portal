@@ -243,9 +243,6 @@ definition {
 		Click(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
 
 		AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_SLA_STATUS_BEFORE_TITLE");
-
-
-		
 	}
 
 	@description = "LPS-92053 - Verify that the item modal places an icon before the modal title referring to the SLA status: On Time"
