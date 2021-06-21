@@ -95,7 +95,6 @@ definition {
 	@description = "LPS-92043 - Verify that the Due Date is displayed with a hyphen if a SLA didn't start counting"
 	@priority = "4"
 	test DisplayDueDateWithHyphenWhenSLANotStarted {
-
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
@@ -130,10 +129,9 @@ definition {
 		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_TITLE");
 
 		AssertElementPresent(
-			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ASSERT_ITEM",
 			key_columnName = "Due Date",
-			key_fieldName = "-");
-
+			key_fieldName = "-",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ASSERT_ITEM");
 	}
 
 	@description = "LPS-92043 - Verify that the Due Date displays the next SLA in line when a SLA didn't start counting"
