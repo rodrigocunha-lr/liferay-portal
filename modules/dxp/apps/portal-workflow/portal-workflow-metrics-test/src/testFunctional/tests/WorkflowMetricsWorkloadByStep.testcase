@@ -109,7 +109,8 @@ definition {
 			panel = "Site Administration",
 			portlet = "Blogs");
 
-		JSONBlog.addEntry(entryContent = "Blogs Entry Content", 
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
 			entryTitle = "Blogs Entry Title");
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
@@ -126,11 +127,9 @@ definition {
 			overdueValue = "1",
 			stepName = "Review");
 
-
 		WorkflowMetricsWorkloadByStep.viewWorkloadByStepTotalPendingValue(
-			totalPendingValue = "1",
-			stepName = "Review");
-
+			stepName = "Review",
+			totalPendingValue = "1");
 	}
 
 	@description = "LPS-86642 - Verify that the On Time is the total number of pending instances that didn't breach any SLAs target times"
