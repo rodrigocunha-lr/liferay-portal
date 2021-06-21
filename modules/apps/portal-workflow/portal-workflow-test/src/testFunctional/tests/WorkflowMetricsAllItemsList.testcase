@@ -174,11 +174,28 @@ definition {
 	}
 
 	@description = "LPS-87571 - Verify that when user reaches the page through Dashboard tab, the filter options are: SLA Status, Process Status, Process Step and Assignee"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test FiltersDisplayedWhenReachingPageThroughDashboardTab {
 
-		// TODO LRQA-67769 FiltersDisplayedWhenReachingPageThroughDashboardTab pending implementation
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_VALUE");
+
+		AssertElementPresent(
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
+			key_allItemsFilterName = "SLA Status");
+
+		AssertElementPresent(
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
+			key_allItemsFilterName = "Process Status");
+
+		AssertElementPresent(
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
+			key_allItemsFilterName = "Process Step");
+
+		AssertElementPresent(
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_FILTER_BY",
+			key_allItemsFilterName = "Assignee");
 
 	}
 
