@@ -84,11 +84,50 @@ definition {
 	}
 
 	@description = "LPS-86652 - Verify that the correct columns are displayed ID, Due Date, Item Subject, Process Step, Assignee, Created By, Creation Date"
-	@ignore = "Test Stub"
 	@priority = "5"
 	test DisplayColumns {
 
-		// TODO LRQA-67776 DisplayColumns pending implementation
+		ApplicationsMenu.gotoPortlet(
+            category = "Workflow",
+            panel = "Applications",
+            portlet = "Process Builder");
+
+        Navigator.gotoNavItem(navItem = "Configuration");
+
+        Workflow.configureWorkflow(
+            workflowDefinition = "Single Approver",
+            workflowResourceValue = "Blogs Entry");
+
+        JSONBlog.addEntry(
+            entryContent = "Test content",
+            entryTitle = "Test Blog");
+
+        ApplicationsMenu.gotoPortlet(
+            category = "Workflow",
+            panel = "Applications",
+            portlet = "Metrics");
+
+        WorkflowMetrics.goToDashboardAllItemsWithFilter(
+            workflowFilterOption = "PENDING",
+            workflowMetricsTab = "DASHBOARD",
+            workflowProcess = "Single Approver");
+
+        AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_ID");
+
+        AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_DUE_DATE");
+
+        AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_ITEM_SUBJECT");
+
+        AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_PROCESS_STEP");
+
+        AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_ASSIGNEE");
+
+        AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CREATE_BY");
+
+        AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CREATION_DATE");
+
+
+
 
 	}
 
