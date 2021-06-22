@@ -386,30 +386,28 @@ definition {
 			workflowProcess = "Single Approver");
 
 		WorkflowMetrics.assertTableOrder(
-			rowNumber = "1",
 			itemTitle = "Blogs Entry: Blogs Entry Title 1",
-			keyCompare = "Blogs Entry: Blogs Entry Title 2");
+			keyCompare = "Blogs Entry: Blogs Entry Title 2",
+			rowNumber = "1");
 
 		WorkflowMetrics.assertTableOrder(
-			rowNumber = "2",
 			itemTitle = "Blogs Entry: Blogs Entry Title 2",
-			keyCompare = "Blogs Entry: Blogs Entry Title 1");
+			keyCompare = "Blogs Entry: Blogs Entry Title 1",
+			rowNumber = "2");
 
 		Click(
 			key_orderBy = "Due Date",
 			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ORDER_BY");
 
 		WorkflowMetrics.assertTableOrder(
-			rowNumber = "1",
 			itemTitle = "Blogs Entry: Blogs Entry Title 2",
-			keyCompare = "Blogs Entry: Blogs Entry Title 1");
+			keyCompare = "Blogs Entry: Blogs Entry Title 1",
+			rowNumber = "1");
 
 		WorkflowMetrics.assertTableOrder(
-			rowNumber = "2",
 			itemTitle = "Blogs Entry: Blogs Entry Title 1",
-			keyCompare = "Blogs Entry: Blogs Entry Title 2");
-		
-
+			keyCompare = "Blogs Entry: Blogs Entry Title 2",
+			rowNumber = "2");
 	}
 
 	@description = "LPS-98517 - Verify that if Assignee dropdown menu is higher than 496px a search bar is added on it as specified on Figma"
