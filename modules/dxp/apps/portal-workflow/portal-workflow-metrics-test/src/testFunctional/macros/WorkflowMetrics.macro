@@ -732,6 +732,18 @@ definition {
 		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_VALUE");
 	}
 
+	macro assertTableOrder{
+		AssertTextEquals(
+			key_rowNumber = "${rowNumber}",
+			locator1 = "WorkflowAllItems#METRICS_ALL_ITEMS_TABLE_ROW",
+			value1 = "${itemTitle}");
+
+		AssertTextNotEquals(
+			key_rowNumber = "${rowNumber}",
+			locator1 = "WorkflowAllItems#METRICS_ALL_ITEMS_TABLE_ROW",
+			value1 = "${keyCompare}");
+	}
+
 	macro goToWorkflowProcessMetrics {
 		var key_workflowProcessName = "${workflowProcessName}";
 
