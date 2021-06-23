@@ -252,10 +252,6 @@ definition {
 			key_stepName = "Review",
 			locator1 = "WorkflowMetricsPerformanceByStep#METRICS_PERFORMANCE_BY_STEP_PAGE_TABLE_AVG_COMPLETION_TIME_VALUE",
 			value1 = "1min");
-
-
-
-			
 	}
 
 	@description = "LPS-97667 - Verify that, when displaying time, the time units are shortened by using the biggest measurement possible, and use up to 2 units per time, with minute as smallest value and days as biggest unit"
