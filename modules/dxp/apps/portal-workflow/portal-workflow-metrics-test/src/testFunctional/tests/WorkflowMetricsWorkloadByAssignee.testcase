@@ -185,7 +185,6 @@ definition {
 	@description = "LPS-97669 - Verify there is no percentage indication out of the total amount of assigned tasks when the tab Total is selected"
 	@priority = "4"
 	test ThereIsNoPercentageIndicationOnTotalTab {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -206,21 +205,15 @@ definition {
 		Workflow.assignToMeTaskByActions(
 			workflowAssetTitle = "Blogs Entry Title",
 			workflowAssetType = "Blogs Entry",
-			workflowTask = "Review");	
+			workflowTask = "Review");
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
 		Click(
-			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TAB",
-			key_tabName = "Total");
+			key_tabName = "Total",
+			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TAB");
 
 		AssertElementNotPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_PERCENTAGE");
-
-
-
-
-
-
 	}
 
 	@description = "LPS-103365 - Verify that when the user clicks on the username or item number of the table inside (Workload by Assignee) page, the user is directed to the All Items page with the appropriate filters applied"
