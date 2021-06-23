@@ -46,9 +46,6 @@ definition {
 			title = "Performance by Step");
 
 		WorkflowMetrics.viewDateRangeErrorMessage(errorMessage = "Please enter a valid date.");
-
-
-		
 	}
 
 	@description = "LPS-100674 - Verify that the card Performance by Step has no more than 10 entries displayed"
