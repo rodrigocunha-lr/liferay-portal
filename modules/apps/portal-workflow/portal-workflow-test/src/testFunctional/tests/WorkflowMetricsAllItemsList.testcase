@@ -320,7 +320,6 @@ definition {
 	@description = "LPS-98517 - Verify that if Assignee dropdown menu is higher than 496px a search bar is added on it as specified on Figma"
 	@priority = "3"
 	test SearchBarIsAddedOnAssigneeDropdownMenuWhenItIsHigherThan496px {
-
 		var siteName = TestCase.getSiteName(siteName = "${siteName}");
 
 		ProductMenu.gotoPortlet(
@@ -331,12 +330,11 @@ definition {
 		Workflow.configureWorkflow(
 			workflowDefinition = "Single Approver",
 			workflowResourceValue = "Blogs Entry");
-		
+
 		WorkflowMetrics.createUsersAndAssignInstances(
 			numberOfBlogInstances = "13",
 			numberOfUsers = "13",
 			site = "${siteName}");
-
 
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
@@ -349,8 +347,8 @@ definition {
 		AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ASSIGNEE_DROPDOWN_SEARCHBAR");
 
 		Type(
-			value1 = "5user user5",
-			locator1 = "WorkflowAllItems#WORKFLOW_ASSIGNEE_DROPDOWN_SEARCHBAR");
+			locator1 = "WorkflowAllItems#WORKFLOW_ASSIGNEE_DROPDOWN_SEARCHBAR",
+			value1 = "5user user5");
 
 		AssertElementPresent(
 			key_userName = "5user user5",
