@@ -366,10 +366,6 @@ definition {
 			key_order = "2",
 			key_processStep = "Completed",
 			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_ORDER");
-
-
-
-			
 	}
 
 	@description = "LPS-130167 - Verify that the user is able to reorder entries by clicking the Due Date column title"
