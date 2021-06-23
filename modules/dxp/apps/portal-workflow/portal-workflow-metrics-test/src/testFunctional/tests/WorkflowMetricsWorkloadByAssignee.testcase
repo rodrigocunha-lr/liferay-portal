@@ -167,7 +167,6 @@ definition {
 	@description = "LPS-98518 - Verify that, in (Workload by Assignee) page, the search field has a hint with the message: (Search for assignee name...)"
 	@priority = "3"
 	test SearchFieldContainsHintMessage {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -197,10 +196,6 @@ definition {
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_VIEW_ALL_ASSIGNEES_LINK");
 
 		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_SEARCH_ASSIGNEE_NAME");
-
-
-
-
 	}
 
 	@description = "LPS-97669 - Verify that the card (Workload by Assignee) has no more than 10 users"
