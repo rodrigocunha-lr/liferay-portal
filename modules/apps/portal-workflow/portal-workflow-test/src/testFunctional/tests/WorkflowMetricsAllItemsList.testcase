@@ -124,9 +124,6 @@ definition {
 		AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CREATE_BY");
 
 		AssertElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CREATION_DATE");
-
-
-		
 	}
 
 	@description = "LPS-92043 - Verify that the Due Date is displayed with a hyphen if a SLA didn't start counting"
