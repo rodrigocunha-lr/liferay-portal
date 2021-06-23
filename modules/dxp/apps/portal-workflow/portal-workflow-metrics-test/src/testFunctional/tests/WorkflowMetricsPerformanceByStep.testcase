@@ -193,7 +193,6 @@ definition {
 	@description = "LPS-100674 - Verify that the To date is greater than the From date"
 	@priority = "3"
 	test ToDateMustBeGreaterThanFromDate {
-
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
 
 		Navigator.gotoNavItem(navItem = "Performance");
@@ -208,11 +207,6 @@ definition {
 		WorkflowMetrics.viewDateRangeErrorMessage(errorMessage = "The start date cannot be later than the end date.");
 
 		WorkflowMetrics.viewDateRangeErrorMessage(errorMessage = "The end date cannot be earlier than the start date.");
-
-
-
-		
-
 	}
 
 	@description = "LPS-100677 - Verify that searching steps containing non-ascii chars is possible"
