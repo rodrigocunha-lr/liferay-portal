@@ -189,10 +189,6 @@ definition {
 			isNotPresent = "Review",
 			slaBreachedValue = "0 (0%)",
 			stepName = "Update");
-
-
-
-			
 	}
 
 	@description = "LPS-97667 - Verify that when there are tasks with average time smaller than 1 minute the average completion time is displayed"
