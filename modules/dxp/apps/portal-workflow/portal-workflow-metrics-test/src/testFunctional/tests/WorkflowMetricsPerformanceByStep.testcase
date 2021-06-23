@@ -40,7 +40,6 @@ definition {
 	@description = "LPS-100674 - Verify that the card Performance by Step has no more than 10 entries displayed"
 	@priority = "3"
 	test CardDoesNotDisplayMoreThan10Entries {
-
 		property test.name.skip.portal.instance = "WorkflowMetricsPerformanceByStep#CardDoesNotDisplayMoreThan10Entries";
 
 		ApplicationsMenu.gotoPortlet(
@@ -59,7 +58,6 @@ definition {
 		AssertElementNotPresent(
 			key_rowNumber = "11",
 			locator1 = "WorkflowMetricsPerformanceByStep#METRICS_PERFORMANCE_BY_STEP_CARD_VIEW_ROW");
-
 	}
 
 	@description = "LPS-100674 - Verify that the card Performance by Steps works as designed when the portal is set to a non-en-US locale"
