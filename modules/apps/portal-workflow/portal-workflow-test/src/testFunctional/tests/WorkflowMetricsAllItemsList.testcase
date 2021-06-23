@@ -353,8 +353,6 @@ definition {
 			rowNumber = "1",
 			slaName = "Test1",
 			slaPosition = "2");
-
-
 	}
 
 	@description = "LPS-130166 - Verify that the popover is not displayd when hovering untracked items on Due Date column item"
