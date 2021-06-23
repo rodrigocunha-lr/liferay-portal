@@ -86,7 +86,6 @@ definition {
 	@description = "LPS-98518 - Verify that the filters inside (Workload by Assignee) are applied only after the user moves the cursor out of the dropdown card"
 	@priority = "3"
 	test FiltersAreAppliedAfterUserMovesCursorOutOfDropdownCard {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -119,19 +118,13 @@ definition {
 
 		AssertElementNotPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_FILTER_OPTION");
 
-		WorkflowMetrics.clearAllFilter();	
+		WorkflowMetrics.clearAllFilter();
 
 		WorkflowMetrics.selectWorkloadByAssigneeCardFilterValueProcessStep(workflowStep = "Review");
 
 		AssertElementNotPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_FILTER_OPTION");
 
 		WorkflowMetrics.clearAllFilter();
-
-		
-
-
-
-
 	}
 
 	@description = "LPS-97669 - Verify that info icon hover state and tooltip message"
