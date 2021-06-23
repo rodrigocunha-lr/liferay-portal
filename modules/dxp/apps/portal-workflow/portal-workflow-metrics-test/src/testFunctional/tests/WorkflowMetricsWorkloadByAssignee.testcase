@@ -100,9 +100,6 @@ definition {
 		MouseOver(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_ICON");
 
 		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_ICON_MESSAGE");
-
-
-		
 	}
 
 	@description = "LPS-97669 - Verify that a long username is placed in more than one line, respecting the alignment of the field inside Workload by Assignee card"
