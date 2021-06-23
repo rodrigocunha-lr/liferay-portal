@@ -329,7 +329,6 @@ definition {
 	@description = "LPS-92053 - Verify that, in the item detail modal, when one of the sections has no entries, the section title is completely removed"
 	@priority = "4"
 	test SectionIsRemovedWhenItHasNoEntries {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -371,18 +370,11 @@ definition {
 		WorkflowMetrics.goToDashboardAllItemsWithFilter(
 			workflowFilterOption = "COMPLETED",
 			workflowMetricsTab = "PERFORMANCE",
-			workflowProcess = "Single Approver");	
+			workflowProcess = "Single Approver");
 
 		Click(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
 
 		AssertElementNotPresent(locator1 = "WorkflowAllItems#DETAIL_PAGE_CURRENT_STEP");
-
-
-
-
-
-
-
 	}
 
 	@description = "LPS-92053 - Verify that, in the item detail modal, when an item is completed, the summary section should hide the info Current Step and replace it with End Date"
