@@ -122,7 +122,6 @@ definition {
 	@description = "LPS-97669 - Verify that there is a percentage indication out of the total amount of assigned tasks when the tab On Time is selected"
 	@priority = "5"
 	test PercentageIndicationOnOnTimeTab {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -133,7 +132,7 @@ definition {
 		Workflow.configureWorkflow(
 			workflowDefinition = "Single Approver",
 			workflowResourceValue = "Blogs Entry");
-		
+
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
@@ -165,12 +164,7 @@ definition {
 			key_tabName = "On Time",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TAB");
 
-		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_PERCENTAGE");	
-
-
-	
-
-
+		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_PERCENTAGE");
 	}
 
 	@description = "LPS-97669 - Verify that there is a percentage indication out of the total amount of assigned tasks when the tab Overdue is selected"
