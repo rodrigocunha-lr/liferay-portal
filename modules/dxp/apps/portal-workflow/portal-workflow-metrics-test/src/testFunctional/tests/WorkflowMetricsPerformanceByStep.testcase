@@ -56,11 +56,24 @@ definition {
 	}
 
 	@description = "LPS-100674 - Verify that the default date format for en-US in Custom Range filter is MM/DD/YYYY"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test DefaultDateFormatIsMMDDYYYY {
 
-		// TODO LRQA-67691 DefaultDateFormatIsMMDDYYYY pending implementation
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		Navigator.gotoNavItem(navItem = "Performance");
+
+		Click(
+			key_title = "Performance by Step",
+			locator1 = "WorkflowMetrics#METRICS_DATE_RANGE_DROPDOWN_BY_TITLE");
+
+		Click(
+			locator1 = "WorkflowMetrics#METRICS_COMPLETION_VELOCITY_DATE_RANGE_DROPDOWN_OPTION",
+			completionVelocityDateRange = "Custom Range");
+
+		AssertElementPresent(
+			key_dateFormat = "Default date format is MM/DD/YYYY.",
+			locator1 = "WorkflowMetricsCompletionVelocity#DEFAULT_DATE_FORMAT_MESSAGE");
 
 	}
 
