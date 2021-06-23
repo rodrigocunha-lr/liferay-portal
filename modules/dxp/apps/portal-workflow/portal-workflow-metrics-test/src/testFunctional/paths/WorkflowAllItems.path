@@ -36,6 +36,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>DUE_DATE_POPOVER_SLA_INFO</td>
+	<td>//div[@class='popover-body']//div[${key_slaPosition}]//div[contains(text(), '${key_slaName}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>REASSIGN_TASK_DROPDOWN</td>
 	<td>//div[@class='dropdown-menu show']//button[@class='dropdown-item'][contains(text(),'Reassign Task')]</td>
 	<td></td>
@@ -173,6 +178,11 @@
 <tr>
 	<td>WORKFLOW_INSTANCE_ID</td>
 	<td>//td[contains(@class,'table-title')]//strong | //span[contains(@class,'link-text')]//strong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>METRICS_INSTANCE_ITEMS_POSITION</td>
+	<td>//tr[${key_rowNumber}]//td[${key_itemPosition}]</td>
 	<td></td>
 </tr>
 <tr>
