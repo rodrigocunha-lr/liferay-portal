@@ -332,17 +332,6 @@ definition {
 				key_order = "${orderNumber}",
 				locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_ORDER");
 		}
-
-
-
-
-
-
-
-
-
-
-
 	}
 
 	@description = "LPS-86652 - Verify that long texts will display ellipsis"
