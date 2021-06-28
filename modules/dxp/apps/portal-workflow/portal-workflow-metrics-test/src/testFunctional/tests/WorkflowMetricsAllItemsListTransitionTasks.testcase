@@ -487,7 +487,6 @@ definition {
 	@description = "LPS-105495 - Verify that tasks with more than 10 possible transitions have a scroll inside the dropdown field"
 	@priority = "3"
 	test TasksWithMoreThan10PossibleTransitionsHasScroll {
-
 		property test.name.skip.portal.instance = "WorkflowMetricsAllItemsListTransitionTasks#TasksWithMoreThan10PossibleTransitionsHasScroll";
 
 		ApplicationsMenu.gotoPortlet(
@@ -524,14 +523,8 @@ definition {
 		Click(
 			locator1 = "WorkflowAllItems#KEBAB_DROPDOWN",
 			task = "1");
-		
+
 		AssertElementPresent(locator1 = "WorkflowAllItems#TRANSITION_DROPDOWN_KEBAB");
-
-
-
-
-
-
 	}
 
 	@description = "LPS-105495 - Verify that an Unexpected Error message is displayed when the user tries to reassign a task and an unexpected error -such as a connection loss- occurs"
