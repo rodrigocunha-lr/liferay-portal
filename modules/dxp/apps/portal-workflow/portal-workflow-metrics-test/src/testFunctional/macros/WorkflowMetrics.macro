@@ -292,6 +292,18 @@ definition {
 			value1 = "Current Assignee");
 	}
 
+	macro assertTableOrder {
+		AssertTextEquals(
+			key_rowNumber = "${rowNumber}",
+			locator1 = "WorkflowAllItems#METRICS_ALL_ITEMS_TABLE_ROW",
+			value1 = "${itemTitle}");
+
+		AssertTextNotEquals(
+			key_rowNumber = "${rowNumber}",
+			locator1 = "WorkflowAllItems#METRICS_ALL_ITEMS_TABLE_ROW",
+			value1 = "${keyCompare}");
+	}
+
 	macro assertSlaPosition {
 		AssertElementPresent(
 			key_slaPosition = "${slaPosition}",
