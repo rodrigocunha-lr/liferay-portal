@@ -200,7 +200,6 @@ definition {
 	@description = "LPS-86642 - Verify that when are parallel branches on the workflow, the sum of all pending items of the steps will be greater than the total pending items"
 	@priority = "3"
 	test SumOfPendingItemsGreaterThanTotalPendingWhenArePareallelBranches {
-
 		property test.name.skip.portal.instance = "WorkflowMetricsWorkloadByStep#SumOfPendingItemsGreaterThanTotalPendingWhenArePareallelBranches";
 
 		ApplicationsMenu.gotoPortlet(
@@ -231,17 +230,10 @@ definition {
 			key_untracked = "1");
 
 		for (var taskNumber : list "1,2,3") {
-			
 			AssertElementPresent(
 				key_taskNumber = "${taskNumber}",
 				locator1 = "WorkflowMetricsWorkloadByStep#METRICS_WORKLOAD_BY_STEP_PAGE_TABLE_COLUMN");
-
-		
-
-		
-
 		}
-
 	}
 
 }
