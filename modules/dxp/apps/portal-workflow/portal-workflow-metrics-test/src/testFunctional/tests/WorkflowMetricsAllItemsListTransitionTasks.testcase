@@ -205,10 +205,7 @@ definition {
 
 		AssertElementPresent(
 			key_workflowInstanceName = "Blogs Entry: Blog Entry 2",
-			locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_NAME"
-		);
-
-
+			locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_NAME");
 	}
 
 	@description = "LPS-108138 - Verify that there are loading cards in Select Steps to Transition and Choose Transition per Step"

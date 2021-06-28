@@ -1073,8 +1073,8 @@ definition {
 
 	macro selectTransitionTask {
 		Click(
-			task = "${task}",
-			locator1 = "WorkflowAllItems#KEBAB_DROPDOWN");
+			locator1 = "WorkflowAllItems#KEBAB_DROPDOWN",
+			task = "${task}");
 
 		Click(locator1 = "WorkflowAllItems#REASSIGN_TASK_DROPDOWN");
 	}
