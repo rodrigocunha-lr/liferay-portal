@@ -266,8 +266,6 @@ definition {
 	@description = "LPS-92053 - Verify that the item modal places an icon before the modal title referring to the SLA status: On Time"
 	@priority = "3"
 	test ItemModalPlacesIconReferringToSlaStatusOnTime {
-
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -311,9 +309,6 @@ definition {
 		AssertElementPresent(
 			key_status = "check",
 			locator1 = "WorkflowAllItems#DETAIL_SLA_STATUS");
-
-
-			
 	}
 
 	@description = "LPS-92053 - Verify that the item modal places an icon before the modal title referring to the SLA status: Overdue"
