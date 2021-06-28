@@ -469,7 +469,6 @@ definition {
 	@description = "LPS-108138 - Verify that when there are 11 or more instances to be transitioned with the same step, only the first 10 instances are displayed with the -Show All/Show Less- buttons available to be selected"
 	@priority = "3"
 	test ShowAllLessButtonAvailable {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -484,7 +483,9 @@ definition {
 		var count = "1";
 
 		while ("${count}" != "12") {
-			JSONBlog.addEntry(entryContent = "Blogs Entry", entryTitle = "Blogs Entry Title ${count}");
+			JSONBlog.addEntry(
+				entryContent = "Blogs Entry",
+				entryTitle = "Blogs Entry Title ${count}");
 			var count = ${count} + 1;
 		}
 
@@ -494,9 +495,9 @@ definition {
 
 		while ("${count}" != "12") {
 			Workflow.assignToMeTaskByActions(
-			workflowAssetTitle = "Blogs Entry Title ${count}",
-			workflowAssetType = "Blogs Entry",
-			workflowTask = "Review");
+				workflowAssetTitle = "Blogs Entry Title ${count}",
+				workflowAssetType = "Blogs Entry",
+				workflowTask = "Review");
 			var count = ${count} + 1;
 		}
 
@@ -518,8 +519,8 @@ definition {
 
 		while ("${count}" != "11") {
 			AssertVisible(
-				locator1 = "WorkflowTransitionModal#TRANSITION_TASK_NAME",
-				key_taskName = "Blogs Entry Title ${count}");
+				key_taskName = "Blogs Entry Title ${count}",
+				locator1 = "WorkflowTransitionModal#TRANSITION_TASK_NAME");
 			var count = ${count} + 1;
 		}
 
@@ -529,8 +530,8 @@ definition {
 
 		while ("${count}" != "12") {
 			AssertVisible(
-				locator1 = "WorkflowTransitionModal#TRANSITION_TASK_NAME",
-				key_taskName = "Blogs Entry Title ${count}");
+				key_taskName = "Blogs Entry Title ${count}",
+				locator1 = "WorkflowTransitionModal#TRANSITION_TASK_NAME");
 			var count = ${count} + 1;
 		}
 
@@ -540,12 +541,10 @@ definition {
 
 		while ("${count}" != "11") {
 			AssertVisible(
-				locator1 = "WorkflowTransitionModal#TRANSITION_TASK_NAME",
-				key_taskName = "Blogs Entry Title ${count}");
+				key_taskName = "Blogs Entry Title ${count}",
+				locator1 = "WorkflowTransitionModal#TRANSITION_TASK_NAME");
 			var count = ${count} + 1;
 		}
-
-
 	}
 
 	@description = "LPS-108138 - Verify that the tasks on -Choose Transition Per Step- are grouped by versioned tasks -when there are changes in the workflow process-"
