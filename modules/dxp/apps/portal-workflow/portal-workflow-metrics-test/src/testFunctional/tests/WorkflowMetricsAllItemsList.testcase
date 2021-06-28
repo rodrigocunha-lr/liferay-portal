@@ -57,11 +57,61 @@ definition {
 	}
 
 	@description = "LPS-130216 - Verify that user is able to click on the table header title to choose to order items by Item Subject: A-z / Z-a."
-	@ignore = "Test Stub"
 	@priority = "5"
 	test CanOrderByItemSubject {
 
-		// TODO LRQA-68165 CanOrderByItemSubject pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Web Content Article");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content", 
+			entryTitle = "Blogs Entry Title");
+
+		JSONWebcontent.addWebContent(
+			content = "WC Content",
+			groupName = "Guest",
+			title = "Web Content Title");
+
+		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
+
+		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_VALUE");
+
+		Click(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_SUBJECT");
+
+		AssertElementPresent(
+			key_itemSubject = "Web Content Article: Web Content Title",
+			key_order = "1",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_ORDER");
+
+		AssertElementPresent(
+			key_itemSubject = "Blogs Entry: Blogs Entry Title",
+			key_order = "2",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_ORDER");
+		
+		Click(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_SUBJECT");
+
+		AssertElementPresent(
+			key_itemSubject = "Web Content Article: Web Content Title",
+			key_order = "2",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_ORDER");
+
+		AssertElementPresent(
+			key_itemSubject = "Blogs Entry: Blogs Entry Title",
+			key_order = "1",
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_ORDER");
+		
 
 	}
 
