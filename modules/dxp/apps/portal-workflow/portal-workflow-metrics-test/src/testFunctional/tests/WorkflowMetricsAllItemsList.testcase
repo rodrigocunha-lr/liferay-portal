@@ -113,7 +113,6 @@ definition {
 	@description = "LPS-130217 - Verify that once the order/sorting is made by the user, this definition should be preserved when the user change pagination number"
 	@priority = "3"
 	test DefinitionIsPreservedWhenChangesPagination {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -151,9 +150,6 @@ definition {
 		AssertElementPresent(
 			key_value = "down",
 			locator1 = "WorkflowMetricsProcessListView#ANY_ARROW_ORDER");
-
-
-			
 	}
 
 	@description = "LPS-86652 - Verify that the correct columns are displayed ID, Due Date, Item Subject, Process Step, Assignee, Created By, Creation Date"
