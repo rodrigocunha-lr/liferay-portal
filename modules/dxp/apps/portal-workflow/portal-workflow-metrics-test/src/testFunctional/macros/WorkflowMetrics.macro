@@ -1071,6 +1071,14 @@ definition {
 			value1 = "${transitionOption}");
 	}
 
+	macro selectTransitionTask {
+		Click(
+			task = "${task}",
+			locator1 = "WorkflowAllItems#KEBAB_DROPDOWN");
+
+		Click(locator1 = "WorkflowAllItems#REASSIGN_TASK_DROPDOWN");
+	}
+
 	macro selectVelocityUnit {
 		var key_velocityUnit = "${velocityUnit}";
 
