@@ -59,7 +59,6 @@ definition {
 	@description = "LPS-130216 - Verify that user is able to click on the table header title to choose to order items by Item Subject: A-z / Z-a."
 	@priority = "5"
 	test CanOrderByItemSubject {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -76,7 +75,7 @@ definition {
 			workflowResourceValue = "Web Content Article");
 
 		JSONBlog.addEntry(
-			entryContent = "Blogs Entry Content", 
+			entryContent = "Blogs Entry Content",
 			entryTitle = "Blogs Entry Title");
 
 		JSONWebcontent.addWebContent(
@@ -99,7 +98,7 @@ definition {
 			key_itemSubject = "Blogs Entry: Blogs Entry Title",
 			key_order = "2",
 			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_ORDER");
-		
+
 		Click(locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_SUBJECT");
 
 		AssertElementPresent(
@@ -111,8 +110,6 @@ definition {
 			key_itemSubject = "Blogs Entry: Blogs Entry Title",
 			key_order = "1",
 			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_ITEM_ORDER");
-		
-
 	}
 
 	@description = "LPS-92053 - Verify that, at the items table, users should be able to click on process ID column and open a modal for the respective item details"
