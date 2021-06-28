@@ -248,18 +248,13 @@ definition {
 	@description = "LPS-92053 - Verify that an item is considered overdue if it has at least one SLA overdue, regardless if it is resolved or open"
 	@priority = "4"
 	test ItemIsConsideredOverdueWhenItHasOneSlaOverdue {
-		
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
-
 
 		AssertElementPresent(locator1 = "WorkflowMetrics#METRICS_NO_SLA_MESSAGE");
 
-
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
-
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
-
 
 		WorkflowMetrics.fillSLAForm(
 			slaDefinitionDays = "0",
@@ -269,15 +264,11 @@ definition {
 			slaDefinitionName = "Test 1",
 			slaDefinitionStart = "Process Begins");
 
-
 		Button.clickSave();
-
 
 		WorkflowMetrics.goToWorkflowSLASettings(workflowProcessName = "Single Approver");
 
-
 		Click(locator1 = "WorkflowMetricsSLA#ADD_NEW_SLA_BUTTON");
-
 
 		WorkflowMetrics.fillSLAForm(
 			slaDefinitionDays = "1",
@@ -287,48 +278,36 @@ definition {
 			slaDefinitionName = "Test 2",
 			slaDefinitionStart = "Process Begins");
 
-
 		Button.clickSave();
-
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Process Builder");
 
-
 		Navigator.gotoNavItem(navItem = "Configuration");
-
 
 		Workflow.configureWorkflow(
 			workflowDefinition = "Single Approver",
 			workflowResourceValue = "Blogs Entry");
 
-
 		JSONBlog.addEntry(
 			entryContent = "Test Content 1",
 			entryTitle = "Test Blog 1");
 
-
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
-
 
 		WorkflowMetrics.waitForSLA(
 			key_expectedValue = "0",
 			key_status = "OVERDUE");
 
-
 		Click(locator1 = "WorkflowMetrics#DASHBOARD_TOTAL_PENDING_ITEMS_TITLE");
-
 
 		WaitForElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
 
-
 		var getInstanceId = selenium.getText("WorkflowAllItems#WORKFLOW_INSTANCE_ID");
 
-
 		Click(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
-
 
 		AssertElementPresent(
 			key_slaStatusTitle = "OPEN",
@@ -353,24 +332,15 @@ definition {
 			workflowAssetType = "Blogs Entry",
 			workflowTask = "Review");
 
-
 		WorkflowMetrics.goToWorkflowProcessMetrics(workflowProcessName = "Single Approver");
-
-
 
 		Navigator.gotoNavItem(navItem = "Performance");
 
-
-
 		Click(locator1 = "WorkflowMetrics#PERFORMANCE_TOTAL_COMPLETED_ITEMS_VALUE");
-
 
 		WaitForElementPresent(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
 
-
 		Click(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
-
-
 
 		while (IsElementPresent(key_slaStatusTitle= "OPEN", locator1= "WorkflowAllItems#DETAIL_PAGE_SLA_STATUS_TITLE") && (maxIterations = "24")) {
 			echo("Waiting 5 seconds to recheck");
@@ -380,17 +350,14 @@ definition {
 			Click(locator1 = "WorkflowAllItems#WORKFLOW_INSTANCE_ID");
 		}
 
+		AssertElementPresent(
+			key_slaStatusTitle = "RESOLVED",
+			locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_STATUS_TITLE");
 
-		 AssertElementPresent(
-			 key_slaStatusTitle = "RESOLVED",
-			 locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_STATUS_TITLE");
-
-
-		 AssertElementPresent(
-			 key_slaInfo = "Resolved Overdue",
-			 key_slaName = "Test 1",
-			 locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_STATUS_INFO");
-
+		AssertElementPresent(
+			key_slaInfo = "Resolved Overdue",
+			key_slaName = "Test 1",
+			locator1 = "WorkflowAllItems#DETAIL_PAGE_SLA_STATUS_INFO");
 	}
 
 	@description = "LPS-92053 - Verify that the item modal places an icon before the modal title referring to the SLA status: No SLA"
