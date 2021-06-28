@@ -275,8 +275,6 @@ definition {
 	@description = "LPS-92053 - Verify that the item modal places an icon before the modal title referring to the SLA status: Overdue"
 	@priority = "3"
 	test ItemModalPlacesIconReferringToSlaStatusOverdue {
-
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -319,8 +317,6 @@ definition {
 		AssertElementPresent(
 			key_status = "exclamation",
 			locator1 = "WorkflowAllItems#DETAIL_SLA_ICON");
-
-			
 	}
 
 	@description = "LPS-130216 - Verify that once the order/sorting is made by the user, this definition should be preserved when the user change pagination number."
