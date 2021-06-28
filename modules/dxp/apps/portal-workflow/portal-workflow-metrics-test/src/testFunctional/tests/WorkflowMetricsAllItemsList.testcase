@@ -455,7 +455,6 @@ definition {
 	@description = "LPS-98517 - Verify that the usernames in the result table are separated by a comma when there is more than one assignee per item"
 	@priority = "3"
 	test UsernamesAreSeparatedByComma {
-
 		property portal.acceptance = "true";
 
 		JSONUser.addUser(
@@ -551,10 +550,9 @@ definition {
 		Refresh();
 
 		AssertElementPresent(
-			key_workflowInstanceName = "Blogs Entry: Blogs Entry Title",
 			key_workflowInstanceAssignee = "Test Test, teste teste",
+			key_workflowInstanceName = "Blogs Entry: Blogs Entry Title",
 			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_CURRENT_ASSIGNEE_VALUE");
-
 	}
 
 	@description = "LPS-98517 - Verify that, in the item detail modal, the usernames are separated by a comma when there is more than one assignee per item under the Process Details section"
