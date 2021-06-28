@@ -235,6 +235,11 @@
 	<td>//div[contains(@id,'headerTitle') and contains(text(),'${key_value}')]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>WORKFLOW_ALL_ITEMS_SHOW_ALL_OR_LESS_BUTTON</td>
+	<td>//span[contains(@class,'show-all-button')] | //span[contains(@class,'show-less-button')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
