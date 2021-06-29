@@ -563,6 +563,16 @@ definition {
 		Navigator.openWithAppendToBaseURL(urlAppend = "group/${siteURLKey}/~/control_panel/manage?p_p_id=com_liferay_portal_workflow_web_internal_portlet_SiteAdministrationWorkflowPortlet");
 	}
 
+	macro permissionsWorkflowDefinition {
+		var key_workflowDefinitionTitle = "${workflowDefinitionTitle}";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.click(menuItem = "Permissions");
+
+		AssertElementPresent(locator1 = "WorkflowDefinition#DEFINITION_TABLE_TITLE_PERMISSIONS");
+	}
+
 	macro publishExistingWorkflowDefinition {
 		var key_workflowDefinitionTitle = "${workflowDefinitionTitle}";
 
@@ -793,16 +803,6 @@ definition {
 		MenuItem.clickNoError(menuItem = "Unpublish");
 
 		Alert.viewSuccessMessage();
-	}
-
-	macro permissionsWorkflowDefinition {
-		var key_workflowDefinitionTitle = "${workflowDefinitionTitle}";
-
-		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
-
-		MenuItem.click(menuItem = "Permissions");
-
-		AssertElementPresent(locator1 = "WorkflowDefinition#DEFINITION_TABLE_TITLE_PERMISSIONS");
 	}
 
 	macro unpublishWorkflowDefinitionExtra {
