@@ -175,11 +175,9 @@ definition {
 
 		AssertEditable(locator1 = "WorkflowDefinition#DEFINITION_TITLE");
 
-		AssertElementPresent(locator1="Button#PUBLISH");
+		AssertElementPresent(locator1 = "Button#PUBLISH");
 
-		AssertElementPresent(locator1="Button#SAVE");
-
-		
+		AssertElementPresent(locator1 = "Button#SAVE");
 	}
 
 	@description = "Verify that the user can select Permissions option in the kebab menu for a particular row"
