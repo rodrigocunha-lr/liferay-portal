@@ -119,15 +119,12 @@ definition {
 	@description = "Verify that the user is able to reverse sort direction"
 	@priority = "2"
 	test CanReverseSortDirection {
-		
 		Workflow.duplicateSingleApproverWorkflow(workflowName = "Copy of Single Approver");
-
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Process Builder");
-
 
 		Workflow.clickRevertSortDirection();
 
@@ -140,7 +137,6 @@ definition {
 			key_rowNumber = "3",
 			locator1 = "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW",
 			value1 = "Single Approver");
-
 	}
 
 	@description = "Verify that the user is able to search by Workflow title"
