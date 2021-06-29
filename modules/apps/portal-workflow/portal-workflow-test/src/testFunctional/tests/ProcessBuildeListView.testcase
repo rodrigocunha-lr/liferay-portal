@@ -182,7 +182,6 @@ definition {
 	@description = "Verify that the user can select View option in the kebab menu for a particular row"
 	@priority = "4"
 	test CanSelectViewOption {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -199,7 +198,6 @@ definition {
 			locator1 = "ProcessBuilderListView#PROCESS_BUILDER_HEADER_TITLE");
 
 		AssertNotEditable(locator1 = "WorkflowDefinition#DEFINITION_TITLE");
-
 	}
 
 	@description = "Verify that a duplicated definition can be Unpublished"
