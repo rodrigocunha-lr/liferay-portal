@@ -215,17 +215,13 @@ definition {
 			portlet = "Process Builder");
 
 		ProcessBuilderListView.searchForWorkflow(workflowName = "Approver");
-			
+
 		Click(locator1 = "ProcessBuilderListView#CLEAR_BUTTON_PROCESS_BUILDER");
 
-		AssertElementNotPresent(
-			locator1 = "ProcessBuilderListView#CLEAR_BUTTON_PROCESS_BUILDER");
+		AssertElementNotPresent(locator1 = "ProcessBuilderListView#CLEAR_BUTTON_PROCESS_BUILDER");
 
 		Workflow.viewDefinitionPublished(workflowDefinitionTitle = "Single Approver");
-
-
 	}
-		
 
 	@description = "Verify that the correct columns are displayed: Title, Description, Last Modified"
 	@ignore = "Test Stub"
