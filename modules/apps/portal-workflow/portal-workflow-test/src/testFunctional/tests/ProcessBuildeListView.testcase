@@ -218,7 +218,6 @@ definition {
 	@description = "Verify that the correct columns are displayed: Title, Description, Last Modified"
 	@priority = "5"
 	test DisplaysColumnsTitleDescriptionLastModified {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
