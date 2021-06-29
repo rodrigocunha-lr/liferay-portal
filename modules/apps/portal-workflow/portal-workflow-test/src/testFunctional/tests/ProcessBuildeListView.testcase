@@ -16,8 +16,7 @@ definition {
 
 		if ("${testPortalInstance}" == "true") {
 			PortalInstances.tearDownCP();
-
-	}
+		}
 
 		else {
 			BlogsEntry.tearDownCP();
@@ -25,9 +24,7 @@ definition {
 			Workflow.tearDownPortalWorkflow();
 
 			Workflow.tearDownWorkflowDefinitions();
-
-	}
-
+		}
 	}
 
 	@description = "Verify that the user can select Duplicate option in the kebab menu for a Not Published process"
@@ -91,9 +88,6 @@ definition {
 		AssertElementNotPresent(
 			key_workflowDefinitionTitle = "Copy of Single Approver",
 			locator1 = "WorkflowDefinition#DEFINITION_TABLE_TITLE_PUBLISHED");
-
-
-			
 	}
 
 	@description = "Verify that the user can not delete a published process"
