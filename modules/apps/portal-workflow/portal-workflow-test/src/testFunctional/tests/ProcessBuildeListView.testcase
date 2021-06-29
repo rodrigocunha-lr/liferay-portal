@@ -263,7 +263,6 @@ definition {
 	@description = "Verify that, in the error message when you try to unpublish a workflow in use, there is a link to the configuration tab"
 	@priority = "3"
 	test UserIsDirectedToConfigurationTab {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -283,7 +282,7 @@ definition {
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Process Builder");
-		
+
 		Click(
 			key_workflowDefinitionTitle = "Single Approver",
 			locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
@@ -293,9 +292,8 @@ definition {
 		Click(locator1 = "MyWorkflowTasks#UNPUBLISH_ALERT_ERROR_MESSAGE_LINK");
 
 		AssertElementPresent(
-			locator1 = "NavBar#NAV_ITEM_LINK",
-			key_navItem = "Configuration");
-
+			key_navItem = "Configuration",
+			locator1 = "NavBar#NAV_ITEM_LINK");
 	}
 
 }
