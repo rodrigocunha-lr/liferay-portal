@@ -38,8 +38,6 @@ definition {
 	@description = "Verify that the user can select Duplicate option in the kebab menu for a particular row"
 	@priority = "4"
 	test CanDuplicateProcess {
-
-		
 		Workflow.duplicateSingleApproverWorkflow(workflowName = "Copy of Single Approver");
 
 		ApplicationsMenu.gotoPortlet(
@@ -50,9 +48,6 @@ definition {
 		AssertElementPresent(
 			key_workflowInstanceName = "Copy of Single Approver",
 			locator1 = "AssetWorkflow#DETAILS_WORKFLOW_TITLE");
-
-		
-
 	}
 
 	@description = "Verify that, when duplicating a process, the user is able to edit its title"
