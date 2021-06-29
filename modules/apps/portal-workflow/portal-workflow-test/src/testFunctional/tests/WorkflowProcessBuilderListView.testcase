@@ -137,7 +137,6 @@ definition {
 	@description = "Verify that search can be done using non-ASCII character"
 	@priority = "4"
 	test CanSearchNonAsciiChar {
-
 		Workflow.duplicateSingleApproverWorkflow(workflowName = "単一承認者");
 
 		ApplicationsMenu.gotoPortlet(
@@ -148,11 +147,9 @@ definition {
 		ProcessBuilderListView.searchForWorkflow(workflowName = "単一");
 
 		AssertTextEquals(
-			value1 = "単一承認者",
 			key_rowNumber = "2",
-			locator1 = "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW");
-
-
+			locator1 = "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW",
+			value1 = "単一承認者");
 	}
 
 	@description = "Verify that the user can select Edit option in the kebab menu for a particular row"
