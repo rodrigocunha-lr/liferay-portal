@@ -245,7 +245,6 @@ definition {
 	@description = "Verify that the pagination component is displayed when the table has 5 items or more"
 	@priority = "3"
 	test PaginationComponentIsDisplayed {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -254,7 +253,6 @@ definition {
 		var count = "2";
 
 		while ("${count}" != "6") {
-
 			Workflow.duplicateSingleApproverWorkflow(workflowName = "Copy of Single Approver ${count}");
 
 			Navigator.gotoBack();
@@ -273,8 +271,6 @@ definition {
 			value1 = "20 Entries");
 
 		Pagination.viewResults(results = "Showing 1 to 5 of 5 entries.");
-
-
 	}
 
 	@description = "Verify that the users are able to click on the + button and be directed to the New Workflow page"
