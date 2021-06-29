@@ -200,7 +200,6 @@ definition {
 	@description = "Verify that the user can select View option in the kebab menu for a Not Published process"
 	@priority = "3"
 	test CanViewNonPublishedProcess {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -216,10 +215,8 @@ definition {
 		Workflow.viewWorkflowDefinition(workflowDefinitionTitle = "Single Approver");
 
 		AssertNotEditable(locator1 = "WorkflowDefinition#DEFINITION_TITLE");
-		
-		AssertElementPresent(locator1 = "WorkflowDefinition#DEFINITION_VIEW_EDIT_BUTTON");
-		
 
+		AssertElementPresent(locator1 = "WorkflowDefinition#DEFINITION_VIEW_EDIT_BUTTON");
 	}
 
 	@description = "Verify that the Clear option cleans the search results"

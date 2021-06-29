@@ -784,18 +784,6 @@ definition {
 			Workflow.deleteWorkflowDefinitionExtra();
 		}
 	}
-	macro viewWorkflowDefinition {
-
-		var key_workflowDefinitionTitle = "${workflowDefinitionTitle}";
-
-		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
-
-		MenuItem.clickNoError(menuItem = "View");
-
-	
-
-
-	}
 
 	macro unpublishWorkflowDefinition {
 		var key_workflowDefinitionTitle = "${workflowDefinitionTitle}";
@@ -1457,6 +1445,14 @@ definition {
 		AssertTextEquals(
 			locator1 = "TextInput#TITLE",
 			value1 = "${webContentTitle}");
+	}
+
+	macro viewWorkflowDefinition {
+		var key_workflowDefinitionTitle = "${workflowDefinitionTitle}";
+
+		Click(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS");
+
+		MenuItem.clickNoError(menuItem = "View");
 	}
 
 	macro webContentGoToAddCP {
