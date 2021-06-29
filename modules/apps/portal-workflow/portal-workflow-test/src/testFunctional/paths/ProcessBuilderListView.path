@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>ProcessBuilderListView</title>
+</head>
+
+<body>
+<table border="1" cellpadding="1" cellspacing="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ProcessBuilderListView</td></tr>
+</thead>
+
+<tbody>
+<tr>
+	<td>WORKFLOW_HEADER_TITLE</td>
+	<td>//ul[@class='control-menu-nav']//span[@data-qa-id='headerTitle']</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html> 
