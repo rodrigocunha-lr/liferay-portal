@@ -1212,6 +1212,15 @@ definition {
 		AssertElementNotPresent(locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_ASSET_TITLE_DUPLICATE");
 	}
 
+	macro processBuilderFilterAndOrder {
+		var key_optionOrder = "${optionOrder}";
+		
+		Click(locator1 = "AssetWorkflow#PROCESS_BUILDER_FILTER_AND_ORDER_BUTTON");
+
+		Click(locator1 = "AssetWorkflow#PROCESS_BUILDER_FILTER_AND_ORDER_OPTION");
+
+	}
+
 	macro viewPendingTasks {
 		Workflow._gotoPendingFilter();
 
