@@ -153,7 +153,7 @@ definition {
 
 		Workflow.gotoEditWorkflowDefinition(workflowDefinitionTitle = "Single Approver");
 
-		Workflow.updateDefinition(workflowDefinitionTitle="New Process Title");
+		Workflow.updateDefinition(workflowDefinitionTitle = "New Process Title");
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
@@ -161,8 +161,6 @@ definition {
 			portlet = "Process Builder");
 
 		Workflow.viewDefinitionPublished(workflowDefinitionTitle = "New Process Title");
-
-
 	}
 
 	@description = "Verify that the user can select Edit option in the kebab menu for a Not Published process"
