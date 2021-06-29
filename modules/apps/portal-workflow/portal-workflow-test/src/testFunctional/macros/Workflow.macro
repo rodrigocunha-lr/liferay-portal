@@ -563,6 +563,14 @@ definition {
 		Navigator.openWithAppendToBaseURL(urlAppend = "group/${siteURLKey}/~/control_panel/manage?p_p_id=com_liferay_portal_workflow_web_internal_portlet_SiteAdministrationWorkflowPortlet");
 	}
 
+	macro processBuilderFilterAndOrder {
+		var key_optionOrder = "${optionOrder}";
+
+		Click(locator1 = "AssetWorkflow#PROCESS_BUILDER_FILTER_AND_ORDER_BUTTON");
+
+		Click(locator1 = "AssetWorkflow#PROCESS_BUILDER_FILTER_AND_ORDER_OPTION");
+	}
+
 	macro publishExistingWorkflowDefinition {
 		var key_workflowDefinitionTitle = "${workflowDefinitionTitle}";
 
@@ -1210,15 +1218,6 @@ definition {
 			value1 = "${workflowAssetTitle}");
 
 		AssertElementNotPresent(locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_ASSET_TITLE_DUPLICATE");
-	}
-
-	macro processBuilderFilterAndOrder {
-		var key_optionOrder = "${optionOrder}";
-		
-		Click(locator1 = "AssetWorkflow#PROCESS_BUILDER_FILTER_AND_ORDER_BUTTON");
-
-		Click(locator1 = "AssetWorkflow#PROCESS_BUILDER_FILTER_AND_ORDER_OPTION");
-
 	}
 
 	macro viewPendingTasks {

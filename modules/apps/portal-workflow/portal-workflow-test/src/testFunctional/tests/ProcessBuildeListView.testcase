@@ -101,7 +101,6 @@ definition {
 	@description = "Verify that the user is able to order by Last Modified"
 	@priority = "2"
 	test CanOrderByLastModified {
-
 		Workflow.duplicateSingleApproverWorkflow(workflowName = "Copy of Single Approver");
 
 		ApplicationsMenu.gotoPortlet(
@@ -112,19 +111,14 @@ definition {
 		Workflow.processBuilderFilterAndOrder(optionOrder = "Last Modified");
 
 		AssertElementPresent(
-			locator1 = "AssetWorkflow#DETAILS_WORKFLOW_TITLE_ORDER",
 			key_order = "2",
-			key_title = "Single Approver");
+			key_title = "Single Approver",
+			locator1 = "AssetWorkflow#DETAILS_WORKFLOW_TITLE_ORDER");
 
 		AssertElementPresent(
-			locator1 = "AssetWorkflow#DETAILS_WORKFLOW_TITLE_ORDER",
 			key_order = "3",
-			key_title = "Copy of Single Approver");
-
-		
-
-
-
+			key_title = "Copy of Single Approver",
+			locator1 = "AssetWorkflow#DETAILS_WORKFLOW_TITLE_ORDER");
 	}
 
 	@description = "Verify that the user is able to order by Title"
