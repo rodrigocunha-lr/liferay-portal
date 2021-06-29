@@ -1,0 +1,17 @@
+definition {
+
+	macro searchForWorkflow {
+		var key_workflowName = "${workflowName}";
+
+		Click(locator1 = "ProcessBuilderListView#SEARCH_FIELD");
+
+		Type(
+			locator1 = "ProcessBuilderListView#SEARCH_FIELD",
+			value1 = "${workflowName}");
+
+		KeyPress(
+			locator1 = "TextInput#SEARCH",
+			value1 = "\RETURN");
+	}
+
+} 
