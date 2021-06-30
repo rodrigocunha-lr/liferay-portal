@@ -162,7 +162,6 @@ definition {
 	@description = "Verify that the user is able to unassign a Workflow from an Asset Type"
 	@priority = "5"
 	test CanUnassignWorkflow {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -175,17 +174,16 @@ definition {
 			workflowResourceValue = "Blogs Entry");
 
 		AssertElementPresent(
-			locator1 = "WorkflowConfiguration#RESOURCE_TABLE_SELECT",
-			key_workflowResourceValue = "Single Approver");
+			key_workflowResourceValue = "Single Approver",
+			locator1 = "WorkflowConfiguration#RESOURCE_TABLE_SELECT");
 
 		Workflow.configureWorkflow(
 			workflowDefinition = "No Workflow",
 			workflowResourceValue = "Blogs Entry");
 
 		AssertElementPresent(
-			locator1 = "WorkflowConfiguration#RESOURCE_TABLE_SELECT",
-			key_workflowResourceValue = "No Workflow");
-
+			key_workflowResourceValue = "No Workflow",
+			locator1 = "WorkflowConfiguration#RESOURCE_TABLE_SELECT");
 	}
 
 	@description = "Verify that the Clear option cleans the search results"
