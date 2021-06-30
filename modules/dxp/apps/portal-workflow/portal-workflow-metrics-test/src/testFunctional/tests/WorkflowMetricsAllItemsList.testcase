@@ -450,7 +450,6 @@ definition {
 		AssertElementPresent(
 			key_tooltip = "task1, task2, task3",
 			locator1 = "WorkflowAllItems#TOOLTIP_MESSAGE");
-
 	}
 
 	@description = "LPS-92053 - Verify that the Go to submission page button, on hover, displays a tooltip saying Open page in new tab"
