@@ -144,7 +144,6 @@ definition {
 	@description = "Verify that the user is able to search by Workflow Assigned"
 	@priority = "4"
 	test CanSearchByWorkflowAssigned {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -159,27 +158,26 @@ definition {
 		Workflow.configureWorkflow(
 			workflowDefinition = "Single Approver",
 			workflowResourceValue = "Comment");
-		
+
 		ProcessBuilderListView.searchForWorkflow(workflowName = "Single Approver");
 
 		AssertTextEquals(
-			value1 = "2 Results for Single Approver",
-			locator1= "ProcessBuilderListView#VALIDATE_SEARCH_RESULTS_BAR");
+			locator1 = "ProcessBuilderListView#VALIDATE_SEARCH_RESULTS_BAR",
+			value1 = "2 Results for Single Approver");
 
 		AssertTextEquals(
-			value1 = "2 Results for Single Approver",
-			locator1= "ProcessBuilderListView#VALIDATE_SEARCH_RESULTS_BAR");
+			locator1 = "ProcessBuilderListView#VALIDATE_SEARCH_RESULTS_BAR",
+			value1 = "2 Results for Single Approver");
 
 		AssertTextEquals(
-			value1 = "Blogs Entry",
 			key_rowNumber = "1",
-			locator1= "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW");
-		
-		AssertTextEquals(
-			value1 = "Comment",
-			key_rowNumber = "2",
-			locator1= "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW");
+			locator1 = "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW",
+			value1 = "Blogs Entry");
 
+		AssertTextEquals(
+			key_rowNumber = "2",
+			locator1 = "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW",
+			value1 = "Comment");
 	}
 
 	@description = "Verify that search can be done using non-ASCII character"

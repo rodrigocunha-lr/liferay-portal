@@ -1,8 +1,7 @@
 definition {
 
 	macro searchForWorkflow {
-
-                var key_workflowName = "${workflowName}";
+		var key_workflowName = "${workflowName}";
 
 		Click(locator1 = "ProcessBuilderListView#SEARCH_FIELD");
 
@@ -12,10 +11,10 @@ definition {
 
 		KeyPress(
 			locator1 = "TextInput#SEARCH",
-			value1 = "\RETURN");	
+			value1 = "\RETURN");
 	}
 
-        macro validateIfSearchItem {
+	macro validateIfSearchItem {
 		AssertTextEquals(
 			locator1 = "ProcessBuilderListView#VALIDATE_SEARCH_RESULTS_BAR",
 			value1 = "${numberResults} Results for ${workflowName}");
