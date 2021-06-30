@@ -142,11 +142,43 @@ definition {
 	}
 
 	@description = "Verify that the user is able to search by Workflow Assigned"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanSearchByWorkflowAssigned {
 
-		// TODO LRQA-68279 CanSearchByWorkflowAssigned pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Comment");
+		
+		ProcessBuilderListView.searchForWorkflow(workflowName = "Single Approver");
+
+		AssertTextEquals(
+			value1 = "2 Results for Single Approver",
+			locator1= "ProcessBuilderListView#VALIDATE_SEARCH_RESULTS_BAR");
+
+		AssertTextEquals(
+			value1 = "2 Results for Single Approver",
+			locator1= "ProcessBuilderListView#VALIDATE_SEARCH_RESULTS_BAR");
+
+		AssertTextEquals(
+			value1 = "Blogs Entry",
+			key_rowNumber = "1",
+			locator1= "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW");
+		
+		AssertTextEquals(
+			value1 = "Comment",
+			key_rowNumber = "2",
+			locator1= "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW");
 
 	}
 
