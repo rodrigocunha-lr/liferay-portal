@@ -153,14 +153,13 @@ definition {
 	@description = "Verify that search can be done using non-ASCII character"
 	@priority = "4"
 	test CanSearchNonAsciiChar {
-		
 		Workflow.duplicateSingleApproverWorkflow(workflowName = "単一承認者");
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Process Builder");
-		
+
 		Navigator.gotoNavItem(navItem = "Configuration");
 
 		Workflow.configureWorkflow(
@@ -170,10 +169,9 @@ definition {
 		ProcessBuilderListView.searchForWorkflow(workflowName = "単一承認者");
 
 		AssertTextEquals(
-			value1 = "単一承認者",
 			key_workflowResourceValue = "単一承認者",
-			locator1= "WorkflowConfiguration#RESOURCE_TABLE_WORKFLOW");
-
+			locator1 = "WorkflowConfiguration#RESOURCE_TABLE_WORKFLOW",
+			value1 = "単一承認者");
 	}
 
 	@description = "Verify that the user is able to unassign a Workflow from an Asset Type"
