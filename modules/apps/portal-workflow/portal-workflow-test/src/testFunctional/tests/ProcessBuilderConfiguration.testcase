@@ -36,7 +36,6 @@ definition {
 	@description = "Verify that the user is able to assign a Workflow to a Comment"
 	@priority = "5"
 	test CanAssignWorkflowToComment {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -51,7 +50,6 @@ definition {
 		AssertElementPresent(
 			key_workflowResourceValue = "Single Approver",
 			locator1 = "WorkflowConfiguration#RESOURCE_TABLE_SELECT");
-
 	}
 
 	@description = "Verify that the user is able to assign a Workflow to a Content Page"
