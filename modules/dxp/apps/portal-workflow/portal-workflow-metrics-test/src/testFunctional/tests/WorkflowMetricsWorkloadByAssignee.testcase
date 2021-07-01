@@ -176,7 +176,6 @@ definition {
 	@description = "LPS-97669 - Verify that the sum of items Overdue and On time of 'Workload by Assignee' page are never bigger than the Total items"
 	@priority = "3"
 	test SumOfOverdueAndOnTimeAreNeverBiggerThanTotalItems {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -194,9 +193,9 @@ definition {
 
 		WorkflowMetrics.fillSLAForm(
 			slaDefinitionDays = "0",
-			slaDefinitionHours = "0002",
 			slaDefinitionDescription = "SLA Description",
 			slaDefinitionEnd = "Process Ends: Approved",
+			slaDefinitionHours = "0002",
 			slaDefinitionName = "SLAName",
 			slaDefinitionStart = "Process Begins");
 
@@ -207,7 +206,7 @@ definition {
 			entryTitle = "Test Blog 1");
 
 		Pause(locator1 = "62000");
-		
+
 		JSONBlog.addEntry(
 			entryContent = "Test Content 2",
 			entryTitle = "Test Blog 2");
@@ -215,15 +214,15 @@ definition {
 		UserBar.gotoDropdownItem(dropdownItem = "My Workflow Tasks");
 
 		Workflow.assignToMeTaskByActions(
-            workflowAssetTitle = "Test Blog 1",
-            workflowAssetType = "Blogs Entry",
-            workflowTask = "Review");
+			workflowAssetTitle = "Test Blog 1",
+			workflowAssetType = "Blogs Entry",
+			workflowTask = "Review");
 
 		Workflow.assignToMeTaskByActions(
-            workflowAssetTitle = "Test Blog 2",
-            workflowAssetType = "Blogs Entry",
-            workflowTask = "Review");
-		
+			workflowAssetTitle = "Test Blog 2",
+			workflowAssetType = "Blogs Entry",
+			workflowTask = "Review");
+
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -238,7 +237,7 @@ definition {
 		AssertElementPresent(
 			key_taskCount = "2",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TASKCOUNT");
-		
+
 		Click(
 			key_tabName = "Total",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TAB");
@@ -250,7 +249,7 @@ definition {
 		WorkflowMetrics.waitForSLA(
 			key_expectedValue = "0",
 			key_status = "OVERDUE");
-		
+
 		Click(
 			key_tabName = "On Time",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TAB");
@@ -258,7 +257,7 @@ definition {
 		AssertElementPresent(
 			key_taskCount = "1",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TASKCOUNT");
-		
+
 		Click(
 			key_tabName = "Overdue",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TAB");
@@ -266,7 +265,7 @@ definition {
 		AssertElementPresent(
 			key_taskCount = "1",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TASKCOUNT");
-		
+
 		Click(
 			key_tabName = "Total",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TAB");
@@ -274,8 +273,6 @@ definition {
 		AssertElementPresent(
 			key_taskCount = "2",
 			locator1 = "WorkflowMetrics#METRICS_WORKLOAD_BY_ASSIGNEE_CARD_TASKCOUNT");
-		
-	
 	}
 
 	@description = "LPS-97669 - Verify there is no percentage indication out of the total amount of assigned tasks when the tab Total is selected"
