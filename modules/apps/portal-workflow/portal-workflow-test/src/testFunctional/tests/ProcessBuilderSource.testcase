@@ -70,11 +70,30 @@ definition {
 	}
 
 	@description = "Verify that the Workflow is not published without title"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanNotPublishWithoutTitle {
 
-		// TODO LRQA-68322 CanNotPublishWithoutTitle pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Click(locator1 = "Button#PLUS");
+
+		KaleoDesigner.viewSourceXMLTab();
+
+		Button.clickPublish();
+
+		Alert.viewErrorMessage(errorMessage = "Please name your workflow before publishing.");
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		AssertVisible(
+			locator1 = "WorkflowDefinition#DEFINITION_TABLE_TITLE_PUBLISHED",
+			key_workflowDefinitionTitle = "Single Approver");
 
 	}
 
