@@ -72,7 +72,6 @@ definition {
 	@description = "Verify that the Workflow is not published without title"
 	@priority = "4"
 	test CanNotPublishWithoutTitle {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -92,9 +91,8 @@ definition {
 			portlet = "Process Builder");
 
 		AssertVisible(
-			locator1 = "WorkflowDefinition#DEFINITION_TABLE_TITLE_PUBLISHED",
-			key_workflowDefinitionTitle = "Single Approver");
-
+			key_workflowDefinitionTitle = "Single Approver",
+			locator1 = "WorkflowDefinition#DEFINITION_TABLE_TITLE_PUBLISHED");
 	}
 
 	@description = "Verify that the user can not unpublish a Workflow in use and system displays an error message"
