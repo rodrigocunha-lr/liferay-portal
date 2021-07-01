@@ -180,7 +180,6 @@ definition {
 	@description = "Verify that there is a info message -The assets from Documents and Media and Forms are assigned within their respective applications.-"
 	@priority = "2"
 	test DisplaysInfoMessage {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -189,9 +188,6 @@ definition {
 		Navigator.gotoNavItem(navItem = "Configuration");
 
 		AssertElementPresent(locator1 = "WorkflowConfiguration#PROCESS_BUILDER_CONFIGURATION_MESSAGE");
-
-		
-
 	}
 
 }
