@@ -171,7 +171,6 @@ definition {
 	@description = "Verify that the Clear option cleans the search results"
 	@priority = "3"
 	test ClearSearchResults {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -182,14 +181,14 @@ definition {
 		Workflow.searchFieldPresent(fieldName = "article");
 
 		AssertElementPresent(
-			locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_NAME",
+			key_fieldName = "Knowledge Base Article",
 			key_order = "1",
-			key_fieldName = "Knowledge Base Article");
+			locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_NAME");
 
 		AssertElementPresent(
-			locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_NAME",
+			key_fieldName = "Web Content Article",
 			key_order = "2",
-			key_fieldName = "Web Content Article");
+			locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_NAME");
 
 		Click(locator1 = "WorkflowConfiguration#CLEAR_BUTTON");
 
@@ -200,11 +199,6 @@ definition {
 				key_order = "${orderNumber}",
 				locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_ORDER");
 		}
-
-
-
-
-
 	}
 
 	@description = "Verify that there is a info message -The assets from Documents and Media and Forms are assigned within their respective applications.-"

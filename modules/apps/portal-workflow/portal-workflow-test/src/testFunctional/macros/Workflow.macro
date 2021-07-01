@@ -702,6 +702,16 @@ definition {
 		Alert.viewSuccessMessage();
 	}
 
+	macro searchFieldPresent {
+		Type(
+			locator1 = "WorkflowMetricsProcessListView#METRICS_WORKFLOW_SEARCH_BAR",
+			value1 = "${fieldName}");
+
+		Click(locator1 = "WorkflowConfiguration#PROCESS_BUILDER_SEARCH_BAR_BUTTON");
+
+		Pause(locator1 = "1000");
+	}
+
 	macro tearDownPortalWorkflow {
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
@@ -1535,17 +1545,6 @@ definition {
 		AssertElementNotPresent(locator1 = "WorkflowSubmissionsTask#MENU_WITHDRAW_SUBMISSION");
 
 		AssertTextNotPresent(value1 = "Withdraw Submission");
-	}
-
-	macro searchFieldPresent {
-		Type(
-			locator1 = "WorkflowMetricsProcessListView#METRICS_WORKFLOW_SEARCH_BAR",
-			value1 = "${fieldName}");
-
-		Click(locator1 = "WorkflowConfiguration#PROCESS_BUILDER_SEARCH_BAR_BUTTON");
-
-		Pause(locator1 = "1000");
-
 	}
 
 }
