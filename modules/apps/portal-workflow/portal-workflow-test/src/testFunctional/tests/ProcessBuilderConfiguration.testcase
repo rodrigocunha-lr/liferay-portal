@@ -144,11 +144,6 @@ definition {
 			key_fieldName = "Blogs Entry",
 			key_order = "19",
 			locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_NAME");
-
-
-
-
-			
 	}
 
 	@description = "Verify that the user is able to search by Asset Type"
