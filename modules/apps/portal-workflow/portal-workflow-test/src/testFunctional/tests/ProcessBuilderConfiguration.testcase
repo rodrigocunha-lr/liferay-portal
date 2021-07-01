@@ -169,11 +169,41 @@ definition {
 	}
 
 	@description = "Verify that the Clear option cleans the search results"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test ClearSearchResults {
 
-		// TODO LRQA-68280 ClearSearchResults pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.searchFieldPresent(fieldName = "article");
+
+		AssertElementPresent(
+			locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_NAME",
+			key_order = "1",
+			key_fieldName = "Knowledge Base Article");
+
+		AssertElementPresent(
+			locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_NAME",
+			key_order = "2",
+			key_fieldName = "Web Content Article");
+
+		Click(locator1 = "WorkflowConfiguration#CLEAR_BUTTON");
+
+		AssertElementPresent(locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD");
+
+		for (var orderNumber : list "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19") {
+			AssertElementPresent(
+				key_order = "${orderNumber}",
+				locator1 = "WorkflowConfiguration#PROCESS_BUILDER_TABLE_FIELD_ORDER");
+		}
+
+
+
+
 
 	}
 
