@@ -207,7 +207,6 @@ definition {
 	@description = "Verify that the time format in Details tab is following the system language"
 	@priority = "3"
 	test TimeFormatFollowsSystemLanguageInDetails {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -258,7 +257,6 @@ definition {
 			key_titleValue = "Última Modificação",
 			locator1 = "ProcessBuilderSource#PROCESS_DETAILS");
 	}
-
 
 	@description = "Verify that the time format in Revision History tab is following the system language"
 	@ignore = "Test Stub"
