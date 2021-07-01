@@ -189,7 +189,6 @@ definition {
 	@description = "Verify that the Revision History tab displays the list of modification dates"
 	@priority = "3"
 	test DisplaysModificationDates {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -204,8 +203,8 @@ definition {
 		Navigator.gotoNavTab(navTab = "Revision History");
 
 		AssertElementPresent(
-			locator1 = "ProcessBuilderSource#REVISION_HISTORY_ITEM",
-			key_ruleNumber = "1");
+			key_ruleNumber = "1",
+			locator1 = "ProcessBuilderSource#REVISION_HISTORY_ITEM");
 
 		PortletEntry.inputTitle(title = "New Workflow Definition Title 2");
 
@@ -216,13 +215,12 @@ definition {
 		Navigator.gotoNavTab(navTab = "Revision History");
 
 		AssertElementPresent(
-			locator1 = "ProcessBuilderSource#REVISION_HISTORY_ITEM",
-			key_ruleNumber = "1");
+			key_ruleNumber = "1",
+			locator1 = "ProcessBuilderSource#REVISION_HISTORY_ITEM");
 
 		AssertElementPresent(
-			locator1 = "ProcessBuilderSource#REVISION_HISTORY_ITEM",
-			key_ruleNumber = "2");
-
+			key_ruleNumber = "2",
+			locator1 = "ProcessBuilderSource#REVISION_HISTORY_ITEM");
 	}
 
 	@description = "Verify that revision history is not copied to the duplicated definition"
