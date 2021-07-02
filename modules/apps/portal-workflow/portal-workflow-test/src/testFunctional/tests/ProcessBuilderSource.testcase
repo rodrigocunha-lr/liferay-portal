@@ -63,7 +63,6 @@ definition {
 	@description = "Verify that, when the definition is published, the Delete option is not present in kebab menu"
 	@priority = "4"
 	test CanNotDeletePublishedWorkflow {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -86,8 +85,6 @@ definition {
 		Click(locator1 = "ProcessBuilderSource#PROCESS_DETAILS_ELLIPSIS");
 
 		MenuItem.viewNotPresent(menuItem = "Delete");
-
-
 	}
 
 	@description = "Verify that the Workflow is not published without title"
