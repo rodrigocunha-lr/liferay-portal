@@ -392,7 +392,6 @@ definition {
 	@description = "LPS-92052 - Verify that when the task has multiple assignees, the sort considers the first one displayed on the row"
 	@priority = "3"
 	test SortConsidersOnlyTheFirstAssignee {
-
 		var siteName = TestCase.getSiteName(siteName = "${siteName}");
 
 		for (var orderNumber : list "1,2,3") {
@@ -413,7 +412,6 @@ definition {
 			JSONRole.assignRoleToUser(
 				roleTitle = "Administrator",
 				userEmailAddress = "user${orderNumber}@liferay.com");
-
 		}
 		Navigator.openURL();
 
@@ -425,9 +423,9 @@ definition {
 		for (var orderNumber : list "1,2,3") {
 			key_order = "${orderNumber}";
 			Site.assignUserAsMemberCP(
-			userFirstName = "user${orderNumber}",
-			userLastName = "user${orderNumber}",
-			userScreenName = "user${orderNumber}");
+				userFirstName = "user${orderNumber}",
+				userLastName = "user${orderNumber}",
+				userScreenName = "user${orderNumber}");
 		}
 
 		Navigator.openURL();
@@ -496,13 +494,9 @@ definition {
 		WorkflowMetrics.goToWorkflowAllItems(workflowProcessName = "Similar Single Approver Process");
 
 		AssertElementPresent(
-			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_ASSIGNEE_ORDER",
+			key_assigneeName = "user1 user1, user2 user2, user3 user3",
 			key_order = "1",
-			key_assigneeName = "user1 user1, user2 user2, user3 user3");
-
-
-
-
+			locator1 = "WorkflowAllItems#WORKFLOW_ALL_ITEMS_TABLE_ASSIGNEE_ORDER");
 	}
 
 	@description = "LPS-130216 - Verify that the Item Subject sort will only use the Asset Type information for sorting."
