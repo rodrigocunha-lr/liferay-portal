@@ -99,7 +99,6 @@ definition {
 	@description = "Verify that the user is able to restore a previous version of definition by clicking on Restore option, on kebab menu"
 	@priority = "4"
 	test CanRestorePreviousVersionOnMenu {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -124,7 +123,6 @@ definition {
 		MenuItem.click(menuItem = "Restore");
 
 		KaleoDesigner.viewNodePresent(key_nodeNodeLabel = "update");
-		
 	}
 
 	@description = "Verify that the user is able to restore a previous version of definition by clicking on Restore button, on Preview modal"
