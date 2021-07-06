@@ -108,7 +108,6 @@ definition {
 	@description = "Verify that the user is able to order by Resource"
 	@priority = "3"
 	test CanOrderByResource {
-	
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -132,12 +131,10 @@ definition {
 			locator1 = "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW",
 			value1 = "Knowledge Base Article");
 
-
 		AssertTextEquals(
 			key_rowNumber = "19",
 			locator1 = "ProcessBuilderListView#PROCESS_NAME_TABLE_ROW",
 			value1 = "Wiki Page");
-	
 	}
 
 	@description = "Verify that the user is able to order by Workflow"
