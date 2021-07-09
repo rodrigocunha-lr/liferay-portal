@@ -112,7 +112,6 @@ definition {
 	@description = "Verify that when having 5 tasks on the screen, a pagination bar is displayed"
 	@priority = "3"
 	test PaginationBarIsDisplayed {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -125,6 +124,7 @@ definition {
 			workflowResourceValue = "Blogs Entry");
 
 		var count = "0";
+
 		while ("${count}" != "5") {
 			JSONBlog.addEntry(
 				entryContent = "Blogs Entry B",
