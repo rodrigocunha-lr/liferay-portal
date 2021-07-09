@@ -41,7 +41,6 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test CanFilterByPendingTasks {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -73,12 +72,12 @@ definition {
 		MenuItem.click(menuItem = "Pending");
 
 		AssertElementPresent(
-			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
-			key_taskName = "Blogs Entry Title 2");
+			key_taskName = "Blogs Entry Title 2",
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 
 		AssertElementNotPresent(
-			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
-			key_taskName = "Blogs Entry Title 1");
+			key_taskName = "Blogs Entry Title 1",
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 
 		UserBar.gotoDropdownItem(dropdownItem = "My Submissions");
 
@@ -87,13 +86,12 @@ definition {
 		MenuItem.click(menuItem = "Pending");
 
 		AssertElementPresent(
-			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
-			key_taskName = "Blogs Entry Title 2");
+			key_taskName = "Blogs Entry Title 2",
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 
 		AssertElementNotPresent(
-			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
-			key_taskName = "Blogs Entry Title 1");
-
+			key_taskName = "Blogs Entry Title 1",
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 	}
 
 	@description = "Verify if the Clear option cleans the search results"
