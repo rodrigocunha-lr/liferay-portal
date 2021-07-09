@@ -178,10 +178,7 @@ definition {
 			newNodeType = "fork",
 			nodeType = "start");
 
-		AssertElementPresent(
-			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_CONNECTOR_DEFAULT");
-
-			
+		AssertElementPresent(locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_CONNECTOR_DEFAULT");
 	}
 
 	@description = "Verify that default names for nodes are provided"
