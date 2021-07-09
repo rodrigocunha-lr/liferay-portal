@@ -55,7 +55,6 @@ definition {
 	@description = "Verify that Timers can be added"
 	@priority = "4"
 	test CanAddTimers {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -89,11 +88,6 @@ definition {
 		AssertTextEquals(
 			locator1 = "KaleoDesignerEditWorkflow#SETTINGS_TIMERS",
 			value1 = "Timer Name");
-
-
-
-
-
 	}
 
 	@description = "Verify that the user can add translations"
