@@ -109,6 +109,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SETTINGS_NAME</td>
+	<td>//td[contains(@class,'table-col-name') and contains(.,'Name')]//following-sibling::td[contains(@class,'table-col-value')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SETTINGS_TYPE</td>
 	<td>//td[contains(@class,'table-col-name') and contains(.,'Type')]//following-sibling::td[contains(@class,'table-col-value')]</td>
 	<td></td>
