@@ -145,15 +145,12 @@ definition {
 	@description = "Verify that Condition Node do not have Timers property"
 	@priority = "4"
 	test ConditionHasNoTimersProperty {
-
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Process Builder");
 
 		Workflow.addNewDefinition(workflowDefinitionTitle = "New Workflow Title");
-
 
 		KaleoDesigner.addNodeViaViewTab(
 			nodeDescription = "Condition Node Description",
@@ -163,9 +160,7 @@ definition {
 
 		KaleoDesigner.selectNode(nodeNodeLabel = "Condition");
 
-
 		AssertElementNotPresent(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_TIMERS");
-
 	}
 
 	@description = "Verify that the user can rename connector"
