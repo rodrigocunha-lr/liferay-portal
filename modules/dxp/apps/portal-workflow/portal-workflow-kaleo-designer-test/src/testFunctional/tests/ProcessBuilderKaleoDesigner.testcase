@@ -199,7 +199,6 @@ definition {
 	@description = "Verify that the Fork node must have at least two outgoing transitions."
 	@priority = "4"
 	test ForkNodeMustHaveMoreThanOneTransition {
-		
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -210,7 +209,6 @@ definition {
 		KaleoDesigner.selectNode(nodeNodeLabel = "EndNode");
 
 		KaleoDesigner.deleteNode(nodeNodeLabel = "EndNode");
-
 
 		KaleoDesigner.addConnectorAndNodeViaViewTab(
 			connectorName = "Connector1",
@@ -236,14 +234,11 @@ definition {
 			newNodeType = "end",
 			nodeType = "join");
 
-
 		Button.clickPublish();
-
 
 		AssertTextEquals.assertPartialTextAceEditor(
 			locator1 = "Message#ERROR",
 			value1 = "node must have at least two outgoing transitions");
-	
 	}
 
 	@description = "Verify that each type of Node has Actions property"
