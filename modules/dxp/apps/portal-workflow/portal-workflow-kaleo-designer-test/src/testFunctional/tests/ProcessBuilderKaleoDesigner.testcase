@@ -46,7 +46,6 @@ definition {
 	@description = "Verify that Notification can be added"
 	@priority = "4"
 	test CanAddNotification {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -68,7 +67,7 @@ definition {
 
 		KaleoDesigner.editNodeNotifications(
 			nodeNotificationsDescription = "Notification Description",
-			nodeNotificationsName = "Notification",	
+			nodeNotificationsName = "Notification",
 			nodeNotificationsRecipientType = "Role Type",
 			roleTitle = "Administrator",
 			roleType = "Regular");
@@ -76,9 +75,6 @@ definition {
 		AssertTextEquals(
 			locator1 = "KaleoDesignerEditWorkflow#SETTINGS_NOTIFICATIONS",
 			value1 = "Notification");
-
-
-
 	}
 
 	@description = "Verify that Timers can be added"
