@@ -91,7 +91,6 @@ definition {
 	@description = "Verify that properties can be modified"
 	@priority = "5"
 	test CanModifyProperties {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -110,12 +109,6 @@ definition {
 		AssertEditable(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_NAME");
 
 		AssertEditable(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_TYPE");
-
-
-
-
-		
-
 	}
 
 	@description = "Verify that the user can move nodes in diagram by drag&drop in the middle of node"
