@@ -130,7 +130,6 @@ definition {
 	@description = "Verify that a task can be withdrawn through details page"
 	@priority = "4"
 	test TaskCanBeWithdrawnThroughDetailsPage {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -150,20 +149,18 @@ definition {
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Submissions");
-		
+
 		Click(
 			key_taskName = "Test Blog 1",
 			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 
 		Click(locator1 = "WorkflowSubmissions#SUBMISSIONS_DETAILS_PAGE_ELLIPSIS");
-		
+
 		MenuItem.click(menuItem = "Withdraw Submission");
 
 		AssertElementNotPresent(
-			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
-			key_taskName = "Test Blog 1");
-
-
+			key_taskName = "Test Blog 1",
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 	}
 
 	@description = "Verify that the task changes to approved"
