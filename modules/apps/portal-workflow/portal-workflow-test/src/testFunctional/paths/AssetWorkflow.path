@@ -67,6 +67,12 @@
 	<td>//div[contains(@class,'form-group')]//input[contains(@id,'MyWorkflowTaskPortlet_Title') and contains(@value,'${key_titleValue}') and @readonly='readonly'] </td>
 	<td></td>
 </tr>
+<!--BLOGS ENTRY-->
+<tr>
+	<td>BLOGS_ENTRY_STATUS_TABLE</td>
+	<td>//span[contains(@class, "label-item label-item-expand") and text()="${key_status}"]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
