@@ -226,7 +226,6 @@ definition {
 	@description = "Verify that each type of Node has Name property"
 	@priority = "5"
 	test HasNameProperty {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -261,9 +260,6 @@ definition {
 		KaleoDesigner.selectNode(nodeNodeLabel = "Condition");
 
 		AssertElementPresent(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_NAME");
-
-
-
 	}
 
 	@description = "Verify that each type of Node has Notifications property"
