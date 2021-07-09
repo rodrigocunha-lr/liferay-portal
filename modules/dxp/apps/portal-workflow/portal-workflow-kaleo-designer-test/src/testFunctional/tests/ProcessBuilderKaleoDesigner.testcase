@@ -208,7 +208,6 @@ definition {
 	@description = "Verify that each type of Node has Actions property"
 	@priority = "4"
 	test HasActionsProperty {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -245,13 +244,6 @@ definition {
 		KaleoDesigner.selectNode(nodeNodeLabel = "JoinXOR");
 
 		AssertElementPresent(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_ACTIONS");
-
-		
-
-
-
-
-
 	}
 
 	@description = "Verify that each type of Node has Description property"
