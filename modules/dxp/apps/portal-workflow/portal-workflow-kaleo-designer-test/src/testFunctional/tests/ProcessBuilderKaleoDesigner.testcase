@@ -289,8 +289,6 @@ definition {
 		KaleoDesigner.viewNodePresent(key_nodeNodeLabel = "Task");
 
 		AssertElementPresent(locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_CONNECTOR_DEFAULT");
-
-
 	}
 
 	@description = "Verify that the Start Node must have an outgoing transition"
