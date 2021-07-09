@@ -121,7 +121,6 @@ definition {
 	@description = "Verify that a task can be withdrawn"
 	@priority = "4"
 	test TaskCanBeWithdrawn {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -147,16 +146,16 @@ definition {
 			portlet = "Submissions");
 
 		Click(
-			locator1 = "WorkflowSubmissions#ENTRY_TASK_ROW_NUMBER_ELLIPSIS",
-			key_rowNumber = "1");
+			key_rowNumber = "1",
+			locator1 = "WorkflowSubmissions#ENTRY_TASK_ROW_NUMBER_ELLIPSIS");
 
 		MenuItem.click(menuItem = "Withdraw Submission");
 
 		UserBar.gotoDropdownItem(dropdownItem = "My Submissions");
 
 		AssertElementNotPresent(
-			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
-			key_taskName = "Test Blog 1");
+			key_taskName = "Test Blog 1",
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 	}
 
 	@description = "Verify that a task can be withdrawn through details page"
