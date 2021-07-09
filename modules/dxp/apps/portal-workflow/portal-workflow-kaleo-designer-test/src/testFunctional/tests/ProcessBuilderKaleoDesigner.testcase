@@ -244,7 +244,6 @@ definition {
 	@description = "Verify that the Task node has Timers property"
 	@priority = "4"
 	test HasTimersProperty {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -265,10 +264,6 @@ definition {
 		KaleoDesigner.selectNode(nodeNodeLabel = "Task");
 
 		AssertElementPresent(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_TIMERS");
-
-
-
-
 	}
 
 	@description = "Verify that each type of Node has Type property"
