@@ -235,7 +235,6 @@ definition {
 	@description = "Verify that each type of Node has Notifications property"
 	@priority = "4"
 	test HasNotificationsProperty {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -256,9 +255,6 @@ definition {
 		KaleoDesigner.selectNode(nodeNodeLabel = "Task");
 
 		AssertElementPresent(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_NOTIFICATIONS");
-
-
-
 	}
 
 	@description = "Verify that the Task node has Timers property"
