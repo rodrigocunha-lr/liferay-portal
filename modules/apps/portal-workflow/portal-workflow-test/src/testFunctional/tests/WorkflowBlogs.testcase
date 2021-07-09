@@ -192,10 +192,6 @@ definition {
 			key_workflowAssetTitle = "Blogs Entry Title",
 			key_workflowTask = "Review",
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_ASSET_TITLE");
-
-
-
-			
 	}
 
 	@priority = "4"
