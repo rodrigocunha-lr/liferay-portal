@@ -76,7 +76,6 @@ definition {
 	@description = "Verify the kebab menu is not displayed on details page when task is completed"
 	@priority = "4"
 	test CompletedTaskCannnotBeWithdrawnThroughDetailsPage {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -100,12 +99,10 @@ definition {
 			portlet = "Submissions");
 
 		Click(
-			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
-			key_taskName = "Blogs Entry Title");
+			key_taskName = "Blogs Entry Title",
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME");
 
 		AssertElementNotPresent(locator1 = "WorkflowSubmissions#SUBMISSIONS_DETAILS_PAGE_ELLIPSIS");
-
-
 	}
 
 	@description = "Verify that clicking on the task name takes you to a details page"
