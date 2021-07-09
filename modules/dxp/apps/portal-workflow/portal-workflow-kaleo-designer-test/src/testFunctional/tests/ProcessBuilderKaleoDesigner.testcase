@@ -175,8 +175,6 @@ definition {
 
 		KaleoDesigner.editConnectorName(connectorName = "test");
 
-		
-
 		AssertTextEquals(
 			locator1 = "DDMEditStructure#SETTINGS_NAME",
 			value1 = "test");
