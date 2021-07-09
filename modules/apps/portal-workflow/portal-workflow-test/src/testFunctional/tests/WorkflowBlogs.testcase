@@ -136,10 +136,6 @@ definition {
 			workflowResourceValue = "Blogs Entry");
 
 		Alert.viewSuccessMessage();
-
-
-
-		
 	}
 
 	@description = "Verify that the user can assign a Workflow to Blog Entry"
