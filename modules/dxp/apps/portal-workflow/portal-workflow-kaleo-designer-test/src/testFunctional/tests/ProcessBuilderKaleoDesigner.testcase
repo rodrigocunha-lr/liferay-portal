@@ -37,7 +37,6 @@ definition {
 	@description = "Verify that multiple Assignment can be added"
 	@priority = "4"
 	test CanAddMultipleAssignment {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -74,8 +73,6 @@ definition {
 		AssertTextEquals(
 			locator1 = "KaleoDesignerEditWorkflow#SETTINGS_ASSIGNMENTS",
 			value1 = "Role Type");
-		
-
 	}
 
 	@description = "Verify that Notification can be added"
