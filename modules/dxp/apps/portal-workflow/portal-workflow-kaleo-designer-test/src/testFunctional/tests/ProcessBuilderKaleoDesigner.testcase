@@ -253,7 +253,6 @@ definition {
 	@description = "Verify that each type of Node has Type property"
 	@priority = "5"
 	test HasTypeProperty {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -288,10 +287,6 @@ definition {
 		KaleoDesigner.selectNode(nodeNodeLabel = "Condition");
 
 		AssertElementPresent(locator1 = "KaleoDesignerEditWorkflow#SETTINGS_TYPE");
-
-
-
-
 	}
 
 	@description = "Verify that the user can rename connector"
