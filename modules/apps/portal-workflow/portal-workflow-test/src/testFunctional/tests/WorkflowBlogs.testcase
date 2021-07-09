@@ -163,9 +163,6 @@ definition {
 		AssertElementPresent(
 			key_title = "Blogs Entry Title",
 			locator1 = "AssetWorkflow#BLOGS_ENTRY_TITLE");
-
-
-			
 	}
 
 	@description = "Verify that a Blog Entry saved as draft is not submitted to the Workflow"
