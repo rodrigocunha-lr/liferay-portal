@@ -42,7 +42,57 @@ definition {
 	@priority = "3"
 	test CanFilterByPendingTasks {
 
-		// TODO LRQA-68553 CanFilterByPendingTasks pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title 1");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title 2");
+
+		Workflow.completeWorkflowBlogInstance(key_workflowInstanceTitle = "Blogs Entry Title 1");
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Submissions");
+
+		Click(locator1 = "Dropdown#FILTER_AND_ORDER");
+
+		MenuItem.click(menuItem = "Pending");
+
+		AssertElementPresent(
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
+			key_taskName = "Blogs Entry Title 2");
+
+		AssertElementNotPresent(
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
+			key_taskName = "Blogs Entry Title 1");
+
+		UserBar.gotoDropdownItem(dropdownItem = "My Submissions");
+
+		Click(locator1 = "Dropdown#FILTER_AND_ORDER");
+
+		MenuItem.click(menuItem = "Pending");
+
+		AssertElementPresent(
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
+			key_taskName = "Blogs Entry Title 2");
+
+		AssertElementNotPresent(
+			locator1 = "WorkflowSubmissions#SUBMISSIONS_TASK_NAME",
+			key_taskName = "Blogs Entry Title 1");
 
 	}
 
