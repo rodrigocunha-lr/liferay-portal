@@ -67,6 +67,12 @@
 	<td>//div[contains(@class,'form-group')]//input[contains(@id,'MyWorkflowTaskPortlet_Title') and contains(@value,'${key_titleValue}') and @readonly='readonly'] </td>
 	<td></td>
 </tr>
+<!--BLOGS-->
+<tr>
+	<td>BLOGS_ENTRY_TITLE</td>
+	<td>//p[@title="${key_title}"]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
