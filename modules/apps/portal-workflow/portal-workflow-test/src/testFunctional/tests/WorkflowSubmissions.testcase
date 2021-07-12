@@ -166,7 +166,6 @@ definition {
 	@description = "Verify if clicking the arrow changes the order of the table (asc - desc)"
 	@priority = "3"
 	test ViewAscDescSequenceSubmissions {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -191,30 +190,26 @@ definition {
 		Click(locator1 = "ManagementBar#ORDER_ICON_GENERIC");
 
 		AssertElementPresent(
-			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
 			key_order = "2",
-			key_title = "Blogs Entry Title 2");
+			key_title = "Blogs Entry Title 2",
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS");
 
 		AssertElementPresent(
-			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
 			key_order = "3",
-			key_title = "Blogs Entry Title 1");
+			key_title = "Blogs Entry Title 1",
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS");
 
 		Click(locator1 = "ManagementBar#ORDER_ICON_GENERIC");
 
 		AssertElementPresent(
-			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
 			key_order = "3",
-			key_title = "Blogs Entry Title 2");
+			key_title = "Blogs Entry Title 2",
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS");
 
 		AssertElementPresent(
-			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
 			key_order = "2",
-			key_title = "Blogs Entry Title 1");
-
-
-
-
+			key_title = "Blogs Entry Title 1",
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS");
 	}
 
 	@description = "Verify that the message 'There are no publication requested by me.' when there is no task"
