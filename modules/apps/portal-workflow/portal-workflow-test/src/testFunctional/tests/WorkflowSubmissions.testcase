@@ -164,11 +164,56 @@ definition {
 	}
 
 	@description = "Verify if clicking the arrow changes the order of the table (asc - desc)"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test ViewAscDescSequenceSubmissions {
 
-		// TODO LRQA-68564 ViewAscDescSequenceSubmissions pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title 1");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry Content",
+			entryTitle = "Blogs Entry Title 2");
+
+		UserBar.gotoDropdownItem(dropdownItem = "My Submissions");
+
+		Click(locator1 = "ManagementBar#ORDER_ICON_GENERIC");
+
+		AssertElementPresent(
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
+			key_order = "2",
+			key_title = "Blogs Entry Title 2");
+
+		AssertElementPresent(
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
+			key_order = "3",
+			key_title = "Blogs Entry Title 1");
+
+		Click(locator1 = "ManagementBar#ORDER_ICON_GENERIC");
+
+		AssertElementPresent(
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
+			key_order = "3",
+			key_title = "Blogs Entry Title 2");
+
+		AssertElementPresent(
+			locator1 = "WorkflowSubmissionsTask#TABLE_ORDER_SUBMISSIONS",
+			key_order = "2",
+			key_title = "Blogs Entry Title 1");
+
+
+
 
 	}
 
