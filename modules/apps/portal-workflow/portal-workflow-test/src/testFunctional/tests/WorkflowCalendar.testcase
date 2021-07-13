@@ -401,7 +401,6 @@ definition {
 	@description = "Verify that a Unpublish warning message appears when the user edit a approved event"
 	@priority = "3"
 	test UnpublishWarningMessageIsDisplayedOnEdit {
-
 		UserBar.gotoDropdownItem(dropdownItem = "My Workflow Tasks");
 
 		Workflow.assignToMeTaskByActions(
@@ -417,16 +416,14 @@ definition {
 		Navigator.gotoPage(pageName = "Calendar Page");
 
 		Click(
-			locator1 = "Calendar#MY_CALENDARS_CALENDAR",
-			key_userCalendarName = "Test Test");
+			key_userCalendarName = "Test Test",
+			locator1 = "Calendar#MY_CALENDARS_CALENDAR");
 
 		CalendarNavigator.gotoView(viewType = "Week");
 
 		CalendarNavigator.gotoEditEvent(eventTitle = "Calendar Event Title");
-		
+
 		Alert.viewInfoMessageSpecific(infoMessage = "This Calendar Event is approved. Publishing these changes will cause it to be unpublished and go through the approval process again.");
-
-
 	}
 
 	@priority = "3"
