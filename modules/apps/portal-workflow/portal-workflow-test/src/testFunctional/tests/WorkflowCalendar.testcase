@@ -415,9 +415,8 @@ definition {
 		SelectFrame(locator1 = "IFrame#MODAL_BODY");
 
 		AssertTextEquals(
-			value1 = "PENDING",
-			locator1 = "WorkflowCalendar#CALENDAR_EVENT_DETAILS_WORKFLOW_STATUS");
-
+			locator1 = "WorkflowCalendar#CALENDAR_EVENT_DETAILS_WORKFLOW_STATUS",
+			value1 = "PENDING");
 	}
 
 	@description = "Verify that a Unpublish warning message appears when the user edit a approved event"
