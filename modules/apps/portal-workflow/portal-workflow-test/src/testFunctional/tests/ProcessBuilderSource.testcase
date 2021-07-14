@@ -162,7 +162,6 @@ definition {
 	@description = "Verify that when clicking the info icon, the process details and revision history are displayed"
 	@priority = "3"
 	test CanViewDetailsAndHistory {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
@@ -177,15 +176,14 @@ definition {
 		AssertVisible(locator1 = "Sidebar#SIDEBAR");
 
 		AssertElementPresent(
-			locator1 = "NavTab#ACTIVE_TAB_LINK",
-			key_tab = "Details");
+			key_tab = "Details",
+			locator1 = "NavTab#ACTIVE_TAB_LINK");
 
 		Navigator.gotoNavTab(navTab = "Revision History");
 
 		AssertElementPresent(
-			locator1 = "NavTab#ACTIVE_TAB_LINK",	
-			key_tab = "Revision History");
-
+			key_tab = "Revision History",
+			locator1 = "NavTab#ACTIVE_TAB_LINK");
 	}
 
 	@description = "Verify that the user is able to view a previous version of definition by clicking on Preview option, on kebab menu"
