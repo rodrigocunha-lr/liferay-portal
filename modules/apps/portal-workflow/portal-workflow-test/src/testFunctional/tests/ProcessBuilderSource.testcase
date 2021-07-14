@@ -160,11 +160,31 @@ definition {
 	}
 
 	@description = "Verify that when clicking the info icon, the process details and revision history are displayed"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanViewDetailsAndHistory {
 
-		// TODO LRQA-68326 CanViewDetailsAndHistory pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Click(
+			key_workflowResourceValue = "Single Approver",
+			locator1 = "WorkflowConfiguration#RESOURCE_TABLE_WORKFLOW");
+
+		Click.clickAt(locator1 = "Icon#INFO");
+
+		AssertVisible(locator1 = "Sidebar#SIDEBAR");
+
+		AssertElementPresent(
+			locator1 = "NavTab#ACTIVE_TAB_LINK",
+			key_tab = "Details");
+
+		Navigator.gotoNavTab(navTab = "Revision History");
+
+		AssertElementPresent(
+			locator1 = "NavTab#ACTIVE_TAB_LINK",	
+			key_tab = "Revision History");
 
 	}
 
