@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>ProcessBuilderSource</title>
+</head>
+
+<body>
+<table border="1" cellpadding="1" cellspacing="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ProcessBuilderSource</td></tr>
+</thead>
+
+<tbody>
+<tr>
+	<td>PROCESS_DETAILS_TAB</td>
+	<td>//*[contains(@class,'nav-link') and contains(.,'${key_tabName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROCESS_DETAILS_REVISION_BY_ROW</td>
+	<td>//li[contains(@class, 'list-group-item list-group-item-flex')][${key_rowNumber}]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
