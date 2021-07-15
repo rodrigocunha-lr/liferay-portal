@@ -111,17 +111,15 @@ definition {
 
 		KaleoDesigner.selectNode(nodeNodeLabel = "StartNode");
 
-
 		DragAndDrop.dragAndDrop(
-			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_NODE",
 			key_nodeNodeLabel = "StartNode",
+			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_NODE",
 			value1 = "250,100");
 
 		AssertElementPresent(
-			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_NODE",
 			key_nodeNodeLabel = "StartNode",
+			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_NODE",
 			value1 = "250,100");
-
 	}
 
 	@description = "Verify that the user can rename a Node"
