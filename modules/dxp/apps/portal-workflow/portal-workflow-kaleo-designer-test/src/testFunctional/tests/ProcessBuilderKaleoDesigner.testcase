@@ -98,11 +98,29 @@ definition {
 	}
 
 	@description = "Verify that the user can move nodes in diagram by drag&drop in the middle of node"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanMoveNode {
+		property test.name.skip.portal.instance = "ProcessBuilderKaleoDesigner#AddStartNodeEditNameAndDesciptionAndDeleteViaViewTab";
 
-		// TODO LRQA-68455 CanMoveNode pending implementation
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Workflow.addNewDefinition(workflowDefinitionTitle = "New Workflow Definition Title");
+
+		KaleoDesigner.selectNode(nodeNodeLabel = "StartNode");
+
+
+		DragAndDrop.dragAndDrop(
+			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_NODE",
+			key_nodeNodeLabel = "StartNode",
+			value1 = "250,100");
+
+		AssertElementPresent(
+			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_NODE",
+			key_nodeNodeLabel = "StartNode",
+			value1 = "250,100");
 
 	}
 
