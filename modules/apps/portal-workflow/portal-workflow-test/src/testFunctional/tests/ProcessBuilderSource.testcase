@@ -124,12 +124,25 @@ definition {
 	}
 
 	@description = "Verify that the user is able to save a Workflow without publishing it"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanSaveWorkflow {
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
 
-		// TODO LRQA-68325 CanSaveWorkflow pending implementation
+		Workflow.addNewDefinition(workflowDefinitionTitle = "New Workflow");
 
+		Workflow.saveDefinition();
+
+		Alert.viewSuccessMessageText(successMessage = "Workflow saved.");
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Workflow.viewDefinitionUnpublished(workflowDefinitionTitle = "New Workflow");
 	}
 
 	@description = "Verify that the user can select Duplicate option in the kebab for a particular definition"
