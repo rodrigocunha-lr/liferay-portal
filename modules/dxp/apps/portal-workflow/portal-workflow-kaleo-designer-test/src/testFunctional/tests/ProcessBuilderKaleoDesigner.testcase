@@ -204,11 +204,6 @@ definition {
 			locator1 = "KaleoDesignerEditWorkflow#VIEW_FORM_NODE_DELETE_ICON");
 
 		AssertConfirm(value1 = "Are you sure you want to delete the selected node(s)?");
-
-
-
-
-
 	}
 
 	@description = "Verify that the Fork node must have at least two outgoing transitions."
