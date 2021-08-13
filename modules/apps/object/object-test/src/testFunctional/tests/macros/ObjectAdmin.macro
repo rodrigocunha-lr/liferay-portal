@@ -30,6 +30,7 @@ definition {
 		Click(locator1 = "ObjectAdmin#SAVE_CUSTOM_OBJECT");
 	}
 
+<<<<<<< HEAD
 	macro deleteAllCustomObjectsViaAPI {
 		JSONObject.deleteAllCustomObjects(
 			userEmailAddress = "${userEmailAddress}",
@@ -50,6 +51,21 @@ definition {
 			objectName = "${objectName}",
 			userEmailAddress = "${userEmailAddress}",
 			userPassword = "${userPassword}");
+=======
+	macro editCustomObject {
+
+		Click(locator1 = "ObjectAdmin#SELECT_CUSTOM_OBJECT", key_name = "${name}");
+
+		Click(locator1="ObjectAdmin#EDIT_CUSTOM_OBJECT");
+	}
+
+	macro publishCustomObject {
+
+		if(isSet(name)){	
+			ObjectAdmin.editCustomObject(name = "${name}");
+		}
+		Click(locator1="ObjectAdmin#PUBLISH_CUSTOM_OBJECT");
+>>>>>>> 93620b5 (LPS-137101 Add ObjectDisplayedToCollectionProdiver Test)
 	}
 
 	macro openObjectAdmin {
