@@ -77,4 +77,27 @@ definition {
 			locator1 = "ObjectAdmin#VIEW_OBJECT");
 	}
 
+	macro notViewSystemObject {
+		AssertElementNotPresent(locator1 = "ObjectAdmin#VIEW_CUSTOM_OBJECT");
+	}
+
+	macro deleteAllCustomObjects {
+		ObjectAdmin.openObjectAdmin();
+
+		if (IsElementNotPresent(locator1 = "ObjectAdmin#VIEW_CUSTOM_OBJECT")) {
+			ObjectAdmin.notViewSystemObject();
+		}
+		else {
+			
+			while (IsElementPresent(locator1 = "ObjectAdmin#VIEW_CUSTOM_OBJECT")) {
+			
+			Click(locator1 = "ObjectAdmin#SELECT_FIRST_CUSTOM_OBJECT");
+
+			Click(locator1 = "ObjectAdmin#DELETE_CUSTOM_OBJECT");
+
+			VerifyElementPresent(locator1 = "ObjectAdmin#MESSAGE_SUCCESS");
+			}
+		}
+	}
+
 }

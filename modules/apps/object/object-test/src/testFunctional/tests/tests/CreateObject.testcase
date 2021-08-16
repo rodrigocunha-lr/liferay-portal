@@ -16,6 +16,8 @@ definition {
 
 		if ("${testPortalInstance}" == "true") {
 			PortalInstances.tearDownCP();
+		} else {
+			ObjectAdmin.deleteAllCustomObjects();
 		}
 	}
 
@@ -30,6 +32,7 @@ definition {
 		ObjectAdmin.createCustomObject(name = "CustomObject");
 
 		ObjectAdmin.viewCustomObject(name = "CustomObject");
+
 	}
 
 	@description = "LPS-135548 - Verify that user can view system objects"
