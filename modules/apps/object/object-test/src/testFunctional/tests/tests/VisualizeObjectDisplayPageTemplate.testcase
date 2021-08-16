@@ -23,6 +23,7 @@ definition {
 	@priority = "5"
 	test ObjectDisplayedForPageTemplate {
 		property portal.acceptance = "true";
+		property test.name.skip.portal.instance = "VisualizeObjectDisplayPageTemplate#ObjectDisplayedForPageTemplate";
 
 		ObjectAdmin.openObjectAdmin();
 
