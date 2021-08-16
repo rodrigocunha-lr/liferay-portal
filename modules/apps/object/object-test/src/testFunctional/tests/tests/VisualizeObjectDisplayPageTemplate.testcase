@@ -35,7 +35,6 @@ definition {
 		VisualizeObjectDisplayPageTemplate.validateObjectContentType();
 
 		VisualizeObjectDisplayPageTemplate.validateObjectSubtype();
-
 	}
 
 	@description = "LPS-137105 - Verify if the Object entries are rendered when previewing it"
