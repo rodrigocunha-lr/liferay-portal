@@ -27,9 +27,12 @@ definition {
 
 		ObjectAdmin.openObjectAdmin();
 
-		ObjectAdmin.createCustomObject(name = "CustomObject");
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
 
-		ObjectAdmin.publishCustomObject(name = "CustomObject");
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
 
 		VisualizeObjectDisplayPageTemplate.createObjectPageTemplate();
 
