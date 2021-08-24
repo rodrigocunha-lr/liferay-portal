@@ -18,6 +18,12 @@ definition {
 			PortalInstances.tearDownCP();
 		}
 		else {
+			ProductMenu.gotoPortlet(
+				category = "Content &amp; Data",
+				portlet = "Forms");
+
+			FormsAdmin.teardownForms();
+
 			ObjectAdmin.deleteAllCustomObjectsViaAPI();
 		}
 	}
@@ -49,7 +55,7 @@ definition {
 
 		Form.gotoAddField(fieldType = "Text");
 
-		PopulateObjectFormsConfiguration.viewUnmappedFormField(fieldName = "There are no compatible object fields to map.");
+		PopulateObjectFormsConfiguration.viewNotCompatibleObjectFieldsMessage(message = "There are no compatible object fields to map.");
 	}
 
 	@description = "LPS-133365 - Verify if it's not possible to map a Object field with a Form field of a different type in a Field Group"
