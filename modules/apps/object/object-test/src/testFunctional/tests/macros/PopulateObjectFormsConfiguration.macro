@@ -71,13 +71,13 @@ definition {
 			locator1 = "PopulateObjectFormsConfiguration#UNMAPPED_ERROR_PANEL_BODY");
 	}
 
-	macro viewUnmappedFormField () {
+	macro viewNotCompatibleObjectFieldsMessage () {
 		Click(locator1 = "PopulateObjectFormsConfiguration#ADVANCED_TAB");
 
 		Click(locator1 = "PopulateObjectFormsConfiguration#OBJECT_FIELD_TAB");
 
 		AssertElementPresent(
-			key_fieldName = "${fieldName}",
+			key_fieldName = "${message}",
 			locator1 = "PopulateObjectFormsConfiguration#MAP_OBJECT_FIELD");
 	}
 
