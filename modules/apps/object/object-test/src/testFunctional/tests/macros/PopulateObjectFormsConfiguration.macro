@@ -91,4 +91,8 @@ definition {
 			locator1 = "PopulateObjectFormsConfiguration#MAP_OBJECT_FIELD");
 	}
 
+	macro gotoFormField (){
+		Click(key_formFieldName = "${formFieldName}", locator1 = "PopulateObjectFormsConfiguration#GO_TO_FORM_FIELD");
+	}
+
 }
