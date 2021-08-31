@@ -27,7 +27,6 @@ definition {
 	@priority = "5"
 	test FieldsFromObjectDisplayedToBeMapped {
 		property portal.acceptance = "true";
-		property test.name.skip.portal.instance = "VisualizeObjectCollectionDisplay#FieldsFromObjectDisplayedToBeMapped";
 
 		// TODO LPS-137102 FieldsFromObjectDisplayedToBeMapped pending implementation
 
@@ -37,7 +36,6 @@ definition {
 	@priority = "5"
 	test ObjectDisplayedToCollectionProdiver {
 		property portal.acceptance = "true";
-		property test.name.skip.portal.instance = "VisualizeObjectCollectionDisplay#ObjectDisplayedToCollectionProdiver";
 
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
@@ -56,7 +54,6 @@ definition {
 	@priority = "5"
 	test ObjectEntriesAreRendered {
 		property portal.acceptance = "true";
-		property test.name.skip.portal.instance = "VisualizeObjectCollectionDisplay#ObjectEntriesAreRendered";
 
 		// TODO LPS-137103 ObjectEntriesAreRendered pending implementation
 
