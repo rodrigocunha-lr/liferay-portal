@@ -432,7 +432,6 @@ definition {
 		CreateObject.viewObject(labelName = "CustomObject");
 
 		CreateObject.viewObjectLabel(labelName = "Update Custom Object");
-
 	}
 
 	@description = "LPS-135635 - Verify it is possible to update the Object name before it is published"
