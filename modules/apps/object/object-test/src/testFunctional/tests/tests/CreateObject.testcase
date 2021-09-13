@@ -128,12 +128,13 @@ definition {
 
 		CreateObject.gotoCreateObject(objectName = "CustomObject");
 
-		CreateObject.gotoNavbar(navItem = "Fields"); 
+		CreateObject.gotoNavbar(navItem = "Fields");
 
 		CreateObject.addObjectField();
 
-		CreateObject.assertObjectField(objectFieldLabel = "objectStringField", objectFieldType = "String");
-
+		CreateObject.assertObjectField(
+			objectFieldLabel = "objectStringField",
+			objectFieldType = "String");
 	}
 
 	@description = "LPS-135549 - Verify that it is not possible to create a Object with a duplicated Object Name"
