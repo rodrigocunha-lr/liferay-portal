@@ -210,7 +210,7 @@ definition {
 			isMandatory = "false",
 			typeName = "true");
 
-		ObjectAdmin.viewFieldNameErrorMessage();
+		ObjectAdmin.viewFieldErrorMessage(message = "Name must only contain letters and digits");
 	}
 
 	@description = "LPS-135549 - Verify it is not possible to save with the first character of the Field Name in upper case"
