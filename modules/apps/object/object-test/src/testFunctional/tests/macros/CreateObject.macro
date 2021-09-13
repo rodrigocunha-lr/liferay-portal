@@ -1,5 +1,28 @@
 definition {
 
+	macro gotoCreateObject {
+		Click(locator1 = "CreateObject#CREATE_OBJECT_BUTTON", key_objectName = "${objectName}");	
+	}
+
+	macro gotoNavbar {
+		Click(locator1 ="CreateObject#TAB_NAVBAR", key_navItem = "${navItem}");
+	}
+
+	macro addObjectField {
+		Click.javaScriptClick(locator1 = "CreateObject#ADD_OBJECT_FIELD");
+			
+		Type(locator1 = "CreateObject#OBJECT_FIELD_LABEL", value1 ="Object String Field");
+	
+		Select(locator1 = "CreateObject#OBJECT_FIELD_TYPE",
+			value1 = "String"); 
+		
+		Click(locator1 = "CreateObject#FIELD_SAVE_BUTTON");
+	}
+
+	macro assertObjectField {
+		AssertElementPresent(key_objectFieldLabel = "${objectFieldLabel}", locator1 = "CreateObject#ASSERT_OBJECT_FIELD", key_objectFieldType = "${objectFieldType}");
+	}
+
 	macro assertObjectLabel {
 		AssertTextEquals(
 			locator1 = "CreateObject#OBJECT_LABEL",

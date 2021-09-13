@@ -30,6 +30,41 @@
 		<td>//button[@id='_com_liferay_object_web_internal_object_definitions_portlet_ObjectDefinitionsPortlet_save']</td>
 		<td></td>
 	</tr>
+	<tr>
+		<td>CREATE_OBJECT_BUTTON</td>
+		<td>//a[contains(.,'${key_objectName}')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>TAB_NAVBAR</td>
+		<td>//a[(@class='nav-link link-unstyled') and contains(.,'${key_navItem}')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ADD_OBJECT_FIELD</td>
+		<td>//button[@title='Add Object Field']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>OBJECT_FIELD_LABEL</td>
+		<td>//input[@id='objectFieldLabel']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>OBJECT_FIELD_TYPE</td>
+		<td>//select[@id='objectFieldType']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>FIELD_SAVE_BUTTON</td>
+		<td>//button[@class='btn btn-primary']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ASSERT_OBJECT_FIELD</td>
+		<td>//div[contains(.,'${key_objectFieldLabel}')]/../div[contains(text(),'${key_objectFieldType}')]</td>
+		<td></td>
+	</tr>
 </tbody>
 </table>
 </body>

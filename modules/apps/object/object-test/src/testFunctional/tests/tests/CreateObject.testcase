@@ -115,12 +115,24 @@ definition {
 	}
 
 	@description = "LPS-135549 - Verify it is possible to create a String field"
-	@ignore = "Test Stub"
 	@priority = "5"
 	test CanCreateStringField {
 		property portal.acceptance = "true";
 
-		// TODO LPS-138823 CanCreateStringField pending implementation
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.openObjectAdmin();
+
+		CreateObject.gotoCreateObject(objectName = "CustomObject");
+
+		CreateObject.gotoNavbar(navItem = "Fields"); 
+
+		CreateObject.addObjectField();
+
+		CreateObject.assertObjectField(objectFieldLabel = "objectStringField", objectFieldType = "String");
 
 	}
 
