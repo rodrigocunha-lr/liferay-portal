@@ -36,6 +36,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>OBJECT_DEFINITION_NAME</td>
+		<td>//input[@id='objectDefinitionName']</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>OBJECT_DEFINITION_PLURAL_LABEL</td>
 		<td>//input[@id='objectDefinitionPluralLabel']</td>
 		<td></td>

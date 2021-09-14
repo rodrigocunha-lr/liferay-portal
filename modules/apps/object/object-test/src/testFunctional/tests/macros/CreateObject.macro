@@ -1,13 +1,15 @@
 definition {
 
-	macro createCustomObjectObject {
-		Click(locator1 = "CreateObject#CREATE_CUSTOM_OBJECT_BUTTON");
+	macro addDefinitionLabel {
+		Type(
+			locator1 = "CreateObject#OBJECT_DEFINITION_LABEL",
+			value1 = "${labelName}");
+	}
 
-		CreateObject.addDefinitionLabel(key_labelName = "${labelName}");
-
-		CreateObject.addDefinitionPluralLabel(key_pluralLabelName = "${pluralLabelName}");
-		
-		Click(locator1 = "CreateObject#SAVE_BUTTON_DEFINITION");
+	macro addDefinitionPluralLabel {
+		Type(
+			locator1 = "CreateObject#OBJECT_DEFINITION_PLURAL_LABEL",
+			value1 = "${pluralLabelName}");
 	}
 
 	macro assertCustomObject {
@@ -16,16 +18,10 @@ definition {
 			locator1 = "CreateObject#OBJECT_NAME");
 	}
 
-	macro addDefinitionLabel {
-		Type(
-			locator1 = "CreateObject#OBJECT_DEFINITION_LABEL",
-			value1 = "${key_labelName}");
-	}
-
-	macro addDefinitionPluralLabel {
-		Type(
-			locator1 = "CreateObject#OBJECT_DEFINITION_PLURAL_LABEL",
-			value1 = "${key_pluralLabelName}");
+	macro assertObjectDefinitionName {
+		AssertTextEquals(
+			locator1 = "CreateObject#OBJECT_DEFINITION_NAME",
+			value1 = "${objectName}");
 	}
 
 	macro assertObjectLabel {
@@ -40,6 +36,16 @@ definition {
 			value1 = "${pluralLabelName}");
 	}
 
+	macro createCustomObjectObject {
+		CreateObject.openObjectDefinition();
+
+		CreateObject.addDefinitionLabel(labelName = "${labelName}");
+
+		CreateObject.addDefinitionPluralLabel(pluralLabelName = "${pluralLabelName}");
+
+		Click(locator1 = "CreateObject#SAVE_BUTTON_DEFINITION");
+	}
+
 	macro editLabel {
 		Type(
 			locator1 = "CreateObject#OBJECT_LABEL",
@@ -50,6 +56,10 @@ definition {
 		Type(
 			locator1 = "CreateObject#OBJECT_PLURAL_LABEL",
 			value1 = "${pluralLabelName}");
+	}
+
+	macro openObjectDefinition {
+		Click(locator1 = "CreateObject#CREATE_CUSTOM_OBJECT_BUTTON");
 	}
 
 	macro saveObject {
