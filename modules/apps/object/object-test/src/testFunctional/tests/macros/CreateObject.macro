@@ -26,10 +26,16 @@ definition {
 		Click(locator1 = "CreateObject#CREATE_CUSTOM_OBJECT_BUTTON");
 
 		CreateObject.addDefinitionLabel(key_labelName = "${labelName}");
+	macro addDefinitionLabel {
+		Type(
+			locator1 = "CreateObject#OBJECT_DEFINITION_LABEL",
+			value1 = "${labelName}");
+	}
 
-		CreateObject.addDefinitionPluralLabel(key_pluralLabelName = "${pluralLabelName}");
-		
-		Click(locator1 = "CreateObject#SAVE_BUTTON_DEFINITION");
+	macro addDefinitionPluralLabel {
+		Type(
+			locator1 = "CreateObject#OBJECT_DEFINITION_PLURAL_LABEL",
+			value1 = "${pluralLabelName}");
 	}
 
 	macro assertCustomObject {
@@ -38,16 +44,10 @@ definition {
 			locator1 = "CreateObject#OBJECT_NAME");
 	}
 
-	macro addDefinitionLabel {
-		Type(
-			locator1 = "CreateObject#OBJECT_DEFINITION_LABEL",
-			value1 = "${key_labelName}");
-	}
-
-	macro addDefinitionPluralLabel {
-		Type(
-			locator1 = "CreateObject#OBJECT_DEFINITION_PLURAL_LABEL",
-			value1 = "${key_pluralLabelName}");
+	macro assertObjectDefinitionName {
+		AssertTextEquals(
+			locator1 = "CreateObject#OBJECT_DEFINITION_NAME",
+			value1 = "${objectName}");
 	}
 
 	macro assertObjectLabel {
@@ -62,6 +62,7 @@ definition {
 			value1 = "${pluralLabelName}");
 	}
 
+<<<<<<< HEAD
 	macro assertPanelCategoryKey {
 		AssertElementPresent(
 			key_panelCategoryKey = "${panelCategoryKey}",
@@ -70,6 +71,16 @@ definition {
 
 	macro checkToggleMandatory {
 		Check.checkToggleSwitch(locator1 = "CreateObject#TOGGLE_MANDATORY");
+=======
+	macro createCustomObjectObject {
+		CreateObject.openObjectDefinition();
+
+		CreateObject.addDefinitionLabel(labelName = "${labelName}");
+
+		CreateObject.addDefinitionPluralLabel(pluralLabelName = "${pluralLabelName}");
+
+		Click(locator1 = "CreateObject#SAVE_BUTTON_DEFINITION");
+>>>>>>> 91afaa7 (LPS-138806 Add ObjectNameIsAutofilled Test)
 	}
 
 	macro editLabel {
@@ -90,10 +101,15 @@ definition {
 			value1 = "${pluralLabelName}");
 	}
 
+<<<<<<< HEAD
 	macro editType {
 		Select(
 			locator1 = "CreateObject#FIELD_TYPE",
 			value1 = "${fieldType}");
+=======
+	macro openObjectDefinition {
+		Click(locator1 = "CreateObject#CREATE_CUSTOM_OBJECT_BUTTON");
+>>>>>>> 91afaa7 (LPS-138806 Add ObjectNameIsAutofilled Test)
 	}
 
 	macro saveObject {
