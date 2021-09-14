@@ -1079,8 +1079,6 @@ definition {
 	@description = "LPS-135549 - Verify that the Object Name is autofilled when Label is filled"
 	@priority = "4"
 	test ObjectNameIsAutofilled {
-		property portal.acceptance = "true";
-
 		ObjectAdmin.openObjectAdmin();
 
 		CreateObject.openObjectDefinition();
