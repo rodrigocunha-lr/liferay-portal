@@ -30,6 +30,31 @@
 		<td>//button[@id='_com_liferay_object_web_internal_object_definitions_portlet_ObjectDefinitionsPortlet_save']</td>
 		<td></td>
 	</tr>
+	<tr>
+		<td>OBJECT_DEFINITION_LABEL</td>
+		<td>//input[@id='objectDefinitionLabel']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>OBJECT_DEFINITION_PLURAL_LABEL</td>
+		<td>//input[@id='objectDefinitionPluralLabel']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>CREATE_CUSTOM_OBJECT_BUTTON</td>
+		<td>//button[@class='nav-btn nav-btn-monospaced btn btn-monospaced btn-primary']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>SAVE_BUTTON_DEFINITION</td>
+		<td>//button[@class='btn btn-primary']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>OBJECT_NAME</td>
+		<td>//div[(@class='table-list-title') and contains(.,'${key_labelName}')]</td>
+		<td></td>
+	</tr>
 </tbody>
 </table>
 </body>
