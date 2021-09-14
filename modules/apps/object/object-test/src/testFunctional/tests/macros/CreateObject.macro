@@ -22,6 +22,32 @@ definition {
 		AssertElementPresent(
 			key_fieldName = "${fieldName}",
 			locator1 = "CreateObject#VIEW_OBJECT_FIELD_NAME");
+	macro createCustomObjectObject {
+		Click(locator1 = "CreateObject#CREATE_CUSTOM_OBJECT_BUTTON");
+
+		CreateObject.addDefinitionLabel(key_labelName = "${labelName}");
+
+		CreateObject.addDefinitionPluralLabel(key_pluralLabelName = "${pluralLabelName}");
+		
+		Click(locator1 = "CreateObject#SAVE_BUTTON_DEFINITION");
+	}
+
+	macro assertCustomObject {
+		AssertElementPresent(
+			key_labelName = "${labelName}",
+			locator1 = "CreateObject#OBJECT_NAME");
+	}
+
+	macro addDefinitionLabel {
+		Type(
+			locator1 = "CreateObject#OBJECT_DEFINITION_LABEL",
+			value1 = "${key_labelName}");
+	}
+
+	macro addDefinitionPluralLabel {
+		Type(
+			locator1 = "CreateObject#OBJECT_DEFINITION_PLURAL_LABEL",
+			value1 = "${key_pluralLabelName}");
 	}
 
 	macro assertObjectLabel {
