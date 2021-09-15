@@ -45,6 +45,11 @@
 		<td>//input[contains(@id,'objectFieldName') and contains(@value,'${key_fieldName}')]</td>
 		<td></td>
 	</tr>
+	<tr>
+		<td>VIEW_OBJECT_SCOPE_DISABLED</td>
+		<td>//label[contains(text(),'Scope')]/..//select[@class = 'form-control disabled']</td>
+		<td></td>
+	</tr>
 </tbody>
 </table>
 </body>
