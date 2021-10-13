@@ -41,6 +41,16 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>PICKLIST_ITEM_KEBAB_MENU</td>
+		<td>//div[contains(.,'${key_itemKey}')]/.//button[@class="dropdown-toggle component-action dropdown-toggle ml-1 btn btn-unstyled"]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>PICKLIST_ITEM_KEBAB_MENU_OPTION</td>
+		<td>//div[contains(.,'${key_itemKey}')]/..//button[contains(.,'${key_picklistItemOption}')]</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>UPDATE_PICKLIST_NAME</td>
 		<td>//input[@aria-describedby]</td>
 		<td></td>
