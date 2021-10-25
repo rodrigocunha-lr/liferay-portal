@@ -26,9 +26,20 @@ definition {
 
 		if ("${value}" == "true") {
 			Click.clickAtNotVisible(locator1 = "ObjectAdmin#ENTRY_BOOLEAN_CHECKBOX");
-		}
 
-		Button.clickSave();
+			Button.clickSave();
+
+			WaitForElementPresent(
+				key_entry = "Yes",
+				locator1 = "ObjectPortlet#ENTRY_VALUE");
+		}
+		else {
+			Button.clickSave();
+
+			WaitForElementPresent(
+				key_entry = "No",
+				locator1 = "ObjectPortlet#ENTRY_VALUE");
+		}
 	}
 
 	macro addObjectDoubleFieldEntryViaUI {
@@ -97,6 +108,10 @@ definition {
 			locator1 = "ObjectAdmin#ENTRY_PICKLIST_OPTION");
 
 		Button.clickSave();
+
+		WaitForElementPresent(
+			key_entry = "${picklistOption}",
+			locator1 = "ObjectPortlet#ENTRY_VALUE");
 	}
 
 	macro addObjectRelationshipViaAPI {
