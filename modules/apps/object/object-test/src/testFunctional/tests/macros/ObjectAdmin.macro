@@ -167,6 +167,20 @@ definition {
 			userPassword = "${userPassword}");
 	}
 
+	macro assertUpdateEntryModalIsNotPresent {
+		AssertElementNotPresent(
+			locator1 = "ObjectAdmin#ENTRY_STRING_VALUE_FIELD",
+			value1 = "${value}");
+
+		AssertElementNotPresent(locator1 = "ObjectAdmin#ADD_ENTRY_SAVE_BUTTON");
+
+		AssertElementNotPresent(locator1 = "ObjectAdmin#ADD_ENTRY_CANCEL_BUTTON");
+
+
+
+
+	}
+
 	macro assertFieldsTableColumnsAreDisplayed {
 		AssertElementPresent(locator1 = "ObjectAdmin#FIELDS_LABEL_COLUMN");
 
@@ -263,6 +277,16 @@ definition {
 
 	macro assertTypeFieldRequired {
 		AssertElementPresent(locator1 = "ObjectAdmin#TYPE_FIELD_REQUIRED");
+	}
+
+	macro cancelUpdatingObjectStringFieldEntryViaUI {
+		Type(
+			locator1 = "ObjectAdmin#ENTRY_STRING_VALUE_FIELD",
+			value1 = "${entryValue}");
+
+		Button.clickCancel();
+
+
 	}
 
 	macro changeLabelLanguage {
