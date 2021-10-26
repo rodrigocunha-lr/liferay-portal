@@ -1,5 +1,14 @@
 definition {
 
+	macro updateEntry {
+
+		Type(
+			locator1 = "ObjectPortlet#ADD_OBJECT_ENTRY",
+			value1 = "${updateEntry}");
+
+		Button.clickSave();
+	}
+
 	macro addEntryViaUI {
 		LexiconEntry.gotoAdd();
 

@@ -127,12 +127,12 @@
 	</tr>
 	<tr>
 		<td>VIEW_ENTRY_DETAILS_VALUE</td>
-		<td>//input[contains(@value, '${key_entryValue}')]</td>
+		<td>//input[contains(@value, '${key_entryValue}')] | //div[contains(text(), '${key_entryValue}')]</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>ADD_OBJECT_ENTRY</td>
-		<td>//input[@class='form-control']|//input[@class='form-control input-group-inset input-group-inset-after']</td>
+		<td>//input[@class='form-control ddm-field-text'] | //input[@class='form-control']|//input[@class='form-control input-group-inset input-group-inset-after']</td>
 		<td></td>
 	</tr>
 </tbody>
