@@ -1,14 +1,5 @@
 definition {
 
-	macro updateEntry {
-
-		Type(
-			locator1 = "ObjectPortlet#ADD_OBJECT_ENTRY",
-			value1 = "${updateEntry}");
-
-		Button.clickSave();
-	}
-
 	macro addEntryViaUI {
 		LexiconEntry.gotoAdd();
 
@@ -170,6 +161,14 @@ definition {
 			key_sortFieldName = "${sortFieldName}",
 			locator1 = "ObjectPortlet#SORT_FIELD",
 			value1 = "${sortFieldName}");
+	}
+
+	macro updateEntry {
+		Type(
+			locator1 = "ObjectPortlet#ADD_OBJECT_ENTRY",
+			value1 = "${updateEntry}");
+
+		Button.clickSave();
 	}
 
 	macro viewEntry {

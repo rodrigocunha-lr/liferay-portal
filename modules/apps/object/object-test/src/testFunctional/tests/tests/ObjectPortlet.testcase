@@ -578,7 +578,6 @@ definition {
 		Refresh();
 
 		ObjectPortlet.assertEntryDetailsValuePresent(entryValue = "1.12345678");
-
 	}
 
 	@description = "LPS-135396 - Verify it is possible to edit a Boolean entry on layout"
@@ -630,7 +629,6 @@ definition {
 		Refresh();
 
 		ObjectPortlet.assertEntryDetailsValuePresent(entryValue = "4.56");
-
 	}
 
 	@description = "LPS-135396 - Verify it is possible to edit a Integer entry on layout"
@@ -664,7 +662,6 @@ definition {
 		Refresh();
 
 		ObjectPortlet.assertEntryDetailsValuePresent(entryValue = "123456");
-
 	}
 
 	@description = "LPS-135396 - Verify it is possible to edit a Long entry on layout"
@@ -698,7 +695,6 @@ definition {
 		Refresh();
 
 		ObjectPortlet.assertEntryDetailsValuePresent(entryValue = "12345678912345678");
-
 	}
 
 	@description = "LPS-135396 - Verify it is possible to edit a Picklist entry on layout"
@@ -743,7 +739,6 @@ definition {
 		Refresh();
 
 		ObjectPortlet.assertEntryDetailsValuePresent(entryValue = "Update Text test");
-
 	}
 
 	@description = "LPS-135390 - Verify it is not possible to view and access the Custom Object portlet without the Access in Control Panel permission"
