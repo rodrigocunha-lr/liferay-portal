@@ -189,35 +189,56 @@ definition {
 			userPassword = "${userPassword}");
 	}
 
+	macro addRelationshipTabOnLayout {
+		LexiconEntry.gotoAdd();
+
+		Click(
+			key_type = "Relationships",
+			locator1 = "ObjectAdmin#TAB_TYPE");
+
+		Type(
+			locator1 = "ObjectAdmin#TAB_LABEL_NAME",
+			value1 = "${tabName}");
+
+		Click(locator1 = "ObjectAdmin#LAYOUT_ENTRY_CHOOSE_OPTION");
+
+		Click(
+			key_optionName = "${relationshipOption}",
+			locator1 = "ObjectAdmin#LAYOUT_KEBAB_OPTION");
+
+		Click(
+			key_tab = "Save",
+			locator1 = "Button#TAB_SUBMIT_BTN");
+	}
+
 	macro addTabFieldsOnLayout {
 		LexiconEntry.gotoAdd();
 
 		Click(
 			key_type = "Fields",
 			locator1 = "ObjectAdmin#TAB_TYPE");
-		
-		Type(
-			value1 = "${tabName}",
-			locator1 = "ObjectAdmin#TAB_LABEL_NAME");
 
+		Type(
+			locator1 = "ObjectAdmin#TAB_LABEL_NAME",
+			value1 = "${tabName}");
 
 		Click(
 			key_tab = "Save",
 			locator1 = "Button#TAB_SUBMIT_BTN");
 
-		if(isSet(blockName)) {
+		if (isSet(blockName)) {
 			Click(
 				key_text = "Add Block",
 				locator1 = "Button#ANY");
 
 			Type(
-				value1 = "${blockName}",
-				locator1 = "ObjectAdmin#TAB_LABEL_NAME");
-			
+				locator1 = "ObjectAdmin#TAB_LABEL_NAME",
+				value1 = "${blockName}");
+
 			Click(
 				key_tab = "Save",
 				locator1 = "Button#TAB_SUBMIT_BTN");
-			
+
 			Click(locator1 = "ObjectAdmin#ADD_FIELD_ON_BLOCK");
 
 			Click(locator1 = "ObjectAdmin#LAYOUT_ENTRY_CHOOSE_OPTION");
@@ -229,32 +250,7 @@ definition {
 			Click(
 				key_tab = "Save",
 				locator1 = "Button#TAB_SUBMIT_BTN");
-
 		}
-		
-	}
-
-	macro addRelationshipTabOnLayout {
-		LexiconEntry.gotoAdd();
-
-		Click(
-			key_type = "Relationships",
-			locator1 = "ObjectAdmin#TAB_TYPE");
-
-		Type(
-			value1 = "${tabName}",
-			locator1 = "ObjectAdmin#TAB_LABEL_NAME");
-
-		Click(locator1 = "ObjectAdmin#LAYOUT_ENTRY_CHOOSE_OPTION");
-
-		Click(
-			key_optionName = "${relationshipOption}",
-			locator1 = "ObjectAdmin#LAYOUT_KEBAB_OPTION");
-
-		Click(
-			key_tab = "Save",
-			locator1 = "Button#TAB_SUBMIT_BTN");
-
 	}
 
 	macro assertAddEntryModalIsNotPresent {
@@ -504,11 +500,18 @@ definition {
 		ObjectPortlet.selectCustomObject(label = "${objectName}");
 
 		Click(locator1 = "ObjectAdmin#OBJECT_LAYOUT_TAB");
-
 	}
 
 	macro gotoRelationshipsTab {
 		Click(locator1 = "ObjectAdmin#OBJECT_RELATIONSHIPS_TAB");
+	}
+
+	macro openLayoutDetails {
+		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
+
+		SelectFrame(locator1 = "IFrame#IFRAME");
+
+		Click(locator1 = "ObjectAdmin#LAYOUT_TAB");
 	}
 
 	macro openMySubmissions {
@@ -529,15 +532,6 @@ definition {
 
 	macro openSubmissions {
 		Navigator.openSpecificURL(url = "/group/control_panel/manage?p_p_id=com_liferay_portal_workflow_web_internal_portlet_ControlPanelWorkflowInstancePortlet&p_p_lifecycle=0&p_p_state=maximized");
-	}
-
-	macro openLayoutDetails {
-		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
-
-		SelectFrame(locator1 = "IFrame#IFRAME");
-
-		Click(locator1 = "ObjectAdmin#LAYOUT_TAB");
-
 	}
 
 	macro openWorkflowProcessBuilderConfiguration {

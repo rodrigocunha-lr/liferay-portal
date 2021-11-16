@@ -3961,25 +3961,20 @@ definition {
 	@description = "LPS-139005 - Verify that the Relationship tab is no longer displayed when the child object is inactivated (One to Many)"
 	@priority = "4"
 	test RelationshipTabDisappearsWhenInactivatedOneToMany {
-
 		for (var letter : list "A,B") {
-
 			ObjectAdmin.addObjectViaAPI(
 				labelName = "Custom Object ${letter}",
 				objectName = "CustomObject${letter}",
 				pluralLabelName = "Custom Objects ${letter}");
-
 		}
 
 		for (var letter : list "A,B") {
-
 			ObjectAdmin.addObjectFieldViaAPI(
 				fieldLabelName = "Custom Field ${letter}",
 				fieldName = "customObjectField${letter}",
 				fieldType = "String",
 				isRequired = "false",
 				objectName = "CustomObject${letter}");
-
 		}
 
 		ObjectAdmin.addObjectRelationshipViaAPI(
@@ -4010,8 +4005,8 @@ definition {
 			tabName = "Field Tab");
 
 		ObjectAdmin.addRelationshipTabOnLayout(
-			tabName = "Relationship Tab",
-			relationshipOption = "Relationship");
+			relationshipOption = "Relationship",
+			tabName = "Relationship Tab");
 
 		Button.clickSave();
 
@@ -4040,11 +4035,9 @@ definition {
 		ObjectPortlet.viewEntryDetails(entry = "Entry 1");
 
 		AssertElementNotPresent(
-			locator1 = "ObjectPortlet#FIELD_LABEL_NAME",
 			key_fieldLabelName = "Custom Object B",
+			locator1 = "ObjectPortlet#FIELD_LABEL_NAME",
 			value1 = "Custom Object B");
-
-
 	}
 
 	@description = "LPS-139005 - Verify that the Relationship tab is displayed again when the other object is reactivated (Many to Many)"
@@ -4059,25 +4052,20 @@ definition {
 	@description = "LPS-139005 - Verify that the Relationship tab is displayed again when the child object is reactivated (One to Many)"
 	@priority = "4"
 	test RelationshipTabReappearsWhenReactivatedOneToMany {
-
 		for (var letter : list "A,B") {
-
 			ObjectAdmin.addObjectViaAPI(
 				labelName = "Custom Object ${letter}",
 				objectName = "CustomObject${letter}",
 				pluralLabelName = "Custom Objects ${letter}");
-
 		}
 
 		for (var letter : list "A,B") {
-
 			ObjectAdmin.addObjectFieldViaAPI(
 				fieldLabelName = "Custom Field ${letter}",
 				fieldName = "customObjectField${letter}",
 				fieldType = "String",
 				isRequired = "false",
 				objectName = "CustomObject${letter}");
-
 		}
 
 		ObjectAdmin.addObjectRelationshipViaAPI(
@@ -4108,8 +4096,8 @@ definition {
 			tabName = "Field Tab");
 
 		ObjectAdmin.addRelationshipTabOnLayout(
-			tabName = "Relationship Tab",
-			relationshipOption = "Relationship");
+			relationshipOption = "Relationship",
+			tabName = "Relationship Tab");
 
 		Button.clickSave();
 
@@ -4142,10 +4130,9 @@ definition {
 		ObjectPortlet.viewEntryDetails(entry = "Entry 1");
 
 		AssertElementPresent(
-			locator1 = "ObjectPortlet#FIELD_LABEL_NAME",
 			key_fieldLabelName = "Custom Object B",
+			locator1 = "ObjectPortlet#FIELD_LABEL_NAME",
 			value1 = "Custom Object B");
-
 	}
 
 	@description = "LPS-135549 - Verify that the columns Name, System and Status displays the correct value on the Objects table when a Custom Object is created"
