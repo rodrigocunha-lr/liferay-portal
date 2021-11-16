@@ -3959,11 +3959,91 @@ definition {
 	}
 
 	@description = "LPS-139005 - Verify that the Relationship tab is no longer displayed when the child object is inactivated (One to Many)"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test RelationshipTabDisappearsWhenInactivatedOneToMany {
 
-		// TODO LPS-140872 RelationshipTabDisappearsWhenInactivatedOneToMany pending implementation
+		for (var letter : list "A,B") {
+
+			ObjectAdmin.addObjectViaAPI(
+				labelName = "Custom Object ${letter}",
+				objectName = "CustomObject${letter}",
+				pluralLabelName = "Custom Objects ${letter}");
+
+		}
+
+		for (var letter : list "A,B") {
+
+			ObjectAdmin.addObjectFieldViaAPI(
+				fieldLabelName = "Custom Field ${letter}",
+				fieldName = "customObjectField${letter}",
+				fieldType = "String",
+				isRequired = "false",
+				objectName = "CustomObject${letter}");
+
+		}
+
+		ObjectAdmin.addObjectRelationshipViaAPI(
+			objectName_1 = "CustomObjectA",
+			objectName_2 = "CustomObjectB",
+			relationshipLabel = "Relationship",
+			relationshipName = "relationship",
+			relationshipType = "oneToMany");
+
+		ObjectAdmin.addObjectRelationshipViaAPI(
+			objectName_1 = "CustomObjectB",
+			objectName_2 = "CustomObjectA",
+			relationshipLabel = "Relationship",
+			relationshipName = "relationship",
+			relationshipType = "oneToMany");
+
+		ObjectAdmin.addObjectLayoutViaAPI(
+			layoutName = "Layout",
+			objectName = "CustomObjectA");
+
+		ObjectAdmin.gotoLayoutTab(objectName = "Custom Object A");
+
+		ObjectAdmin.openLayoutDetails();
+
+		ObjectAdmin.addTabFieldsOnLayout(
+			blockName = "Block 1",
+			objectName = "Custom Object B",
+			tabName = "Field Tab");
+
+		ObjectAdmin.addRelationshipTabOnLayout(
+			tabName = "Relationship Tab",
+			relationshipOption = "Relationship");
+
+		Button.clickSave();
+
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObjectA");
+
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObjectB");
+
+		ObjectAdmin.addObjectSingleFieldEntryViaAPI(
+			fieldName = "customObjectFieldA",
+			objectName = "CustomObjectA",
+			value = "Entry 1");
+
+		ObjectAdmin.openObjectAdmin();
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object B");
+
+		CreateObject.checkToggleInactive();
+
+		CreateObject.saveObject();
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Object",
+			panel = "Control Panel",
+			portlet = "Custom Objects A");
+
+		ObjectPortlet.viewEntryDetails(entry = "Entry 1");
+
+		AssertElementNotPresent(
+			locator1 = "ObjectPortlet#FIELD_LABEL_NAME",
+			key_fieldLabelName = "Custom Object B",
+			value1 = "Custom Object B");
+
 
 	}
 

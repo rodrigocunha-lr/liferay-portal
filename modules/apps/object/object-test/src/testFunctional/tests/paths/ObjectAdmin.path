@@ -201,6 +201,41 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>TAB_LABEL_NAME</td>
+		<td>//input[@id = 'inputName']</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>TAB_TYPE</td>
+		<td>//div[@class = 'form-group']//h4[@class = 'layout-tab__tab-types__title' and contains(text(),'${key_type}')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>LAYOUT_TAB</td>
+		<td>//button[@class = 'nav-link btn btn-unstyled' and contains(text(),'Layout')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>OBJECT_LAYOUT_TAB</td>
+		<td>//a[contains(text(),'Layout')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>LAYOUT_ENTRY_CHOOSE_OPTION</td>
+		<td>//span[contains(text(),'Choose an Option')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ADD_FIELD_ON_BLOCK</td>
+		<td>//button[contains(@class,'btn-secondary') and contains (text(),'Add Field')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>LAYOUT_KEBAB_OPTION</td>
+		<td>//button[(@class='dropdown-item') and contains(.,'${key_optionName}')]</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>OBJECT_FIELDS_PICKLIST</td>
 		<td>//label[contains(text(),'Picklist')]/following-sibling::select</td>
 		<td></td>
