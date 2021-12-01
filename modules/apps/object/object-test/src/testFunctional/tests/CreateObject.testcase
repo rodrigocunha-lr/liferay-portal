@@ -319,10 +319,6 @@ definition {
 		ObjectAdmin.saveCustomObject();
 
 		CreateObject.assertCustomObject(labelName = "Custom Object");
-
-		
-
-
 	}
 
 	@description = "LPS-135400 - Verify it is possible to add a relation with an entry through the Relationship field"
