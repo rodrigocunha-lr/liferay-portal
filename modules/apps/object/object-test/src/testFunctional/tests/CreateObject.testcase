@@ -1393,11 +1393,6 @@ definition {
 		ObjectPortlet.selectCustomObject(label = "Custom Object");
 
 		CreateObject.assertDisabledPublishObjectButton();
-
-
-
-
-
 	}
 
 	@description = "LPS-135549 - Verify it is not possible to save with the first character of the Object Name in lower case"

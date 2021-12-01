@@ -38,8 +38,6 @@ definition {
 
 	macro assertDisabledPublishObjectButton {
 		AssertElementPresent(locator1 = "CreateObject#DISABLED_PUBLISH_OBJECT_BUTTON");
-
-		
 	}
 
 	macro assertFieldAddedOnBlock {
