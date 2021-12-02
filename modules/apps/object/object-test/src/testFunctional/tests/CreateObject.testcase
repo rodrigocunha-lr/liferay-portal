@@ -81,13 +81,6 @@ definition {
 			objectName = "CustomObject",
 			pluralLabelName = "Custom Objects");
 
-		ObjectAdmin.addObjectFieldViaAPI(
-			fieldLabelName = "Custom Field",
-			fieldName = "customObjectField",
-			fieldType = "String",
-			isRequired = "false",
-			objectName = "CustomObject");
-
 		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
 
 		ObjectAdmin.openObjectAdmin();
@@ -97,11 +90,11 @@ definition {
 		ObjectAdmin.goToFieldsTab();
 
 		ObjectAdmin.addObjectFieldViaUI(
-			fieldLabel = "New Field",
+			fieldLabel = "Custom Field",
 			fieldType = "String");
 
 		ObjectAdmin.addObjectSingleFieldEntryViaAPI(
-			fieldName = "customObjectField",
+			fieldName = "customField",
 			objectName = "CustomObject",
 			value = "Entry 1");
 
