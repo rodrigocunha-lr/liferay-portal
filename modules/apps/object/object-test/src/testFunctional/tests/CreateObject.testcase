@@ -4583,7 +4583,7 @@ definition {
 	test CascadeDeletionOneToManyWillAllowDeleteParent {
 		property portal.acceptance = "true";
 
-					for (var letter : list "A,B") {
+		for (var letter : list "A,B") {
 			ObjectAdmin.addObjectViaAPI(
 				labelName = "Custom Object ${letter}",
 				objectName = "CustomObject${letter}",
