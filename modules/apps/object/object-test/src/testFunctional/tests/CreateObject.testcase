@@ -4583,69 +4583,106 @@ definition {
 	test CascadeDeletionOneToManyWillAllowDeleteParent {
 		property portal.acceptance = "true";
 
-		for (var nameObject : list "A,B") {
-            ObjectAdmin.addObjectViaAPI(
-                labelName = "Custom Object ${nameObject}",
-                objectName = "CustomObject${nameObject}",
-                pluralLabelName = "Custom Objects ${nameObject}");
-        }
-
-        for (var nameField : list "A,B") {
-            ObjectAdmin.addObjectFieldViaAPI(
-                fieldLabelName = "Custom Field ${nameField}",
-                fieldName = "customObjectField${nameField}",
-                fieldType = "String",
-                isRequired = "false",
-                objectName = "CustomObject${nameField}");
+					for (var letter : list "A,B") {
+			ObjectAdmin.addObjectViaAPI(
+				labelName = "Custom Object ${letter}",
+				objectName = "CustomObject${letter}",
+				pluralLabelName = "Custom Objects ${letter}");
 		}
 
-        ObjectAdmin.addObjectRelationshipViaAPI(
+		for (var letter : list "A,B") {
+			ObjectAdmin.addObjectFieldViaAPI(
+				fieldLabelName = "Custom Field ${letter}",
+				fieldName = "customObjectField${letter}",
+				fieldType = "String",
+				isRequired = "false",
+				objectName = "CustomObject${letter}");
+		}
+
+		ObjectAdmin.addObjectRelationshipViaAPI(
 			deletionType = "cascade",
-            objectName_1 = "CustomObjectA",
-            objectName_2 = "CustomObjectB",
-            relationshipLabel = "Relationship",
-            relationshipName = "relationship",
-            relationshipType = "oneToMany");
+			objectName_1 = "CustomObjectA",
+			objectName_2 = "CustomObjectB",
+			relationshipLabel = "Relationship",
+			relationshipName = "relationship",
+			relationshipType = "oneToMany");
 
-        Navigator.openURL();
+		ObjectAdmin.openObjectAdmin();
 
-        ObjectAdmin.openObjectAdmin();
+		ObjectPortlet.selectCustomObject(label = "Custom Object A");
 
-        ObjectPortlet.selectCustomObject(label = "Custom Object A");
+		CreateObject.selectTitleField(fieldLabel = "Custom Field A");
 
-        CreateObject.selectTitleField(fieldLabel = "Custom Field A");
+		Button.clickSave();
 
-        Button.clickSave();
+		ObjectAdmin.addObjectLayoutViaAPI(
+			layoutName = "Layout Name",
+			objectName = "CustomObjectA");
 
-        ObjectAdmin.publishObjectViaAPI(objectName = "CustomObjectA");
+		ObjectAdmin.goToLayoutsTab();
 
-        ObjectAdmin.publishObjectViaAPI(objectName = "CustomObjectB");
+		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
 
-        for (var nameEntry : list "A,B") {
-            ObjectAdmin.addObjectSingleFieldEntryViaAPI(
-                fieldName = "customObjectField${nameEntry}",
-                objectName = "CustomObject${nameEntry}",
-                value = "Entry ${nameEntry}");
-        }
+		ObjectAdmin.markLayoutAsDefault();
 
-        Navigator.openURL();
+		ObjectAdmin.goToLayoutTabOnLayouts();
 
-        ObjectAdmin.goToCustomObject(objectName = "CustomObjectB");
+		ObjectAdmin.addTabFieldsOnLayout(
+			blockName = "Block 1",
+			columnsNumber = "1",
+			fieldLabelName = "Custom Field A",
+			tabName = "Field Tab");
 
-        CreateObject.chooseEntryOnRelationshipField(entryOption = "Entry A");
+		ObjectAdmin.addTabRelationshipsOnLayout(
+			relationshipsLabelName = "Relationship",
+			tabName = "Relationship Tab");
 
-        Button.clickSave();
+		Button.clickSave();
 
-        ObjectAdmin.goToCustomObject(objectName = "CustomObjectA");
+		Navigator.openURL();
 
-        ObjectPortlet.deleteEntry(entry = "Entry A");
+		ObjectAdmin.openObjectAdmin();
 
-        ObjectPortlet.assertEntryNotPresent(entry = "Entry A");
+		ObjectPortlet.selectCustomObject(label = "Custom Object B");
 
-        ObjectAdmin.goToCustomObject(objectName = "CustomObjectB");
+		CreateObject.selectTitleField(fieldLabel = "Custom Field B");
 
-        ObjectPortlet.assertEntryNotPresent(entry = "Entry B");
+		Button.clickSave();
 
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObjectA");
+
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObjectB");
+
+		for (var fieldEntry : list "A,B") {
+			ObjectAdmin.addObjectSingleFieldEntryViaAPI(
+				fieldName = "customObjectField${fieldEntry}",
+				objectName = "CustomObject${fieldEntry}",
+				value = "Entry ${fieldEntry}");
+		}
+
+		Navigator.openURL();
+
+		ObjectAdmin.goToCustomObject(objectName = "CustomObjectB");
+
+		ObjectPortlet.viewEntryDetails(entry = "Entry B");
+
+		ObjectPortlet.chooseEntryOnRelationshipField(entryOption = "Entry A");
+
+		Navigator.openURL();
+
+		ObjectAdmin.goToCustomObject(objectName = "CustomObjectB");
+
+		ObjectPortlet.deleteEntry(entry = "Entry B");
+
+		ObjectPortlet.assertEntryNotPresent(entry = "Entry B");
+
+		ObjectAdmin.goToCustomObject(objectName = "CustomObjectA");
+
+		ObjectPortlet.viewEntryDetails(entry = "Entry A");
+
+		ObjectPortlet.gotoRelationshipTab();
+
+		ObjectPortlet.assertEntryOnRelationshipFieldNotPresent(customObject = "Entry B");
 	}
 
 	@description = "LPS-135401 - Verify that when adding an entry that was already related to another it will keep related to both entries"
