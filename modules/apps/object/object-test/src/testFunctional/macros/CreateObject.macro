@@ -110,6 +110,14 @@ definition {
 			value1 = "${fieldType}");
 	}
 
+	macro assertItemListOnRelationshipField {
+		Click(locator1 = "ObjectPortlet#SEARCH_RELATIONSHIP_ENTRY");
+
+		AssertElementPresent(
+			key_entry = "${itemList}",
+			locator1 = "CreateObject#ENTRY_RELATIONSHIP_FIELD_OPTION");
+	}
+
 	macro assertLabelBasicInfo {
 		var key_fieldType = "value";
 
