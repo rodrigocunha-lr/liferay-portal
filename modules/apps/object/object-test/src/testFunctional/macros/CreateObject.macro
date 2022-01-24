@@ -39,9 +39,13 @@ definition {
 
 		Click(locator1 = "CreateObject#COLLAPSE_EXPAND_OBJECT_PORTLET_ENTRY_FIELD");
 
-		WaitForSPARefresh();
+		while (IsNotVisible(locator1 = "ObjectAdmin#ENTRY_STRING_VALUE_FIELD")) {
+			Click(locator1 = "CreateObject#COLLAPSE_EXPAND_OBJECT_PORTLET_ENTRY_FIELD");
 
-		WaitForVisible(locator1 = "ObjectAdmin#ENTRY_STRING_VALUE_FIELD");
+			WaitForSPARefresh();
+
+			WaitForPageLoad();
+		}
 
 		AssertVisible(locator1 = "ObjectAdmin#ENTRY_STRING_VALUE_FIELD");
 	}
