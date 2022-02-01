@@ -910,4 +910,13 @@ definition {
 			locator1 = "ObjectAdmin#VIEW_CLOB_TYPE_TEXT_ENTRY");
 	}
 
+	macro editClobEntryName {
+		Type(
+			key_clobType = "",
+			locator1 = "ObjectAdmin#VIEW_CLOB_TYPE_TEXT_ENTRY",
+			value1 = "${clobEntry}");
+
+		Button.clickSave();
+	}
+
 }
