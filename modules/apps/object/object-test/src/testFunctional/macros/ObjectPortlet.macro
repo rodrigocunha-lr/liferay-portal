@@ -355,21 +355,6 @@ definition {
 	macro viewEntryDetails {
 		var key_entry = "${entry}";
 
-		if (IsElementPresent(locator1 = "ObjectPortlet#ENTRY_KEBAB_MENU")) {
-			Click(locator1 = "ObjectPortlet#ENTRY_KEBAB_MENU");
-
-			Click(locator1 = "ObjectPortlet#VIEW_ENTRY_BUTTON");
-		}
-		else {
-			Click(locator1 = "ObjectPortlet#VIEW_ENTRY_EYE_BUTTON");
-		}
-
-		WaitForPageLoad();
-	}
-
-	macro viewClobEntryDetails {
-		var key_entry = "${clobEntry}";
-
 		if (IsElementPresent(locator1 = "ObjectPortlet#ENTRY_CLOB_KEBAB_MENU")) {
 			Click(locator1 = "ObjectPortlet#ENTRY_CLOB_KEBAB_MENU");
 
