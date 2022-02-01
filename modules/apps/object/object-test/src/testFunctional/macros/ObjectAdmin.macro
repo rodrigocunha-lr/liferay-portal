@@ -704,6 +704,15 @@ definition {
 			userPassword = "${userPassword}");
 	}
 
+	macro editClobEntryName {
+		Type(
+			key_clobType = "",
+			locator1 = "ObjectAdmin#VIEW_CLOB_TYPE_TEXT_ENTRY",
+			value1 = "${clobEntry}");
+
+		Button.clickSave();
+	}
+
 	macro editCustomObject {
 		if (isSet(fieldName)) {
 			Type(
@@ -902,21 +911,6 @@ definition {
 			key_name = "${name}",
 			key_system = "Yes",
 			locator1 = "ObjectAdmin#VIEW_OBJECT");
-	}
-
-	macro assertClobTypeText {
-		AssertElementPresent(
-			key_clobType = "${clobType}",
-			locator1 = "ObjectAdmin#VIEW_CLOB_TYPE_TEXT_ENTRY");
-	}
-
-	macro editClobEntryName {
-		Type(
-			key_clobType = "",
-			locator1 = "ObjectAdmin#VIEW_CLOB_TYPE_TEXT_ENTRY",
-			value1 = "${clobEntry}");
-
-		Button.clickSave();
 	}
 
 }
