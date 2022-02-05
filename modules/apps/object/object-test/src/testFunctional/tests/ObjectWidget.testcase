@@ -23,12 +23,34 @@ definition {
 	}
 
 	@description = "LPS-143122 - Verify that it is possible to add an Object portlet as a widget on a page"
-	@ignore = "Test Stub"
 	@priority = "5"
 	test CanAddObjectPortletWidget {
 		property portal.acceptance = "true";
 
-		// TODO LPS-145675 CanAddObjectPortletWidget pending implementation
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.addObjectFieldViaAPI(
+			fieldLabelName = "Custom Field",
+			fieldName = "customObjectField",
+			fieldType = "String",
+			isRequired = "false",
+			objectName = "CustomObject");
+
+		
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+
+  		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+		Click(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
+
+		ObjectPortlet.viewWidgetButton();
+
+		Button.clickSave();
 
 	}
 
