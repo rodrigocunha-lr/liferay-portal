@@ -42,15 +42,31 @@ definition {
 		
 		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
 
-  		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+  		ObjectAdmin.openObjectAdmin();
 
 		ObjectPortlet.selectCustomObject(label = "Custom Object");
 
-		Click(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
+		Check.checkToggleSwitch(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
 
-		ObjectPortlet.viewWidgetButton();
+		CreateObject.saveObject();
 
-		Button.clickSave();
+		Navigator.openURL();
+
+		ProductMenu.gotoPortlet(
+			category = "Site Builder",
+			portlet = "Pages");
+
+		PagesAdmin.addPublicPage(
+			pageName = "Object Page",
+			sitePageType = "Widget Page");
+
+		Navigator.openURL();
+
+		Navigator.gotoPage(pageName = "Object Page");
+
+		Portlet.addPG(
+			pageName = "Object Page",
+			portletName = "Custom Objects");
 
 	}
 
