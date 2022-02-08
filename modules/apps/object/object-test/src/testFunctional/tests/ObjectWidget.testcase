@@ -23,12 +23,50 @@ definition {
 	}
 
 	@description = "LPS-143122 - Verify that it is possible to add an Object portlet as a widget on a page"
-	@ignore = "Test Stub"
 	@priority = "5"
 	test CanAddObjectPortletWidget {
 		property portal.acceptance = "true";
 
-		// TODO LPS-145675 CanAddObjectPortletWidget pending implementation
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.addObjectFieldViaAPI(
+			fieldLabelName = "Custom Field",
+			fieldName = "customObjectField",
+			fieldType = "String",
+			isRequired = "false",
+			objectName = "CustomObject");
+
+		
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+
+  		ObjectAdmin.openObjectAdmin();
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+		Check.checkToggleSwitch(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
+
+		CreateObject.saveObject();
+
+		Navigator.openURL();
+
+		ProductMenu.gotoPortlet(
+			category = "Site Builder",
+			portlet = "Pages");
+
+		PagesAdmin.addPublicPage(
+			pageName = "Object Page",
+			sitePageType = "Widget Page");
+
+		Navigator.openURL();
+
+		Navigator.gotoPage(pageName = "Object Page");
+
+		Portlet.addPG(
+			pageName = "Object Page",
+			portletName = "Custom Objects");
 
 	}
 
@@ -60,11 +98,19 @@ definition {
 	}
 
 	@description = "LPS-143122 - Verify that by default the widget button is disabled"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test WidgetButtonDisabledByDefault {
 
-		// TODO LPS-145674 WidgetButtonDisabledByDefault pending implementation
+		ObjectAdmin.addObjectViaAPI(
+            labelName = "Custom Object",
+            objectName = "CustomObject",
+            pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.openObjectAdmin();
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+		AssertChecked(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
 
 	}
 
