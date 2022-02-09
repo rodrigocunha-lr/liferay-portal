@@ -110,7 +110,7 @@ definition {
 
 		ObjectPortlet.selectCustomObject(label = "Custom Object");
 
-		AssertChecked(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
+		AssertNotChecked.assertNotCheckedNotVisible(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
 
 	}
 
