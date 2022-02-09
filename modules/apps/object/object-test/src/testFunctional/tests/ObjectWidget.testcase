@@ -38,7 +38,6 @@ definition {
 			fieldType = "String",
 			isRequired = "false",
 			objectName = "CustomObject");
-
 		
 		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
 
@@ -67,6 +66,12 @@ definition {
 		Portlet.addPG(
 			pageName = "Object Page",
 			portletName = "Custom Objects");
+
+		AppBuilderAdmin.validateWidgetApp(appName = "Custom Objects");
+
+		AssertElementPresent(locator1 = "Button#PLUS");
+		
+		ObjectAdmin.assertNoItemsWereFound();
 
 	}
 
@@ -98,7 +103,6 @@ definition {
 	}
 
 	@description = "LPS-143122 - Verify that by default the widget button is disabled"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test WidgetButtonDisabledByDefault {
 
