@@ -39,10 +39,9 @@ definition {
 			isRequired = "false",
 			objectName = "CustomObject");
 
-		
 		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
 
-  		ObjectAdmin.openObjectAdmin();
+		ObjectAdmin.openObjectAdmin();
 
 		ObjectPortlet.selectCustomObject(label = "Custom Object");
 
@@ -67,7 +66,6 @@ definition {
 		Portlet.addPG(
 			pageName = "Object Page",
 			portletName = "Custom Objects");
-
 	}
 
 	@description = "LPS-143122 - Verify that a widget button is displayed on the Objects details page"
@@ -100,18 +98,16 @@ definition {
 	@description = "LPS-143122 - Verify that by default the widget button is disabled"
 	@priority = "3"
 	test WidgetButtonDisabledByDefault {
-
 		ObjectAdmin.addObjectViaAPI(
-            labelName = "Custom Object",
-            objectName = "CustomObject",
-            pluralLabelName = "Custom Objects");
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
 
 		ObjectAdmin.openObjectAdmin();
 
 		ObjectPortlet.selectCustomObject(label = "Custom Object");
 
 		AssertNotChecked.assertNotCheckedNotVisible(locator1 = "ObjectPortlet#VIEW_WIDGET_BUTTON");
-
 	}
 
 }
