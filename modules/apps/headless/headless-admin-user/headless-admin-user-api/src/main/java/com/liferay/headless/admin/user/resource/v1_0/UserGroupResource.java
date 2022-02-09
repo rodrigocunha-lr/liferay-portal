@@ -75,6 +75,14 @@ public interface UserGroupResource {
 			String externalReferenceCode)
 		throws Exception;
 
+	public UserGroup patchUserGroupByExternalReferenceCode(
+			String externalReferenceCode, UserGroup userGroup)
+		throws Exception;
+
+	public UserGroup putUserGroupByExternalReferenceCode(
+			String externalReferenceCode, UserGroup userGroup)
+		throws Exception;
+
 	public void deleteUserGroup(Long userGroupId) throws Exception;
 
 	public Response deleteUserGroupBatch(String callbackURL, Object object)
