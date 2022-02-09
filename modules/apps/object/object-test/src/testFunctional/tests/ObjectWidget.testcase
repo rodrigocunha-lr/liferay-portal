@@ -38,10 +38,10 @@ definition {
 			fieldType = "String",
 			isRequired = "false",
 			objectName = "CustomObject");
-		
+
 		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
 
-  		ObjectAdmin.openObjectAdmin();
+		ObjectAdmin.openObjectAdmin();
 
 		ObjectPortlet.selectCustomObject(label = "Custom Object");
 
@@ -70,9 +70,8 @@ definition {
 		AppBuilderAdmin.validateWidgetApp(appName = "Custom Objects");
 
 		AssertElementPresent(locator1 = "Button#PLUS");
-		
-		ObjectAdmin.assertNoItemsWereFound();
 
+		ObjectAdmin.assertNoItemsWereFound();
 	}
 
 	@description = "LPS-143122 - Verify that a widget button is displayed on the Objects details page"
