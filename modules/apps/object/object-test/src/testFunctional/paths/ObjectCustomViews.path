@@ -35,6 +35,16 @@
 		<td>//label[contains(text(),'Name')]/..//input[contains(@class,'form-control')]</td>
 		<td></td>
 	</tr>
+	<tr>
+		<td>VIEW_BUILDER_TAB</td>
+		<td>//button[contains(text(), 'View Builder')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>VIEW_BUILDER_EMPTY_STATE_TEXT</td>
+		<td>//div[(@class='c-empty-state-title')]/..//*[contains(text(),'${key_text}')]</td>
+		<td></td>
+	</tr>
 </tbody>
 </table>
 </body>
