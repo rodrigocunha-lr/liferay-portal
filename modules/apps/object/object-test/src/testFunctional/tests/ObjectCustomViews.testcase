@@ -253,7 +253,6 @@ definition {
 		ObjectCustomViews.assertEmptyStateTextOnViewBuilder(text = "No columns added yet.");
 
 		ObjectCustomViews.assertEmptyStateTextOnViewBuilder(text = "Add columns to start creating a view.");
-
 	}
 
 	@description = "LPS-135394 - Verify the empty state for the View tab"
