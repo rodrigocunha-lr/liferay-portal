@@ -1,6 +1,7 @@
 @component-name = "portal-object"
 definition {
 
+	property liferay.data.guard.enabled = "true";
 	property portal.acceptance = "true";
 	property portal.release = "true";
 	property portal.upstream = "true";
@@ -17,9 +18,6 @@ definition {
 
 		if ("${testPortalInstance}" == "true") {
 			PortalInstances.tearDownCP();
-		}
-		else {
-			ObjectAdmin.deleteAllCustomObjectsViaAPI();
 		}
 	}
 
@@ -532,12 +530,13 @@ definition {
 	@description = "LPS-135400 - Verify it is possible to add many relations through the Relationship tab"
 	@priority = "5"
 	test CanAddRelationOnRelationshipTab {
+		property liferay.data.guard.enabled = "false";
 		property portal.acceptance = "true";
 
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object 1",
+			objectName = "CustomObject1",
+			pluralLabelName = "Custom Objects 1");
 
 		ObjectAdmin.addObjectFieldViaAPI(
 			fieldBusinessType = "Text",
@@ -545,31 +544,31 @@ definition {
 			fieldName = "customObjectField",
 			fieldType = "String",
 			isRequired = "false",
-			objectName = "CustomObject");
+			objectName = "CustomObject1");
 
 		ObjectAdmin.addObjectRelationshipViaAPI(
-			objectName_1 = "CustomObject",
-			objectName_2 = "CustomObject",
+			objectName_1 = "CustomObject1",
+			objectName_2 = "CustomObject1",
 			relationshipLabel = "Relationship",
 			relationshipName = "relationship",
 			relationshipType = "oneToMany");
 
-		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject1");
 
 		for (var fieldEntry : list "A,B") {
 			ObjectAdmin.addObjectSingleFieldEntryViaAPI(
 				fieldName = "customObjectField",
-				objectName = "CustomObject",
+				objectName = "CustomObject1",
 				value = "Entry ${fieldEntry}");
 		}
 
 		ObjectAdmin.addObjectLayoutViaAPI(
 			layoutName = "Layout Name",
-			objectName = "CustomObject");
+			objectName = "CustomObject1");
 
 		ObjectAdmin.openObjectAdmin();
 
-		ObjectPortlet.selectCustomObject(label = "Custom Object");
+		ObjectPortlet.selectCustomObject(label = "Custom Object 1");
 
 		CreateObject.selectTitleField(fieldLabel = "Custom Field");
 
@@ -586,7 +585,7 @@ definition {
 		ObjectAdmin.addTabFieldsOnLayout(
 			blockName = "Block 1",
 			columnsNumber = "1",
-			fieldList = "Custom Field,Custom Object",
+			fieldList = "Custom Field,Custom Object 1",
 			tabName = "Field Tab");
 
 		ObjectAdmin.addTabRelationshipsOnLayout(
@@ -597,7 +596,7 @@ definition {
 
 		Navigator.openURL();
 
-		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject1");
 
 		ObjectPortlet.viewEntryDetails(entry = "Entry A");
 
@@ -607,7 +606,7 @@ definition {
 
 		Navigator.openURL();
 
-		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject1");
 
 		ObjectPortlet.viewEntryDetails(entry = "Entry B");
 
@@ -617,16 +616,18 @@ definition {
 	@description = "LPS-135549 - Verify it is possible to cancel the creation of a Custom Object"
 	@priority = "4"
 	test CanCancelCreationCustomObject {
+		property liferay.data.guard.enabled = "false";
+
 		ObjectAdmin.openObjectAdmin();
 
 		ObjectAdmin.addNewObject(
-			fieldLabelName = "Custom Object",
-			pluralLabelName = "Custom Objects");
+			fieldLabelName = "Custom Object 4",
+			pluralLabelName = "Custom Objects 4");
 
 		Button.clickCancel();
 
 		AssertElementNotPresent(
-			key_name = "CustomObject",
+			key_name = "CustomObject4",
 			key_system = "No",
 			locator1 = "ObjectAdmin#VIEW_OBJECT");
 	}
@@ -634,16 +635,18 @@ definition {
 	@description = "LPS-135549 - Verify it is possible to cancel the creation of a Field"
 	@priority = "4"
 	test CanCancelCreationField {
+		property liferay.data.guard.enabled = "false";
+
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object 3",
+			objectName = "CustomObject3",
+			pluralLabelName = "Custom Objects 3");
 
 		Navigator.openURL();
 
 		ObjectAdmin.openObjectAdmin();
 
-		ObjectPortlet.selectCustomObject(label = "Custom Object");
+		ObjectPortlet.selectCustomObject(label = "Custom Object 3");
 
 		ObjectAdmin.goToFieldsTab();
 
@@ -667,14 +670,16 @@ definition {
 	@description = "LPS-135400 - Verify it is possible to cancel the creation of a Relationship"
 	@priority = "4"
 	test CanCancelRelationshipCreation {
+		property liferay.data.guard.enabled = "false";
+
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object 2",
+			objectName = "CustomObject2",
+			pluralLabelName = "Custom Objects 2");
 
 		ObjectAdmin.openObjectAdmin();
 
-		ObjectPortlet.selectCustomObject(label = "Custom Object");
+		ObjectPortlet.selectCustomObject(label = "Custom Object 2");
 
 		ObjectAdmin.gotoRelationshipsTab();
 
@@ -692,7 +697,7 @@ definition {
 
 		Select(
 			locator1 = "ObjectAdmin#SELECT_OBJECT_RELATIONSHIP",
-			value1 = "CustomObject");
+			value1 = "CustomObject2");
 
 		Button.clickCancel();
 

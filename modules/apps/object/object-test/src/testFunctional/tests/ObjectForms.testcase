@@ -1,6 +1,7 @@
 @component-name = "portal-object"
 definition {
 
+	property liferay.data.guard.enabled = "true";
 	property portal.acceptance = "true";
 	property portal.release = "true";
 	property portal.upstream = "true";
@@ -17,9 +18,6 @@ definition {
 
 		if ("${testPortalInstance}" == "true") {
 			PortalInstances.tearDownCP();
-		}
-		else {
-			ObjectAdmin.deleteAllCustomObjectsViaAPI();
 		}
 	}
 
@@ -300,12 +298,13 @@ definition {
 	@description = "LPS-135429 - It is possible to retrieve objects data from Data Providers and use in a Select from List field in Forms"
 	@priority = "4"
 	test CanRetrieveDataProvidersOnSelectFromListField {
+		property liferay.data.guard.enabled = "false";
 		property test.name.skip.portal.instance = "ObjectForms#CanRetrieveDataProvidersOnSelectFromListField";
 
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object 6",
+			objectName = "CustomObject6",
+			pluralLabelName = "Custom Objects 6");
 
 		ObjectAdmin.addObjectFieldViaAPI(
 			fieldBusinessType = "Text",
@@ -313,13 +312,13 @@ definition {
 			fieldName = "customField",
 			fieldType = "String",
 			isRequired = "false",
-			objectName = "CustomObject");
+			objectName = "CustomObject6");
 
-		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject6");
 
 		ObjectAdmin.addObjectSingleFieldEntryViaAPI(
 			fieldName = "customField",
-			objectName = "CustomObject",
+			objectName = "CustomObject6",
 			value = "Entry Test");
 
 		FormsAdminNavigator.enableLocalNetworkDataProvider();
@@ -337,7 +336,7 @@ definition {
 			outputParameterPath = "$.items..customField",
 			outputParameterType = "List",
 			password = "test",
-			url = "http://localhost:8080/o/c/customobjects",
+			url = "http://localhost:8080/o/c/customobject6s",
 			username = "test@liferay.com");
 
 		Button.clickSave();
@@ -376,12 +375,13 @@ definition {
 	@description = "LPS-135429 - It is possible to retrieve objects data from Data Providers and use in a Text field in Form"
 	@priority = "4"
 	test CanRetrieveDataProvidersOnTextField {
+		property liferay.data.guard.enabled = "false";
 		property test.name.skip.portal.instance = "ObjectForms#CanRetrieveDataProvidersOnTextField";
 
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object 5",
+			objectName = "CustomObject5",
+			pluralLabelName = "Custom Objects 5");
 
 		ObjectAdmin.addObjectFieldViaAPI(
 			fieldBusinessType = "Text",
@@ -389,13 +389,13 @@ definition {
 			fieldName = "customObjectField",
 			fieldType = "String",
 			isRequired = "false",
-			objectName = "CustomObject");
+			objectName = "CustomObject5");
 
-		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject5");
 
 		ObjectAdmin.addObjectSingleFieldEntryViaAPI(
 			fieldName = "customObjectField",
-			objectName = "CustomObject",
+			objectName = "CustomObject5",
 			value = "Entry Test");
 
 		FormsAdminNavigator.enableLocalNetworkDataProvider();
@@ -413,7 +413,7 @@ definition {
 			outputParameterPath = "$.items..customField",
 			outputParameterType = "List",
 			password = "test",
-			url = "http://localhost:8080/o/c/customobjects",
+			url = "http://localhost:8080/o/c/customobject5s",
 			username = "test@liferay.com");
 
 		Button.clickSave();
