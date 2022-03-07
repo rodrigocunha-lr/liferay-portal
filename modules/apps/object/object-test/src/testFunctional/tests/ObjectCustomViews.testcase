@@ -1,6 +1,8 @@
 @component-name = "portal-object"
 definition {
 
+	property liferay.data.guard.enabled = "true";
+	property portal.acceptance = "true";
 	property portal.release = "true";
 	property portal.upstream = "true";
 	property testray.main.component.name = "Object";
@@ -325,6 +327,7 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test EmptyStateViewTab {
+		property portal.acceptance = "false";
 
 		// TODO LPS-147751 EmptyStateViewTab pending implementation
 
@@ -344,6 +347,7 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test NoResultMessageView {
+		property portal.acceptance = "false";
 
 		// TODO LPS-147752 NoResultMessageView pending implementation
 
