@@ -1,6 +1,8 @@
 @component-name = "portal-object"
 definition {
 
+	property liferay.data.guard.enabled = "true";
+	property portal.acceptance = "true";
 	property portal.release = "true";
 	property portal.upstream = "true";
 	property testray.main.component.name = "Object";
@@ -16,11 +18,6 @@ definition {
 
 		if ("${testPortalInstance}" == "true") {
 			PortalInstances.tearDownCP();
-		}
-		else {
-			ObjectAdmin.deleteAllCustomObjectsViaAPI();
-
-			Picklist.deleteAllPicklistsViaAPI();
 		}
 	}
 
@@ -152,6 +149,8 @@ definition {
 	@description = "LPS-136595 - Verify it is not possible to add special characters for the Key field for a Picklist item"
 	@priority = "3"
 	test CannotAddSpecialCharacterForPicklistItemKeyField {
+		property portal.acceptance = "false";
+
 		Picklist.addPicklistViaAPI(picklistName = "Picklist Test");
 
 		Picklist.gotoPicklists();
@@ -287,6 +286,8 @@ definition {
 	@description = "LPS-136595 - Verify it is possible to set a different language for Picklists item's name"
 	@priority = "3"
 	test CanSetDifferentPicklistItemNameLanguage {
+		property portal.acceptance = "false";
+
 		Picklist.addPicklistViaAPI(picklistName = "Picklist Test");
 
 		Picklist.addPicklistItemViaAPI(
@@ -366,6 +367,8 @@ definition {
 	@description = "LPS-136595 - Verify it is possible to set a different language for a Picklist name"
 	@priority = "3"
 	test CanSetDifferentPicklistNameLanguage {
+		property portal.acceptance = "false";
+
 		Picklist.addPicklistViaAPI(picklistName = "Picklist Test");
 
 		Picklist.gotoPicklists();
@@ -494,6 +497,8 @@ definition {
 	@description = "LPS-136595 - Verify the empty state message when there is no Picklist"
 	@priority = "3"
 	test EmptyStateMessageDisplayedWhenNoPicklist {
+		property portal.acceptance = "false";
+
 		Picklist.gotoPicklists();
 
 		Picklist.assertEmptyStateMessageDisplayed();
@@ -502,6 +507,8 @@ definition {
 	@description = "LPS-136595 - Verify the empty state message when where is no items for a Picklist"
 	@priority = "3"
 	test EmptyStateMessageDisplayedWhenNoPicklistItem {
+		property portal.acceptance = "false";
+
 		Picklist.addPicklistViaAPI(picklistName = "Picklist Test");
 
 		Picklist.gotoPicklists();
@@ -533,6 +540,7 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test ViewTranslatedPicklistItemNameOnForms {
+		property portal.acceptance = "false";
 
 		// TODO LPS-147730 ViewTranslatedPicklistItemNameOnForms pending implementation
 
@@ -541,6 +549,8 @@ definition {
 	@description = "LPS-136595 - Verify that the translated Picklist item's name will be displayed on the Object layout"
 	@priority = "3"
 	test ViewTranslatedPicklistItemNameOnObjectLayout {
+		property portal.acceptance = "false";
+
 		Picklist.addPicklistViaAPI(picklistName = "Picklist Test");
 
 		Picklist.addPicklistItemViaAPI(
@@ -611,6 +621,7 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test ViewTranslatedPicklistItemNameOnObjectView {
+		property portal.acceptance = "false";
 
 		// TODO LPS-147729 ViewTranslatedPicklistItemNameOnObjectView pending implementation
 
@@ -620,6 +631,7 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test ViewTranslatedPicklistNameOnObjectAdmin {
+		property portal.acceptance = "false";
 
 		// TODO LPS-147728 ViewTranslatedPicklistNameOnObjectAdmin pending implementation
 
@@ -637,6 +649,8 @@ definition {
 	@description = "LPS-136595 - Verify that the updating or deleting a picklist item warn message is displayed"
 	@priority = "3"
 	test WarnMessageDisplayedOnPickListItemScreen {
+		property portal.acceptance = "false";
+
 		Picklist.addPicklistViaAPI(picklistName = "Picklist Test");
 
 		Picklist.gotoPicklists();
