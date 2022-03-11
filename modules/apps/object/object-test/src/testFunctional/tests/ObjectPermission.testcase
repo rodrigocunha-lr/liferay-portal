@@ -208,9 +208,9 @@ definition {
 		property portal.acceptance = "quarantine";
 
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object 226",
+			objectName = "CustomObject226",
+			pluralLabelName = "Custom Objects 226");
 
 		ObjectAdmin.addObjectFieldViaAPI(
 			fieldBusinessType = "Text",
@@ -218,9 +218,9 @@ definition {
 			fieldName = "customObjectField",
 			fieldType = "String",
 			isRequired = "false",
-			objectName = "CustomObject");
+			objectName = "CustomObject226");
 
-		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject226");
 
 		JSONRole.addRegularRole(
 			roleKey = "Regular Role",
@@ -236,7 +236,7 @@ definition {
 				permissionDefinitionKey = "CONTROL_PANEL_CUSTOM_OBJECTS_PERMISSIONS_${resourceActionIndex}",
 				permissionDefinitionValue = "",
 				permissionNavigationKey = "CONTROL_PANEL_CUSTOM_OBJECTS_PERMISSIONS",
-				permissionNavigationValue = "Custom Objects",
+				permissionNavigationValue = "Custom Objects 226",
 				roleTitle = "Regular Role",
 				roleType = "Regular");
 		}
@@ -260,13 +260,13 @@ definition {
 			userLoginEmailAddress = "userea@liferay.com",
 			userLoginFullName = "userfn userln");
 
-		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject226");
 
 		ObjectAdmin.addObjectStringFieldEntryViaUI(entryValue = "Entry Test");
 
 		Navigator.openURL();
 
-		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject226");
 
 		ObjectPortlet.viewEntry(entry = "Entry Test");
 
@@ -276,7 +276,7 @@ definition {
 
 		Navigator.openURL();
 
-		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject226");
 
 		ObjectPortlet.viewEntry(entry = "Update Entry");
 	}
@@ -749,9 +749,9 @@ definition {
 		property portal.acceptance = "true";
 
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object 227",
+			objectName = "CustomObject227",
+			pluralLabelName = "Custom Objects 227");
 
 		ObjectAdmin.addObjectFieldViaAPI(
 			fieldBusinessType = "Text",
@@ -759,9 +759,9 @@ definition {
 			fieldName = "customObjectField",
 			fieldType = "String",
 			isRequired = "false",
-			objectName = "CustomObject");
+			objectName = "CustomObject227");
 
-		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject227");
 
 		JSONRole.addRegularRole(
 			roleKey = "Regular Role",
@@ -777,7 +777,7 @@ definition {
 				permissionDefinitionKey = "CONTROL_PANEL_CUSTOM_OBJECTS_PERMISSIONS_${resourceActionIndex}",
 				permissionDefinitionValue = "",
 				permissionNavigationKey = "CONTROL_PANEL_CUSTOM_OBJECTS_PERMISSIONS",
-				permissionNavigationValue = "Custom Objects",
+				permissionNavigationValue = "Custom Objects 227",
 				roleTitle = "Regular Role",
 				roleType = "Regular");
 		}
@@ -801,11 +801,11 @@ definition {
 			userLoginEmailAddress = "userea@liferay.com",
 			userLoginFullName = "userfn userln");
 
-		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject227");
 
 		ObjectAdmin.addObjectStringFieldEntryViaUI(entryValue = "Entry Test");
 
-		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject227");
 
 		ObjectPortlet.viewEntry(entry = "Entry Test");
 	}
