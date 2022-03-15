@@ -94,13 +94,13 @@ definition {
 	@priority = "4"
 	test CanCancelViewCreation {
 		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
+			labelName = "Custom Object147754",
+			objectName = "CustomObject147754",
+			pluralLabelName = "Custom Objects 147754");
 
 		ObjectAdmin.openObjectAdmin();
 
-		ObjectPortlet.selectCustomObject(label = "Custom Object");
+		ObjectPortlet.selectCustomObject(label = "Custom Object 147754");
 
 		ObjectCustomViews.goToViewsTab();
 
