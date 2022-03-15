@@ -93,12 +93,11 @@ definition {
 	@description = "LPS-135394 - Verify it is possible to cancel the creation of a View"
 	@priority = "4"
 	test CanCancelViewCreation {
-
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
 			objectName = "CustomObject",
 			pluralLabelName = "Custom Objects");
-		
+
 		ObjectAdmin.openObjectAdmin();
 
 		ObjectPortlet.selectCustomObject(label = "Custom Object");
@@ -110,11 +109,10 @@ definition {
 		Button.clickCancel();
 
 		AssertElementNotPresent(locator1 = "Portlet#MODAL_TITLE");
-		
+
 		AssertTextEquals(
 			locator1 = "Message#EMPTY_INFO",
 			value1 = "No Items were found.");
-
 	}
 
 	@description = "LPS-135394 - Verify it is possible to create a View"
