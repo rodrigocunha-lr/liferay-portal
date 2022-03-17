@@ -24,13 +24,34 @@ definition {
 	}
 
 	@description = "LPS-148544 - Verify it's possible to create a template with an object as an item type"
-	@ignore = "Test Stub"
 	@priority = "5"
 	test CanCreateTemplateWithObject {
 		property portal.acceptance = "true";
 
-		// TODO LPS-149237 CanCreateTemplateWithObject pending implementation
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object 149237",
+			objectName = "CustomObject149237",
+			pluralLabelName = "Custom Objects 149237");
 
+		ObjectAdmin.addObjectFieldViaAPI(
+			fieldBusinessType = "Text",
+			fieldLabelName = "Custom Field",
+			fieldName = "customObjectField",
+			fieldType = "String",
+			isRequired = "false",
+			objectName = "CustomObject149237");
+
+		ObjectAdmin.publishObjectViaAPI(objectName = "Custom Object 149237");
+
+		VisualizeObjectDisplayPage.openPageTemplate();
+
+		Click(locator1 = "VisualizeObjectDisplayPage#SELECT_BLANK_OBJECT_DISPLAY_PAGE_TEMPLATE");
+
+		Click(locator1 = "VisualizeObjectDisplayPage#OBJECT_CONTENT_TYPE");
+
+		AssertElementPresent(
+			locator1 = "VisualizeObjectDisplayPage#OBJECT_CONTENT_TYPE",
+			value1 = "Custom Object 149237");
 	}
 
 	@description = "LPS-148544 - Verify it's possible to map a boolean field for a template on the content page and view the entries"
