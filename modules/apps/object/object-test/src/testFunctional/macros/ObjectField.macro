@@ -76,14 +76,4 @@ definition {
 			value1 = "${fieldName}");
 	}
 
-	macro selectTypeGeneric {
-        
-        Click(locator1 = "ObjectField#TYPE_FIELD_GENERIC",
-            key_genericChooseOption = "${genericChooseOption}");    
-
-        Click(
-            locator1 = "ObjectField#TYPE_OPTION_GENERIC",
-            key_fieldTypeGeneric = "${typeGeneric}");
-    }
-
 }

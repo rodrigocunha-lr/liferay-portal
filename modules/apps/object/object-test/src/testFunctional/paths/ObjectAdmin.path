@@ -552,14 +552,14 @@
 	</tr>
 	<tr>
         <td>OBJECT_FIELDS_TAB_GENERIC</td>
-        <td>//a[contains(text(),'${key_fieldLabelGeneric}')]</td>
+        <td>//*[contains(@class,'nav-link')]//span[contains(text(),'${key_fieldGeneric}')]</td>
         <td></td>
     </tr>
-    <tr>
-        <td>OBJECT_FIELDS_PICKLIST_GENERIC</td>
-        <td>//label[contains(text(),'${picklistGeneric}')]/following-sibling::select</td>
-        <td></td>
-    </tr>
+	<tr>
+		<td>VIEW_PICKLIST_OPTION</td>	
+		<td>//option[contains(text(),'${picklistGeneric}')]</td>
+		<td></td>
+	</tr>
 </tbody>
 </table>
 </body>
