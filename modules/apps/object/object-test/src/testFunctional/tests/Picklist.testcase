@@ -618,11 +618,44 @@ definition {
 	}
 
 	@description = "LPS-136595 - Verify that the translated Picklist name will be displayed on the Object Admin"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test ViewTranslatedPicklistNameOnObjectAdmin {
 
-		// TODO LPS-147728 ViewTranslatedPicklistNameOnObjectAdmin pending implementation
+		Picklist.addPicklistViaAPI(picklistName = "Picklist Test"); 
+		
+		ObjectAdmin.addObjectViaAPI(labelName = "Custom Object 147728", objectName = "CustomObject147728", pluralLabelName = "Custom Objects 147728"); 
+		
+		Picklist.gotoPicklists(); 
+		
+		Picklist.gotoPicklistView(picklistName = "Picklist Test"); 
+		
+		Picklist.optionsPicklist(picklistName = "Picklist Test", picklistOption = "View"); 
+		
+		Picklist.addLanguageOnPicklist(itemName = "Teste na lista", newlanguage = "pt-BR"); 
+		
+		Button.clickSave(); 
+		
+		Refresh(); 
+		
+		User.openUsersAdmin(); 
+		
+		User.editDisplaySettingsCP(languageName = "português (Brasil)", userScreenName = "test"); 
+		
+		Navigator.openURL(); ObjectAdmin.openObjectAdmin(); 
+		
+		ObjectPortlet.selectCustomObject(label = "Custom Object 147728"); 
+		
+		ObjectAdmin.goToFieldsTabGeneric(fieldGeneric = "Campos"); 
+		
+		LexiconEntry.gotoAdd(); 
+		
+		Click(locator1 = "ObjectField#TYPE_FIELD_GENERIC", key_genericChooseOption = "Escolha uma Opção");
+ 		
+		Click(locator1 = "ObjectField#TYPE_OPTION_GENERIC", key_fieldTypeGeneric = "Lista de seleção"); 
+		
+		Click(locator1 = "ObjectAdmin#SELECT_OBJECT_RELATIONSHIP", value1 = "Teste na lista");
+
+		AssertElementPresent(locator1 = "ObjectAdmin#SELECT_OBJECT_RELATIONSHIP", value1 = "Teste na lista");
 
 	}
 

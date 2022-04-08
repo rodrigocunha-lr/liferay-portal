@@ -77,6 +77,16 @@
 		<td>//div[contains(@class,'lfr-objects__edit-object-field-container')]//button[@type='submit']</td>
 		<td></td>
 	</tr>
+	<tr>
+        <td>TYPE_OPTION_GENERIC</td>
+        <td>//button[@class='dropdown-item']//div[contains(text(),'${key_fieldTypeGeneric}')]</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>TYPE_FIELD_GENERIC</td>
+        <td>//input[@placeholder='${key_genericChooseOption}']</td>
+        <td></td>
+    </tr>
 </tbody>
 </table>
 </body>

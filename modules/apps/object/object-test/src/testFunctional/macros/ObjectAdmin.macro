@@ -1068,4 +1068,9 @@ definition {
 			locator1 = "ObjectAdmin#VIEW_OBJECT");
 	}
 
+	macro goToFieldsTabGeneric {
+		Click(locator1 = "ObjectAdmin#OBJECT_FIELDS_TAB_GENERIC",
+			key_fieldLabelGeneric = "${fieldGeneric}");
+    }
+
 }

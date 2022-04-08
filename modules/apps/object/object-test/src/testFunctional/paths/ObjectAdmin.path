@@ -550,6 +550,16 @@
 		<td>//input[@id ='objectRelationshipLabel']/following-sibling::div[contains(.,'Required')]</td>
 		<td></td>
 	</tr>
+	<tr>
+        <td>OBJECT_FIELDS_TAB_GENERIC</td>
+        <td>//a[contains(text(),'${key_fieldLabelGeneric}')]</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OBJECT_FIELDS_PICKLIST_GENERIC</td>
+        <td>//label[contains(text(),'${picklistGeneric}')]/following-sibling::select</td>
+        <td></td>
+    </tr>
 </tbody>
 </table>
 </body>
